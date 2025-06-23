@@ -2,6 +2,11 @@
 
 import { useState } from 'react';
 
+type Quote = {
+  buyer: string;
+  price: string;
+};
+
 export default function Home() {
   const [formData, setFormData] = useState({
     vin: '',
@@ -11,7 +16,7 @@ export default function Home() {
     zip: ''
   });
 
-  const [quotes, setQuotes] = useState(null);
+  const [quotes, setQuotes] = useState<Quote[] | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
