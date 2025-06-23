@@ -74,6 +74,7 @@ export default function LandingPage() {
              bg-white/90 md:bg-transparent 
              md:bg-none bg-[url('/landingpagecarly.png')] bg-cover bg-center"
 >
+  <div className="mt-40 md:mt-0"></div>
           <h1
   className="text-4xl font-bold text-gray-900 mb-4 leading-tight 
              bg-white/60 backdrop-blur-sm p-2 rounded 
@@ -189,6 +190,7 @@ export default function LandingPage() {
               Join the Waitlist
             </button>
           </form>
+        </div>
         </div>
 
 {/* Right Column Image - Hidden on mobile */}
