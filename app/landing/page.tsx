@@ -69,8 +69,8 @@ export default function LandingPage() {
       style={{ backgroundImage: "url('/background.png')" }}
     >
       <div className="max-w-5xl w-full border border-black bg-blue-50 bg-opacity-90 rounded-lg shadow-2xl flex flex-col md:flex-row overflow-hidden">
-        <div 
-  className="relative w-full md:w-1/2 px-10 py-2 flex flex-col justify-center bg-white/90 md:bg-transparent"
+ <div
+  className="w-full md:w-1/2 px-6 py-8 flex flex-col justify-center bg-white/90 md:bg-transparent relative z-10"
   style={{
     backgroundImage: "url('/landingpagecarly.png')",
     backgroundSize: 'cover',
@@ -182,11 +182,11 @@ export default function LandingPage() {
         </div>
 
 {/* Right Column Image - Hidden on mobile */}
-<div className="hidden md:flex md:w-1/2 justify-end items-stretch">
+<div className="hidden md:flex md:w-1/2 items-stretch justify-end">
   <Image
     src={carlyImage}
     alt="Carly Illustration"
-    className="h-full w-auto object-cover"
+    className="h-full w-auto object-cover !m-0"
     priority
   />
 </div>
