@@ -81,7 +81,12 @@ export default function LandingPage() {
             Launching soon: Carly compares top offers from KBB, CarMax, and others, and gives you a detailed report.
           </p>
 
-          <form onSubmit={handleSubmit} className="space-y-3">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-3 w-full rounded-md p-4 
+             bg-white/80 backdrop-blur-sm 
+             md:bg-transparent md:backdrop-blur-0"
+>
             <input
               type="text"
               name="vin"
