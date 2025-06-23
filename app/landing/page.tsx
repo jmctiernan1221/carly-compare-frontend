@@ -74,7 +74,7 @@ export default function LandingPage() {
              bg-white/90 md:bg-transparent 
              md:bg-none bg-[url('/landingpagecarly.png')] bg-cover bg-center"
 >
-  <div className="mt-95 md:mt-0">
+  <div className="mt-80 md:mt-0">
           <h1
   className="text-4xl font-bold text-gray-900 mb-4 leading-tight 
              bg-white/60 backdrop-blur-sm p-2 rounded 
