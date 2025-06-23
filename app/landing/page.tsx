@@ -69,13 +69,8 @@ export default function LandingPage() {
       style={{ backgroundImage: "url('/background.png')" }}
     >
       <div className="max-w-5xl w-full border border-black bg-blue-50 bg-opacity-90 rounded-lg shadow-2xl flex flex-col md:flex-row overflow-hidden">
- <div
-  className="w-full md:w-1/2 px-6 py-8 flex flex-col justify-center bg-white/90 md:bg-transparent relative z-10"
-  style={{
-    backgroundImage: "url('/landingpagecarly.png')",
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  }}
+<div
+  className="w-full md:w-1/2 px-6 py-8 flex flex-col justify-center relative z-10 bg-white/90 md:bg-transparent bg-[url('/landingpagecarly.png')] md:bg-none bg-cover bg-center"
 >
           <h1 className="text-4xl font-bold text-gray-900 mb-4 leading-tight">
             Coming Soon: Hi, I’m Carly—I’ll help you find the best cash offer for your car
