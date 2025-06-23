@@ -69,7 +69,14 @@ export default function LandingPage() {
       style={{ backgroundImage: "url('/background.png')" }}
     >
       <div className="max-w-5xl w-full border border-black bg-blue-50 bg-opacity-90 rounded-lg shadow-2xl flex flex-col md:flex-row overflow-hidden">
-        <div className="md:w-1/2 px-10 py-2 flex flex-col justify-center">
+        <div 
+  className="relative w-full md:w-1/2 px-10 py-2 flex flex-col justify-center bg-white/90 md:bg-transparent"
+  style={{
+    backgroundImage: "url('/landingpagecarly.png')",
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  }}
+>
           <h1 className="text-4xl font-bold text-gray-900 mb-4 leading-tight">
             Coming Soon: Hi, I’m Carly—I’ll help you find the best cash offer for your car
           </h1>
@@ -174,14 +181,15 @@ export default function LandingPage() {
           </form>
         </div>
 
-        <div className="md:w-1/2 flex justify-end items-stretch">
-          <Image
-            src={carlyImage}
-            alt="Carly Illustration"
-            className="h-full w-auto object-cover !m-0"
-            priority
-          />
-        </div>
+{/* Right Column Image - Hidden on mobile */}
+<div className="hidden md:flex md:w-1/2 justify-end items-stretch">
+  <Image
+    src={carlyImage}
+    alt="Carly Illustration"
+    className="h-full w-auto object-cover"
+    priority
+  />
+</div>
       </div>
     </main>
   );
