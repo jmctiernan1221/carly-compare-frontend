@@ -74,17 +74,25 @@ export default function LandingPage() {
              bg-white/90 md:bg-transparent 
              md:bg-none bg-[url('/landingpagecarly.png')] bg-cover bg-center"
 >
-          <h1 className="text-4xl font-bold text-gray-900 mb-4 leading-tight">
-            Coming Soon: Hi, I’m Carly—I’ll help you find the best cash offer for your car
-          </h1>
-          <p className="text-gray-800 mb-6 text-med">
-            Launching soon: Carly compares top offers from KBB, CarMax, and others, and gives you a detailed report.
-          </p>
+          <h1
+  className="text-4xl font-bold text-gray-900 mb-4 leading-tight 
+             bg-white/60 backdrop-blur-sm p-2 rounded 
+             md:bg-transparent md:backdrop-blur-0"
+>
+  Coming Soon: Hi, I’m Carly—I’ll help you find the best cash offer for your car
+</h1>
+        <p
+  className="text-gray-800 mb-6 text-med 
+             bg-white/60 backdrop-blur-sm p-2 rounded 
+             md:bg-transparent md:backdrop-blur-0"
+>
+  Launching soon: Carly compares top offers from KBB, CarMax, and others, and gives you a detailed report.
+</p>
 
           <form
             onSubmit={handleSubmit}
             className="space-y-3 w-full rounded-md p-4 
-             bg-white/80 backdrop-blur-sm 
+             bg-white/60 backdrop-blur-sm 
              md:bg-transparent md:backdrop-blur-0"
 >
             <input
