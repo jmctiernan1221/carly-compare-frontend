@@ -88,7 +88,7 @@ export default function LandingPage() {
   className="w-full md:w-1/2 px-6 pt-0 pb-8 md:pt-8 flex flex-col justify-center 
              bg-white/90 md:bg-transparent 
              md:bg-none bg-[url('/landingpagecarly.png')] bg-cover md:bg-center"
-  style={{ backgroundPosition: 'center 30%' }} // ✅ Shift image up on mobile
+  style={{ backgroundPosition: 'center 30%', backgroundAttachment: 'scroll' }}
 >
           <div className="mt-80 md:mt-0">
             <h1
