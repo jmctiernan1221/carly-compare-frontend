@@ -95,7 +95,7 @@ export default function LandingPage() {
                          bg-white/60 backdrop-blur-sm p-2 rounded 
                          md:bg-transparent md:backdrop-blur-0"
             >
-              Coming Soon: Hi, I’m Carly—I’ll help you find the best cash offer for your car
+              Hi, I’m Carly—I’ll help you find the best cash offer for your car
             </h1>
             <p
               className="text-gray-800 mb-6 text-med 
