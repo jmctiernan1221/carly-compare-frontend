@@ -193,7 +193,7 @@ export default function LandingPage() {
         </div>
         </div>
 
-{/* Right Column Image - Hidden on mobile */}
+
 <div className="hidden md:flex md:w-1/2 items-stretch justify-end">
   <Image
     src={carlyImage}
