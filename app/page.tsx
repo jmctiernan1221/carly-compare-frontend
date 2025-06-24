@@ -88,9 +88,17 @@ export default function LandingPage() {
   className="w-full md:w-1/2 px-6 pt-0 pb-8 md:pt-8 flex flex-col justify-center
              min-h-[1200px] md:min-h-auto
              bg-white/90 
-             bg-[url('/landingpagecarly.png')] bg-cover bg-no-repeat bg-[center_30%] bg-scroll 
+             bg-[url('/landingpagecarly.png')] bg-cover bg-no-repeat bg-[center_30%] 
+             mobile-scroll-bg
              md:bg-none md:bg-transparent"
 >
+  <style jsx>{`
+  @media (max-width: 768px) {
+    .mobile-scroll-bg {
+      background-attachment: scroll;
+    }
+  }
+`}</style>
           <div className="mt-80 md:mt-0">
             <h1
               className="text-4xl font-bold text-gray-900 mb-4 leading-tight 
