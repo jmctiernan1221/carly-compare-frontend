@@ -85,12 +85,8 @@ export default function LandingPage() {
     >
       <div className="max-w-5xl w-full border border-black bg-blue-50 bg-opacity-90 rounded-lg shadow-2xl flex flex-col md:flex-row overflow-hidden">
 <div
-  className="w-full md:w-1/2 px-6 pt-0 pb-8 md:pt-8 flex flex-col justify-center
-             min-h-[1200px] md:min-h-auto
-             bg-white/90 
-             bg-[url('/landingpagecarly.png')] bg-cover bg-no-repeat bg-[center_30%] 
-             mobile-scroll-bg
-             md:bg-none md:bg-transparent"
+  className="w-full md:w-1/2 px-6 pt-0 pb-8 md:pt-8 flex flex-col justify-center min-h-[1200px] md:min-h-auto bg-white/90 bg-[url('/landingpagecarly.png')] bg-cover bg-no-repeat bg-[center_30%] mobile-scroll-bg md:bg-none md:bg-transparent"
+
 >
   <style jsx>{`
   @media (max-width: 768px) {
