@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import carlyImage from '../../public/landingpagecarly.png';
+
 
 export default function LandingPage() {
   const [formData, setFormData] = useState({
@@ -195,12 +195,14 @@ export default function LandingPage() {
 
 
 <div className="hidden md:flex md:w-1/2 items-stretch justify-end">
-  <Image
-    src={carlyImage}
-    alt="Carly Illustration"
-    className="h-full w-auto object-cover !m-0"
-    priority
-  />
+<Image
+  src="/landingpagecarly.png" // ✅ Directly reference from public/
+  alt="Carly Illustration"
+  className="h-full w-auto object-cover !m-0"
+  width={600} // ✅ You MUST provide width and height when using string src in Next.js
+  height={800}
+  priority
+/>
 </div>
       </div>
     </main>
