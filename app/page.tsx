@@ -95,7 +95,7 @@ export default function LandingPage() {
   <style jsx>{`
   @media (max-width: 768px) {
     .mobile-scroll-bg {
-      background-attachment: scroll;
+      background-attachment: fixed;
     }
   }
 `}</style>
