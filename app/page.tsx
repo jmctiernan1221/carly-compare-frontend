@@ -116,9 +116,9 @@ className={`w-full md:w-1/2 px-6 pt-0 pb-8 md:pt-8 flex flex-col justify-center 
 
             <form
               onSubmit={handleSubmit}
-              className="space-y-3 w-full rounded-md p-4 
-                       bg-white/60 backdrop-blur-sm 
-                       md:bg-transparent md:backdrop-blur-0"
+              className={`space-y-3 w-full rounded-md p-4 
+            bg-white/60 backdrop-blur-sm 
+            md:bg-transparent md:backdrop-blur-0`}
             >
               <input
                 type="text"
