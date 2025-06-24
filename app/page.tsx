@@ -86,9 +86,15 @@ export default function LandingPage() {
       <div className="max-w-5xl w-full border border-black bg-blue-50 bg-opacity-90 rounded-lg shadow-2xl flex flex-col md:flex-row overflow-hidden">
 <div
   className="w-full md:w-1/2 px-6 pt-0 pb-8 md:pt-8 flex flex-col justify-center 
-             bg-white/90 md:bg-transparent 
-             md:bg-none bg-[url('/landingpagecarly.png')] bg-cover md:bg-center"
-  style={{ backgroundPosition: 'center 30%', backgroundAttachment: 'scroll' }}
+             bg-white/90 md:bg-transparent"
+  style={{
+    backgroundImage: "url('/landingpagecarly.png')",
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center 30%',
+    backgroundAttachment: 'scroll',
+    minHeight: '100vh',
+  }}
 >
           <div className="mt-80 md:mt-0">
             <h1
