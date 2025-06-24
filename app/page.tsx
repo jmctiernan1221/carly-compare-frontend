@@ -97,17 +97,13 @@ className={`w-full md:w-1/2 px-6 pt-0 pb-8 md:pt-8 flex flex-col justify-center 
 `}</style>
           <div className="mt-80 md:mt-0">
             <h1
-              className="text-4xl font-bold text-gray-900 mb-4 leading-tight 
-                         bg-white/60 backdrop-blur-sm p-2 rounded 
-                         md:bg-transparent md:backdrop-blur-0"
-            >
+  className={`text-4xl font-bold text-gray-900 mb-4 leading-tight bg-white/60 backdrop-blur-sm p-2 rounded md:bg-transparent md:backdrop-blur-0`}
+>
               Hi, I’m Carly—I’ll help you find the best cash offer for your car
             </h1>
             <p
-              className="text-gray-800 mb-6 text-med 
-                         bg-white/60 backdrop-blur-sm p-2 rounded 
-                         md:bg-transparent md:backdrop-blur-0"
-            >
+  className={`text-gray-800 mb-6 text-med bg-white/60 backdrop-blur-sm p-2 rounded md:bg-transparent md:backdrop-blur-0`}
+>
               Launching soon: Carly compares top offers from KBB, CarMax, and others, and gives you a detailed report.
             </p>
 
