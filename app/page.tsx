@@ -17,7 +17,7 @@ export default function LandingPage() {
   });
 
   const [vinDecoded, setVinDecoded] = useState(false);
-  const [submitted, setSubmitted] = useState(false); // ✅ New state for confirmation
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -59,9 +59,7 @@ export default function LandingPage() {
       const result = await response.json();
       console.log('Waitlist response:', result);
 
-      setSubmitted(true); // ✅ Show confirmation
-
-      // ✅ Reset form
+      setSubmitted(true);
       setFormData({
         vin: '',
         year: '',
@@ -84,30 +82,28 @@ export default function LandingPage() {
       style={{ backgroundImage: "url('/background.png')" }}
     >
       <div className="max-w-5xl w-full border border-black bg-blue-50 bg-opacity-90 rounded-lg shadow-2xl flex flex-col md:flex-row overflow-hidden">
-<div
-className={`w-full md:w-1/2 px-6 pt-0 pb-8 md:pt-8 flex flex-col justify-center min-h-[1200px] md:min-h-auto bg-white/90 bg-[url('/landingpagecarly.png')] bg-cover bg-no-repeat bg-[center_30%] mobile-scroll-bg md:bg-none md:bg-transparent`}
-
->
-  <style jsx>{`
-  @media (max-width: 768px) {
-    .mobile-scroll-bg {
-      background-attachment: fixed;
-    }
-  }
-`}</style>
+        <div
+          className={`w-full md:w-1/2 px-6 pt-0 pb-8 md:pt-8 flex flex-col justify-center min-h-[1200px] md:min-h-auto bg-white/90 bg-[url('/landingpagecarly.png')] bg-cover bg-no-repeat bg-[center_30%] mobile-scroll-bg md:bg-none md:bg-transparent`}
+        >
+          <style jsx>{`
+            @media (max-width: 768px) {
+              .mobile-scroll-bg {
+                background-attachment: fixed;
+              }
+            }
+          `}</style>
           <div className="mt-80 md:mt-0">
             <h1
-  className={`text-4xl font-bold text-gray-900 mb-4 leading-tight bg-white/60 backdrop-blur-sm p-2 rounded md:bg-transparent md:backdrop-blur-0`}
->
-              Hi, I’m Carly—I’ll help you find the best cash offer for your car
+              className={`text-4xl font-bold text-gray-900 mb-4 leading-tight bg-white/60 backdrop-blur-sm p-2 rounded md:bg-transparent md:backdrop-blur-0`}
+            >
+              Hi, I’m Carly—your smart car-selling assistant
             </h1>
             <p
-  className={`text-gray-800 mb-6 text-med bg-white/60 backdrop-blur-sm p-2 rounded md:bg-transparent md:backdrop-blur-0`}
->
-              Launching soon: Carly compares top offers from KBB, CarMax, and others, and gives you a detailed report.
+              className={`text-gray-800 mb-6 text-med bg-white/60 backdrop-blur-sm p-2 rounded md:bg-transparent md:backdrop-blur-0`}
+            >
+              CarlyCompare is launching soon! I’ll help you explore real offers from sites like KBB, Carvana, and CarMax, plus give you a report with resale trends, value data, and when to sell.
             </p>
 
-            {/* ✅ Confirmation Message */}
             {submitted && (
               <div className="bg-green-100 text-green-800 p-3 mb-4 rounded shadow">
                 ✅ Thank you! You’ve been added to the waitlist.
@@ -116,9 +112,7 @@ className={`w-full md:w-1/2 px-6 pt-0 pb-8 md:pt-8 flex flex-col justify-center 
 
             <form
               onSubmit={handleSubmit}
-              className={`space-y-3 w-full rounded-md p-4 
-            bg-white/60 backdrop-blur-sm 
-            md:bg-transparent md:backdrop-blur-0`}
+              className={`space-y-3 w-full rounded-md p-4 bg-white/60 backdrop-blur-sm md:bg-transparent md:backdrop-blur-0`}
             >
               <input
                 type="text"
@@ -136,97 +130,24 @@ className={`w-full md:w-1/2 px-6 pt-0 pb-8 md:pt-8 flex flex-col justify-center 
                 Decode VIN
               </button>
 
-              <input
-                type="text"
-                name="year"
-                placeholder="Year"
-                value={formData.year}
-                onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded"
-                required
-              />
-              <input
-                type="text"
-                name="make"
-                placeholder="Make"
-                value={formData.make}
-                onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded"
-                required
-              />
-              <input
-                type="text"
-                name="model"
-                placeholder="Model"
-                value={formData.model}
-                onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded"
-                required
-              />
-              <input
-                type="text"
-                name="submodel"
-                placeholder="Submodel"
-                value={formData.submodel}
-                onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded"
-              />
-              <input
-                type="text"
-                name="mileage"
-                placeholder="Mileage"
-                value={formData.mileage}
-                onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded"
-              />
-              <input
-                type="text"
-                name="name"
-                placeholder="Name"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded"
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded"
-                required
-              />
-              <input
-                type="text"
-                name="zip"
-                placeholder="ZIP Code"
-                value={formData.zip}
-                onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded"
-                required
-              />
+              <input type="text" name="year" placeholder="Year" value={formData.year} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded" required />
+              <input type="text" name="make" placeholder="Make" value={formData.make} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded" required />
+              <input type="text" name="model" placeholder="Model" value={formData.model} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded" required />
+              <input type="text" name="submodel" placeholder="Submodel" value={formData.submodel} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded" />
+              <input type="text" name="mileage" placeholder="Mileage" value={formData.mileage} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded" />
+              <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded" required />
+              <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded" required />
+              <input type="text" name="zip" placeholder="ZIP Code" value={formData.zip} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded" required />
 
-              <button
-                type="submit"
-                className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 rounded transition"
-              >
+              <button type="submit" className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 rounded transition">
                 Join the Waitlist
               </button>
             </form>
           </div>
         </div>
 
-        {/* Right Column Image - Hidden on mobile */}
         <div className="hidden md:flex md:w-1/2 items-stretch justify-end">
-          <Image
-            src="/landingpagecarly.png"
-            alt="Carly Illustration"
-            className="h-full w-auto object-cover !m-0"
-            width={600}
-            height={800}
-            priority
-          />
+          <Image src="/landingpagecarly.png" alt="Carly Illustration" className="h-full w-auto object-cover !m-0" width={600} height={800} priority />
         </div>
       </div>
     </main>
