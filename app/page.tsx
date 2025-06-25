@@ -90,6 +90,19 @@ export default function LandingPage() {
             CarlyCompare is launching soon! I’ll help you explore real offers from sites like KBB, Carvana, and CarMax, plus give you a report with resale trends, value data, and when to sell.
           </p>
 
+          {/* Embedded Carly Intro Video */}
+          <div className="mb-6 w-full aspect-video">
+            <video
+              className="w-full h-full rounded shadow-md"
+              controls
+              preload="auto"
+              poster="/poster-image.jpg"
+            >
+              <source src="/carlycomparevid_4.mp4.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
           {submitted && (
             <div className="bg-green-100 text-green-800 p-3 mb-4 rounded shadow">
               ✅ Thank you! You’ve been added to the waitlist.
