@@ -78,19 +78,18 @@ export default function LandingPage() {
 
   return (
     <main className="min-h-screen bg-white flex items-center justify-center p-4">
-      <div className="w-full max-w-4xl bg-white rounded-lg shadow-xl flex flex-col md:flex-row overflow-hidden">
+      <div className="w-full max-w-4xl bg-white rounded-lg shadow-2xl flex flex-col md:flex-row overflow-hidden">
         <div
-          className="w-full md:w-1/2 px-6 pt-8 pb-8 bg-white flex flex-col justify-start md:min-h-auto"
-          style={{ paddingTop: '1in' }}
+          className="w-full md:w-1/2 px-6 pt-12 pb-8 flex flex-col justify-start"
         >
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
-            Hi, I’m Carly—your smart car-selling assistant
+            Hi, I’m Carly — your smart car-selling assistant
           </h1>
           <p className="text-gray-800 mb-6 text-base md:text-lg">
-            CarlyCompare is launching soon! I’ll help you explore real offers from sites like KBB, Carvana, and CarMax, plus give you a report with resale trends, value data, and when to sell.
+            CarlyCompare is launching soon! I’ll help you explore real offers from top sites like KBB, Carvana, and CarMax, and send you a custom report with value insights, trends, and when to sell.
           </p>
 
-          {/* Embedded Carly Intro Video */}
+          {/* ✅ Embedded Video */}
           <div className="mb-6 w-full aspect-video">
             <video
               className="w-full h-full rounded shadow-md"
@@ -128,7 +127,7 @@ export default function LandingPage() {
           </form>
         </div>
 
-        <div className="hidden md:flex md:w-1/2 items-center justify-center bg-gray-100">
+        <div className="hidden md:flex md:w-1/2 items-center justify-center bg-gray-50">
           <Image src="/landingpagecarly.png" alt="Carly Illustration" className="h-full w-auto object-contain p-4" width={500} height={800} priority />
         </div>
       </div>
