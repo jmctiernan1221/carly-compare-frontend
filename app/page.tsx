@@ -98,7 +98,7 @@ export default function LandingPage() {
     playsInline
     poster="/landingpagecarly.png"
   >
-    <source src="/carlycomparevid_4.mp4.mp4" type="video/mp4" />
+    <source src="/carlycomparevid_1.mp4" type="video/mp4" />
   </video>
 </div>
           {/*<div className="mb-6 w-full aspect-video">
