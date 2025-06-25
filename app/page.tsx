@@ -25,7 +25,9 @@ export default function LandingPage() {
 
   const handleVinDecode = async () => {
     try {
-      const response = await fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/decodevinvalues/${formData.vin}?format=json`);
+      const response = await fetch(
+        `https://vpic.nhtsa.dot.gov/api/vehicles/decodevinvalues/${formData.vin}?format=json`
+      );
       const data = await response.json();
       const decoded = data.Results[0];
 
@@ -79,9 +81,7 @@ export default function LandingPage() {
   return (
     <main className="min-h-screen bg-white flex items-center justify-center p-4">
       <div className="w-full max-w-4xl bg-white rounded-lg shadow-2xl flex flex-col md:flex-row overflow-hidden">
-        <div
-          className="w-full md:w-1/2 px-6 pt-12 pb-8 flex flex-col justify-start"
-        >
+        <div className="w-full md:w-1/2 px-6 pt-12 pb-8 flex flex-col justify-start">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
             Hi, I’m Carly — your smart car-selling assistant
           </h1>
@@ -89,7 +89,6 @@ export default function LandingPage() {
             CarlyCompare is launching soon! I’ll help you explore real offers from top sites like KBB, Carvana, and CarMax, and send you a custom report with value insights, trends, and when to sell.
           </p>
 
-          {/* ✅ Embedded Video */}
           <div className="mb-6 w-full aspect-video">
             <video
               className="w-full h-full rounded shadow-md"
@@ -108,117 +107,122 @@ export default function LandingPage() {
             </div>
           )}
 
-  <form
-  onSubmit={handleSubmit}
-  className={'space-y-3 w-full rounded-md p-4 
-             bg-white/60 backdrop-blur-sm 
-             md:bg-transparent md:backdrop-blur-0'}
->
-  {/* VIN and Decode button - Temporarily disabled */}
-  {/*
-  <input
-    type="text"
-    name="vin"
-    placeholder="VIN (optional)"
-    value={formData.vin}
-    onChange={handleChange}
-    className="w-full p-2 border border-gray-300 rounded"
-  />
-  <button
-    type="button"
-    onClick={handleVinDecode}
-    className="w-full bg-gray-700 text-white font-semibold py-2 rounded transition"
-  >
-    Decode VIN
-  </button>
-  */}
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-3 w-full rounded-md p-4 bg-white/60 backdrop-blur-sm md:bg-transparent md:backdrop-blur-0"
+          >
+            {/* VIN and Decode - temporarily hidden */}
+            {/*
+            <input
+              type="text"
+              name="vin"
+              placeholder="VIN (optional)"
+              value={formData.vin}
+              onChange={handleChange}
+              className="w-full p-2 border border-gray-300 rounded"
+            />
+            <button
+              type="button"
+              onClick={handleVinDecode}
+              className="w-full bg-gray-700 text-white font-semibold py-2 rounded transition"
+            >
+              Decode VIN
+            </button>
+            */}
 
-  <input
-    type="text"
-    name="year"
-    placeholder="Year"
-    value={formData.year}
-    onChange={handleChange}
-    className="w-full p-2 border border-gray-300 rounded"
-  />
-  <input
-    type="text"
-    name="make"
-    placeholder="Make"
-    value={formData.make}
-    onChange={handleChange}
-    className="w-full p-2 border border-gray-300 rounded"
-  />
-  <input
-    type="text"
-    name="model"
-    placeholder="Model"
-    value={formData.model}
-    onChange={handleChange}
-    className="w-full p-2 border border-gray-300 rounded"
-  />
+            <input
+              type="text"
+              name="year"
+              placeholder="Year"
+              value={formData.year}
+              onChange={handleChange}
+              className="w-full p-2 border border-gray-300 rounded"
+            />
+            <input
+              type="text"
+              name="make"
+              placeholder="Make"
+              value={formData.make}
+              onChange={handleChange}
+              className="w-full p-2 border border-gray-300 rounded"
+            />
+            <input
+              type="text"
+              name="model"
+              placeholder="Model"
+              value={formData.model}
+              onChange={handleChange}
+              className="w-full p-2 border border-gray-300 rounded"
+            />
 
-  {/* Submodel - Temporarily disabled */}
-  {/*
-  <input
-    type="text"
-    name="submodel"
-    placeholder="Submodel"
-    value={formData.submodel}
-    onChange={handleChange}
-    className="w-full p-2 border border-gray-300 rounded"
-  />
-  */}
+            {/* Submodel - temporarily hidden */}
+            {/*
+            <input
+              type="text"
+              name="submodel"
+              placeholder="Submodel"
+              value={formData.submodel}
+              onChange={handleChange}
+              className="w-full p-2 border border-gray-300 rounded"
+            />
+            */}
 
-  <input
-    type="text"
-    name="mileage"
-    placeholder="Mileage"
-    value={formData.mileage}
-    onChange={handleChange}
-    className="w-full p-2 border border-gray-300 rounded"
-  />
-  <input
-    type="text"
-    name="name"
-    placeholder="Name"
-    value={formData.name}
-    onChange={handleChange}
-    className="w-full p-2 border border-gray-300 rounded"
-  />
-  <input
-    type="email"
-    name="email"
-    placeholder="Email"
-    value={formData.email}
-    onChange={handleChange}
-    className="w-full p-2 border border-gray-300 rounded"
-    required
-  />
+            <input
+              type="text"
+              name="mileage"
+              placeholder="Mileage"
+              value={formData.mileage}
+              onChange={handleChange}
+              className="w-full p-2 border border-gray-300 rounded"
+            />
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full p-2 border border-gray-300 rounded"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full p-2 border border-gray-300 rounded"
+              required
+            />
 
-  {/* ZIP Code - Temporarily disabled */}
-  {/*
-  <input
-    type="text"
-    name="zip"
-    placeholder="ZIP Code"
-    value={formData.zip}
-    onChange={handleChange}
-    className="w-full p-2 border border-gray-300 rounded"
-  />
-  */}
+            {/* ZIP Code - temporarily hidden */}
+            {/*
+            <input
+              type="text"
+              name="zip"
+              placeholder="ZIP Code"
+              value={formData.zip}
+              onChange={handleChange}
+              className="w-full p-2 border border-gray-300 rounded"
+            />
+            */}
 
-  <button
-    type="submit"
-    className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 rounded transition"
-  >
-    Join the Waitlist
-  </button>
-</form>
+            <button
+              type="submit"
+              className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 rounded transition"
+            >
+              Join the Waitlist
+            </button>
+          </form>
         </div>
 
         <div className="hidden md:flex md:w-1/2 items-center justify-center bg-gray-50">
-          <Image src="/landingpagecarly.png" alt="Carly Illustration" className="h-full w-auto object-contain p-4" width={500} height={800} priority />
+          <Image
+            src="/landingpagecarly.png"
+            alt="Carly Illustration"
+            className="h-full w-auto object-contain p-4"
+            width={500}
+            height={800}
+            priority
+          />
         </div>
       </div>
     </main>
