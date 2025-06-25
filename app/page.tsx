@@ -89,7 +89,19 @@ export default function LandingPage() {
             CarlyCompare is launching soon! I’ll help you explore real offers from top sites like KBB, Carvana, and CarMax, and send you a custom report with value insights, trends, and when to sell.
           </p>
 
-          <div className="mb-6 w-full aspect-video">
+          <div className="absolute inset-0 z-0">
+  <video
+    className="w-full h-full object-cover"
+    autoPlay
+    loop
+    muted
+    playsInline
+    poster="/landingpagecarly.png"
+  >
+    <source src="/carlycomparevid_4.mp4.mp4" type="video/mp4" />
+  </video>
+</div>
+          {/*<div className="mb-6 w-full aspect-video">
             <video
               className="w-full h-full rounded shadow-md"
               controls
@@ -99,14 +111,14 @@ export default function LandingPage() {
               <source src="/carlycomparevid_4.mp4.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-          </div>
+          </div>*/}
 
           {submitted && (
             <div className="bg-green-100 text-green-800 p-3 mb-4 rounded shadow">
               ✅ Thank you! You’ve been added to the waitlist.
             </div>
           )}
-
+<div className="relative z-10">
           <form
             onSubmit={handleSubmit}
             className="space-y-3 w-full rounded-md p-4 bg-white/60 backdrop-blur-sm md:bg-transparent md:backdrop-blur-0"
@@ -215,6 +227,7 @@ export default function LandingPage() {
             </button>
           </form>
         </div>
+          </div>
 
         <div className="hidden md:flex md:w-1/2 items-center justify-center bg-gray-50">
           <Image
