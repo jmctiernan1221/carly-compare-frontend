@@ -81,72 +81,113 @@ export default function LandingPage() {
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-3 w-full rounded-md p-4 bg-white/60 backdrop-blur-sm md:bg-transparent md:backdrop-blur-0">
-              <input
-                type="text"
-                name="year"
-                placeholder="Year"
-                value={formData.year}
-                onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded"
-                required
-              />
-              <input
-                type="text"
-                name="make"
-                placeholder="Make"
-                value={formData.make}
-                onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded"
-                required
-              />
-              <input
-                type="text"
-                name="model"
-                placeholder="Model"
-                value={formData.model}
-                onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded"
-                required
-              />
-              <input
-                type="text"
-                name="mileage"
-                placeholder="Mileage"
-                value={formData.mileage}
-                onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded"
-                required
-              />
-              <input
-                type="text"
-                name="name"
-                placeholder="Name"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded"
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded"
-              />
-              <input
-                type="text"
-                name="zip"
-                placeholder="ZIP Code"
-                value={formData.zip}
-                onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded"
-                required
-              />
-              <button type="submit" className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 rounded transition">
-                Join the Waitlist
-              </button>
-            </form>
+<form
+  onSubmit={handleSubmit}
+  className="space-y-3 w-full rounded-md p-4 
+             bg-white/60 backdrop-blur-sm 
+             md:bg-transparent md:backdrop-blur-0"
+>
+  {/* VIN and Decode button - Temporarily disabled */}
+  {/*
+  <input
+    type="text"
+    name="vin"
+    placeholder="VIN (optional)"
+    value={formData.vin}
+    onChange={handleChange}
+    className="w-full p-2 border border-gray-300 rounded"
+  />
+  <button
+    type="button"
+    onClick={handleVinDecode}
+    className="w-full bg-gray-700 text-white font-semibold py-2 rounded transition"
+  >
+    Decode VIN
+  </button>
+  */}
+
+  <input
+    type="text"
+    name="year"
+    placeholder="Year"
+    value={formData.year}
+    onChange={handleChange}
+    className="w-full p-2 border border-gray-300 rounded"
+  />
+  <input
+    type="text"
+    name="make"
+    placeholder="Make"
+    value={formData.make}
+    onChange={handleChange}
+    className="w-full p-2 border border-gray-300 rounded"
+  />
+  <input
+    type="text"
+    name="model"
+    placeholder="Model"
+    value={formData.model}
+    onChange={handleChange}
+    className="w-full p-2 border border-gray-300 rounded"
+  />
+
+  {/* Submodel - Temporarily disabled */}
+  {/*
+  <input
+    type="text"
+    name="submodel"
+    placeholder="Submodel"
+    value={formData.submodel}
+    onChange={handleChange}
+    className="w-full p-2 border border-gray-300 rounded"
+  />
+  */}
+
+  <input
+    type="text"
+    name="mileage"
+    placeholder="Mileage"
+    value={formData.mileage}
+    onChange={handleChange}
+    className="w-full p-2 border border-gray-300 rounded"
+  />
+  <input
+    type="text"
+    name="name"
+    placeholder="Name"
+    value={formData.name}
+    onChange={handleChange}
+    className="w-full p-2 border border-gray-300 rounded"
+  />
+  <input
+    type="email"
+    name="email"
+    placeholder="Email"
+    value={formData.email}
+    onChange={handleChange}
+    className="w-full p-2 border border-gray-300 rounded"
+    required
+  />
+
+  {/* ZIP Code - Temporarily disabled */}
+  {/*
+  <input
+    type="text"
+    name="zip"
+    placeholder="ZIP Code"
+    value={formData.zip}
+    onChange={handleChange}
+    className="w-full p-2 border border-gray-300 rounded"
+  />
+  */}
+
+  <button
+    type="submit"
+    className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 rounded transition"
+  >
+    Join the Waitlist
+  </button>
+</form>
           </div>
         </div>
 
