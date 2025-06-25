@@ -83,9 +83,9 @@ export default function LandingPage() {
 
 <form
   onSubmit={handleSubmit}
-  className="space-y-3 w-full rounded-md p-4 
+  className={`space-y-3 w-full rounded-md p-4 
              bg-white/60 backdrop-blur-sm 
-             md:bg-transparent md:backdrop-blur-0"
+             md:bg-transparent md:backdrop-blur-0"`}
 >
   {/* VIN and Decode button - Temporarily disabled */}
   {/*
