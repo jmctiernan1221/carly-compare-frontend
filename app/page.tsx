@@ -167,6 +167,7 @@ export default function LandingPage() {
             />
             */}
 
+            {/*
             <input
               type="text"
               name="mileage"
@@ -175,6 +176,7 @@ export default function LandingPage() {
               onChange={handleChange}
               className="w-full p-2 border border-gray-300 rounded"
             />
+            */}
             <input
               type="text"
               name="name"
