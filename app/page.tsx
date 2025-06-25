@@ -83,12 +83,14 @@ export default function LandingPage() {
     >
       <div className="max-w-5xl w-full border border-black bg-blue-50 bg-opacity-90 rounded-lg shadow-2xl flex flex-col md:flex-row overflow-hidden">
         <div
-          className={`w-full md:w-1/2 px-6 pt-0 pb-8 md:pt-8 flex flex-col justify-center min-h-[1200px] md:min-h-auto bg-white/90 bg-[url('/landingpagecarly.png')] bg-cover bg-no-repeat bg-[center_30%] mobile-scroll-bg md:bg-none md:bg-transparent`}
+          className={`w-full md:w-1/2 px-6 pt-0 pb-8 md:pt-8 flex flex-col justify-start min-h-[1200px] md:min-h-auto bg-white/90 bg-[url('/landingpagecarly.png')] bg-cover bg-no-repeat bg-[center_30%] mobile-scroll-bg md:bg-none md:bg-transparent md:static md:overflow-visible`}
+          style={{ paddingTop: '1in', position: 'relative' }}
         >
           <style jsx>{`
             @media (max-width: 768px) {
               .mobile-scroll-bg {
                 background-attachment: fixed;
+                overflow-y: auto;
               }
             }
           `}</style>
@@ -114,22 +116,10 @@ export default function LandingPage() {
               onSubmit={handleSubmit}
               className={`space-y-3 w-full rounded-md p-4 bg-white/60 backdrop-blur-sm md:bg-transparent md:backdrop-blur-0`}
             >
-              <input
-                type="text"
-                name="vin"
-                placeholder="VIN (optional)"
-                value={formData.vin}
-                onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded"
-              />
-              <button
-                type="button"
-                onClick={handleVinDecode}
-                className="w-full bg-gray-700 text-white font-semibold py-2 rounded transition"
-              >
+              <input type="text" name="vin" placeholder="VIN (optional)" value={formData.vin} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded" />
+              <button type="button" onClick={handleVinDecode} className="w-full bg-gray-700 text-white font-semibold py-2 rounded transition">
                 Decode VIN
               </button>
-
               <input type="text" name="year" placeholder="Year" value={formData.year} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded" required />
               <input type="text" name="make" placeholder="Make" value={formData.make} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded" required />
               <input type="text" name="model" placeholder="Model" value={formData.model} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded" required />
@@ -138,7 +128,6 @@ export default function LandingPage() {
               <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded" required />
               <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded" required />
               <input type="text" name="zip" placeholder="ZIP Code" value={formData.zip} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded" required />
-
               <button type="submit" className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 rounded transition">
                 Join the Waitlist
               </button>
