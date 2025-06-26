@@ -1,244 +1,94 @@
 'use client';
 
-import { useState } from 'react';
-import Image from 'next/image';
+import { useState } from "react";
+import { Player } from "@lottiefiles/react-lottie-player"; // npm install lottie-react
+import Image from "next/image";
 
 export default function LandingPage() {
-  const [formData, setFormData] = useState({
-    vin: '',
-    year: '',
-    make: '',
-    model: '',
-    submodel: '',
-    mileage: '',
-    email: '',
-    name: '',
-    zip: '',
-  });
-
-  const [vinDecoded, setVinDecoded] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', carMake: '' });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const handleChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleVinDecode = async () => {
-    try {
-      const response = await fetch(
-        `https://vpic.nhtsa.dot.gov/api/vehicles/decodevinvalues/${formData.vin}?format=json`
-      );
-      const data = await response.json();
-      const decoded = data.Results[0];
-
-      setFormData((prev) => ({
-        ...prev,
-        year: decoded.ModelYear || '',
-        make: decoded.Make || '',
-        model: decoded.Model || '',
-        submodel: decoded.Series || '',
-      }));
-
-      setVinDecoded(true);
-    } catch (error) {
-      console.error('Error decoding VIN:', error);
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    try {
-      const response = await fetch('https://carly-compare-backend.onrender.com/api/waitlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to submit waitlist data');
-      }
-
-      const result = await response.json();
-      console.log('Waitlist response:', result);
-
-      setSubmitted(true);
-      setFormData({
-        vin: '',
-        year: '',
-        make: '',
-        model: '',
-        submodel: '',
-        mileage: '',
-        email: '',
-        name: '',
-        zip: '',
-      });
-    } catch (error) {
-      console.error('Error submitting form:', error);
-    }
+    // TODO: Replace with your API or waitlist handling
+    setSubmitted(true);
+    setFormData({ name: '', email: '', carMake: '' });
   };
 
   return (
-    <main className="min-h-screen bg-white flex items-center justify-center p-4">
-      <div className="w-full max-w-4xl bg-white rounded-lg shadow-2xl flex flex-col md:flex-row overflow-hidden">
-        <div className="w-full md:w-1/2 px-6 pt-12 pb-8 flex flex-col justify-start">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
-            Hi, I’m Carly — your smart car-selling assistant
-          </h1>
-          <p className="text-gray-800 mb-6 text-base md:text-lg">
-            CarlyCompare is launching soon! I’ll help you explore real offers from top sites like KBB, Carvana, and CarMax, and send you a custom report with value insights, trends, and when to sell.
-          </p>
+    <main
+      className="min-h-screen flex flex-col justify-between items-center bg-cover bg-center px-4 py-8"
+      style={{ backgroundImage: "url('/background.png')" }}
+    >
+      <div className="max-w-md w-full bg-white/90 rounded-xl shadow-2xl p-8 mt-6 mb-0 flex flex-col items-center">
+        <h1 className="text-4xl font-black text-blue-900 mb-2">COMING SOON</h1>
+        <p className="text-base text-gray-800 mb-3 font-medium">
+          Carly compares real-time cash offers from top sites like Carvana and KBB to help you get the best deal. Launching soon!
+        </p>
 
-          <div className="absolute inset-0 z-0">
-  <video
-    className="w-full h-full object-cover"
-    autoPlay
-    loop
-    muted
-    playsInline
-    poster="/landingpagecarly.png"
-  >
-    <source src="/carlycomparevid_1.mp4" type="video/mp4" />
-  </video>
-</div>
-          {/*<div className="mb-6 w-full aspect-video">
-            <video
-              className="w-full h-full rounded shadow-md"
-              controls
-              preload="auto"
-              poster="/poster-image.jpg"
-            >
-              <source src="/carlycomparevid_4.mp4.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>*/}
-
-          {submitted && (
-            <div className="bg-green-100 text-green-800 p-3 mb-4 rounded shadow">
-              ✅ Thank you! You’ve been added to the waitlist.
-            </div>
-          )}
-<div className="relative z-10">
-          <form
-            onSubmit={handleSubmit}
-            className="space-y-3 w-full rounded-md p-4 bg-white/60 backdrop-blur-sm md:bg-transparent md:backdrop-blur-0"
-          >
-            {/* VIN and Decode - temporarily hidden */}
-            {/*
-            <input
-              type="text"
-              name="vin"
-              placeholder="VIN (optional)"
-              value={formData.vin}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded"
-            />
-            <button
-              type="button"
-              onClick={handleVinDecode}
-              className="w-full bg-gray-700 text-white font-semibold py-2 rounded transition"
-            >
-              Decode VIN
-            </button>
-            */}
-
-            <input
-              type="text"
-              name="year"
-              placeholder="Year"
-              value={formData.year}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded"
-            />
-            <input
-              type="text"
-              name="make"
-              placeholder="Make"
-              value={formData.make}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded"
-            />
-            <input
-              type="text"
-              name="model"
-              placeholder="Model"
-              value={formData.model}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded"
-            />
-
-            {/* Submodel - temporarily hidden */}
-            {/*
-            <input
-              type="text"
-              name="submodel"
-              placeholder="Submodel"
-              value={formData.submodel}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded"
-            />
-            */}
-
-            {/*
-            <input
-              type="text"
-              name="mileage"
-              placeholder="Mileage"
-              value={formData.mileage}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded"
-            />
-            */}
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded"
-              required
-            />
-
-            {/* ZIP Code - temporarily hidden */}
-            {/*
-            <input
-              type="text"
-              name="zip"
-              placeholder="ZIP Code"
-              value={formData.zip}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded"
-            />
-            */}
-
-            <button
-              type="submit"
-              className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 rounded transition"
-            >
-              Join the Waitlist
-            </button>
-          </form>
-        </div>
-          </div>
-
-        <div className="hidden md:flex md:w-1/2 items-center justify-center bg-gray-50">
-          <Image
-            src="/landingpagecarly.png"
-            alt="Carly Illustration"
-            className="h-full w-auto object-contain p-4"
-            width={500}
-            height={800}
-            priority
+        {/* Animated Carly */}
+        <div className="w-40 h-44 mb-4 flex items-center justify-center">
+          <Player
+            autoplay
+            loop={false}
+            src="/carly-waving.json"
+            style={{ height: "170px", width: "170px" }}
           />
         </div>
+
+        <form onSubmit={handleSubmit} className="w-full flex flex-col gap-3 mb-3">
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            value={formData.name}
+            onChange={handleChange}
+            className="w-full p-2 border border-gray-300 rounded"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full p-2 border border-gray-300 rounded"
+            required
+          />
+          <input
+            type="text"
+            name="carMake"
+            placeholder="Car Make"
+            value={formData.carMake}
+            onChange={handleChange}
+            className="w-full p-2 border border-gray-300 rounded"
+            required
+          />
+          <button
+            type="submit"
+            className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 rounded transition"
+          >
+            Submit to Get Discounts When We Launch
+          </button>
+        </form>
+        {submitted && (
+          <div className="bg-green-100 text-green-700 py-2 px-3 rounded font-semibold">
+            Thank you! You'll be the first to know.
+          </div>
+        )}
+      </div>
+
+      {/* Car/Road visual */}
+      <div className="w-full flex justify-center mt-[-40px]">
+        <Image
+          src="/car-on-road.png"
+          alt="CarlyCompare Car on Road"
+          width={370}
+          height={170}
+          priority
+        />
       </div>
     </main>
   );
