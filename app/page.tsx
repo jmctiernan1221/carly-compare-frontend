@@ -68,19 +68,17 @@ export default function LandingPage() {
       <div className="relative w-full max-w-md">
         {/* Floating Avatar Image with Parallax */}
         <Image
-          src="/avatar-6-26.png"
-          alt="Carly Avatar"
-          width={220}
-          height={220}
-          className="absolute z-10 object-contain"
-          style={{
-            top: '-8rem',
-            right: '3.5rem',
-            transform: `translateY(${scrollY * 0.2}px)`,
-            transition: 'transform 0.1s ease-out',
-          }}
-          priority
-        />
+  src="/avatar-6-26.png"
+  alt="Carly Avatar"
+  width={220}
+  height={220}
+  className="absolute -top-32 -right-14 md:-top-28 md:-right-20 z-10 object-contain"
+  style={{
+    transform: `translateY(${scrollY * 0.2}px)`,
+    transition: 'transform 0.1s ease-out',
+  }}
+  priority
+/>
 
         {/* White Card with Parallax */}
         <div
