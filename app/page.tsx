@@ -48,7 +48,7 @@ export default function LandingPage() {
   alt="Carly Avatar"
   width={220}
   height={220}
-  className="absolute -top-14 -right-14 z-10 object-contain"
+  className="absolute -top-24 -right-14 z-10 object-contain"
   priority
 />
 
