@@ -13,7 +13,7 @@ export default function LandingPage() {
   const [submitted, setSubmitted] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
 
-  // Check screen size to conditionally apply background
+  // Check screen size to apply desktop-only background logic
   useEffect(() => {
     const checkScreen = () => setIsDesktop(window.innerWidth >= 768);
     checkScreen();
@@ -49,7 +49,7 @@ export default function LandingPage() {
       className="min-h-screen bg-cover bg-bottom bg-no-repeat bg-fixed flex flex-col md:flex-row items-start justify-center px-4 py-6 md:py-24"
       style={!isDesktop ? { backgroundImage: "url('/background.png')" } : {}}
     >
-      <div className="relative w-full max-w-3xl md:min-h-[700px] overflow-visible">
+      <div className="relative w-full max-w-3xl overflow-visible">
         {/* Avatar Image */}
         <Image
           src="/avatar-6-26.png"
@@ -60,9 +60,9 @@ export default function LandingPage() {
           priority
         />
 
-        {/* White Card with contained background on desktop */}
+        {/* White Card with background image on desktop only */}
         <div
-          className="relative bg-white/90 rounded-xl shadow-2xl p-6 md:p-16 pt-28 mt-12 md:mt-24 flex flex-col justify-center"
+          className="relative bg-white/90 rounded-xl shadow-2xl p-6 md:p-20 pt-28 mt-12 md:mt-24 flex flex-col justify-center"
           style={
             isDesktop
               ? {
@@ -70,6 +70,7 @@ export default function LandingPage() {
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'contain',
                   backgroundPosition: 'center',
+                  minHeight: '800px',
                 }
               : {}
           }
