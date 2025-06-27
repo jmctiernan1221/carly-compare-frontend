@@ -44,16 +44,16 @@ export default function LandingPage() {
       <div className="relative w-full max-w-md">
         {/* Floating Avatar Image */}
         <Image
-          src="/avatar-6-26.png"
-          alt="Carly Avatar"
-          width={220}
-          height={220}
-          className="absolute -top-24 -right-14 z-10 object-contain"
-          priority
-        />
+  src="/avatar-6-26.png"
+  alt="Carly Avatar"
+  width={220}
+  height={220}
+  className="absolute -top-24 -right-14 md:-top-28 md:-right-20 z-10 object-contain"
+  priority
+/>
 
         {/* White Card */}
-        <div className="relative bg-white/90 rounded-lg shadow-lg p-6 md:p-8 pt-28">
+        <div className="relative bg-white/90 rounded-lg shadow-lg p-6 md:p-8 pt-28 md:pt-36">
           <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
             COMING SOON
           </h1>
