@@ -1,33 +1,9 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 
 export default function LandingPage() {
-  const [scrollY, setScrollY] = useState(0);
-  const latestScroll = useRef(0);
-  const animationFrame = useRef(0);
-
-  // Smooth parallax effect using requestAnimationFrame
-  useEffect(() => {
-    const handleScroll = () => {
-      latestScroll.current = window.scrollY;
-    };
-
-    const updateScroll = () => {
-      setScrollY((prev) => prev + (latestScroll.current - prev) * 0.1); // easing
-      animationFrame.current = requestAnimationFrame(updateScroll);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    animationFrame.current = requestAnimationFrame(updateScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      cancelAnimationFrame(animationFrame.current);
-    };
-  }, []);
-
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -66,28 +42,18 @@ export default function LandingPage() {
     >
       {/* Image and Card Wrapper */}
       <div className="relative w-full max-w-md">
-        {/* Floating Avatar Image with Parallax */}
+        {/* Floating Avatar Image */}
         <Image
-  src="/avatar-6-26.png"
-  alt="Carly Avatar"
-  width={220}
-  height={220}
-  className="absolute -top-32 -right-14 md:-top-28 md:-right-20 z-10 object-contain"
-  style={{
-    transform: `translateY(${scrollY * 0.2}px)`,
-    transition: 'transform 0.1s ease-out',
-  }}
-  priority
-/>
+          src="/avatar-6-26.png"
+          alt="Carly Avatar"
+          width={220}
+          height={220}
+          className="absolute -top-32 -right-14 md:-top-28 md:-right-20 z-10 object-contain animate-fade-bounce-once"
+          priority
+        />
 
-        {/* White Card with Parallax */}
-        <div
-          className="relative bg-white/90 rounded-lg shadow-lg p-6 md:p-8 pt-28"
-          style={{
-            transform: `translateY(${scrollY * 0.4}px)`,
-            transition: 'transform 0.1s ease-out',
-          }}
-        >
+        {/* White Card */}
+        <div className="relative bg-white/90 rounded-lg shadow-lg p-6 md:p-8 pt-28">
           <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
             COMING SOON
           </h1>
