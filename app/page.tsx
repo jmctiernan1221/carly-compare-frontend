@@ -43,14 +43,14 @@ export default function LandingPage() {
       {/* Image and Card Wrapper */}
       <div className="relative w-full max-w-md">
         {/* Floating Image Overlapping Card */}
-        <Image
-          src="/avatar-6-26.png"
-          alt="Carly Avatar"
-          width={100}
-          height={100}
-          className="absolute -top-6 -right-6 z-10 object-contain"
-          priority
-        />
+       <Image
+  src="/avatar-6-26.png"
+  alt="Carly Avatar"
+  width={220}
+  height={220}
+  className="absolute -top-14 -right-14 z-10 object-contain"
+  priority
+/>
 
         {/* White Card */}
         <div className="relative bg-white/90 rounded-lg shadow-lg p-6 md:p-8">
