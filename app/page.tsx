@@ -66,7 +66,7 @@ export default function LandingPage() {
 
         {/* White Card with overlay background (desktop only) */}
         <div
-className="relative bg-white rounded-xl shadow-2xl p-6 md:p-20 pt-28 md:pt-28 mt-12 md:mt-24 md:-mt-12 flex flex-col justify-center overflow-hidden"
+className="relative bg-white rounded-xl shadow-2xl p-6 md:p-20 pt-20 md:pt-28 mt-12 md:mt-24 md:-mt-12 flex flex-col justify-center overflow-hidden"
           style={
             isDesktop
               ? {
@@ -91,9 +91,9 @@ className="relative bg-white rounded-xl shadow-2xl p-6 md:p-20 pt-28 md:pt-28 mt
   </h1>
 {/* ✅ P2: Wrap text around avatar on mobile */}
 <div className="flex md:hidden mb-4 px-2">
-  <p className="text-sm text-gray-800 flex-1 pr-2">
-    Carly Compare takes the stress out of selling by putting top real-time offers from trusted buyers in one place — so you don’t have to do the searching yourself.
-  </p>
+<p className="text-sm text-gray-800 mb-4 px-4 md:px-2 md:text-center float-right md:float-none max-w-[70%] md:max-w-full -mt-8 md:mt-0 clear-both">
+  Carly Compare takes the stress out of selling by putting top real-time offers from trusted buyers in one place — so you don’t have to do the searching yourself.
+</p>
 </div>
 
 {/* ✅ P2: Full-width version on desktop */}
