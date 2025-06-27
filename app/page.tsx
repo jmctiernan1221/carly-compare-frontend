@@ -41,7 +41,7 @@ export default function LandingPage() {
   style={{ backgroundImage: "url('/background.png')" }}
 >
       {/* Image and Card Wrapper */}
-      <div className="relative w-full max-w-md">
+     <div className="relative w-full max-w-md overflow-visible">
         {/* Floating Avatar Image */}
         <Image
           src="/avatar-6-26.png"
