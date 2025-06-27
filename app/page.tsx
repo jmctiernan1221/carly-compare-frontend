@@ -13,7 +13,7 @@ export default function LandingPage() {
   const [submitted, setSubmitted] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
 
-  // Check screen size to apply background logic
+  // Check screen size to apply desktop-specific background
   useEffect(() => {
     const checkScreen = () => setIsDesktop(window.innerWidth >= 768);
     checkScreen();
@@ -51,18 +51,18 @@ export default function LandingPage() {
     >
       <div className="relative w-full max-w-3xl overflow-visible">
         {/* Avatar Image */}
-      <Image
-  src="/avatar-6-26.png"
-  alt="Carly Avatar"
-  width={220}
-  height={220}
-  className="absolute -top-24 -right-14 md:top-10 md:right-8 z-10 object-contain animate-fade-bounce-once"
-  priority
-/>
+        <Image
+          src="/avatar-6-26.png"
+          alt="Carly Avatar"
+          width={220}
+          height={220}
+          className="absolute -top-24 -right-14 md:top-10 md:right-8 z-10 object-contain animate-fade-bounce-once"
+          priority
+        />
 
-        {/* White Card with desktop-only background and upward shift */}
+        {/* White Card with overlay and background image on desktop */}
         <div
-          className="relative bg-white/70 rounded-xl shadow-2xl p-6 md:p-20 pt-28 mt-12 md:mt-24 md:-mt-12 flex flex-col justify-center"
+          className="relative bg-transparent rounded-xl shadow-2xl p-6 md:p-20 pt-28 mt-12 md:mt-24 md:-mt-12 flex flex-col justify-center overflow-hidden"
           style={
             isDesktop
               ? {
@@ -75,53 +75,59 @@ export default function LandingPage() {
               : {}
           }
         >
-          <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
-            COMING SOON
-          </h1>
-          <p className="text-center text-gray-800 text-base md:text-lg mb-6">
-            Carly compares real-time offers from Carvana, KBB, and CarMax so you can sell your car for the most cash—fast.
-          </p>
+          {/* Overlay layer for semi-transparent white background */}
+          <div className="absolute inset-0 bg-white/70 rounded-xl z-0" />
 
-          {submitted && (
-            <div className="bg-green-100 text-green-800 text-center p-3 mb-4 rounded shadow text-sm md:text-base">
-              ✅ Thank you! You’ve been added to the waitlist.
-            </div>
-          )}
+          {/* Card Content */}
+          <div className="relative z-10">
+            <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
+              COMING SOON
+            </h1>
+            <p className="text-center text-gray-800 text-base md:text-lg mb-6">
+              Carly compares real-time offers from Carvana, KBB, and CarMax so you can sell your car for the most cash—fast.
+            </p>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="text"
-              name="make"
-              placeholder="Car Make"
-              value={formData.make}
-              onChange={handleChange}
-              className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <button
-              type="submit"
-              className="w-full p-3 text-sm font-semibold text-white bg-orange-500 hover:bg-orange-600 rounded transition"
-            >
-              Submit to get discounts when we launch
-            </button>
-          </form>
+            {submitted && (
+              <div className="bg-green-100 text-green-800 text-center p-3 mb-4 rounded shadow text-sm md:text-base">
+                ✅ Thank you! You’ve been added to the waitlist.
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <input
+                type="text"
+                name="make"
+                placeholder="Car Make"
+                value={formData.make}
+                onChange={handleChange}
+                className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <button
+                type="submit"
+                className="w-full p-3 text-sm font-semibold text-white bg-orange-500 hover:bg-orange-600 rounded transition"
+              >
+                Submit to get discounts when we launch
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </main>
