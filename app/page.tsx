@@ -84,58 +84,58 @@ className="relative bg-white rounded-xl shadow-2xl p-6 md:p-20 pt-48 md:pt-28 mt
             <div className="absolute inset-0 bg-white/70 backdrop-blur-sm rounded-xl z-0" />
           )}
 
-          <div className="relative z-10">
-            {/* Desktop-only heading */}
-            <h1 className="hidden md:block text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
-              COMING SOON
-            </h1>
+<div className="relative z-10">
+  {/* Desktop-only heading */}
+  <h1 className="hidden md:block text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
+    COMING SOON
+  </h1>
 
-            {/* Paragraph inside card on all screen sizes */}
-            <p className="text-sm text-gray-700 text-center mb-6 md:mb-8 px-2">
-              Carly Compare helps you get the most cash for your car by comparing real-time offers from Carvana, KBB, and CarMax — all in one place. Fast. Transparent. Free.
-            </p>
+  {/* 🔍 Paragraph inside card (visible on mobile & desktop) */}
+  <div className="mb-6 md:mb-8 px-3 bg-yellow-100 text-sm text-gray-800 text-center rounded">
+    Carly Compare helps you get the most cash for your car by comparing real-time offers from Carvana, KBB, and CarMax — all in one place. Fast. Transparent. Free.
+  </div>
 
-            {submitted && (
-              <div className="bg-green-100 text-green-800 text-center p-3 mb-4 rounded shadow text-sm md:text-base">
-                ✅ Thank you! You’ve been added to the waitlist.
-              </div>
-            )}
+  {submitted && (
+    <div className="bg-green-100 text-green-800 text-center p-3 mb-4 rounded shadow text-sm md:text-base">
+      ✅ Thank you! You’ve been added to the waitlist.
+    </div>
+  )}
 
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <input
-                type="text"
-                name="name"
-                placeholder="Name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <input
-                type="text"
-                name="make"
-                placeholder="Car Make"
-                value={formData.make}
-                onChange={handleChange}
-                className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <button
-                type="submit"
-                className="w-full p-3 text-sm font-semibold text-white bg-orange-500 hover:bg-orange-600 rounded transition"
-              >
-                Submit to get discounts when we launch
-              </button>
-            </form>
-          </div>
+  <form onSubmit={handleSubmit} className="space-y-4">
+    <input
+      type="text"
+      name="name"
+      placeholder="Name"
+      value={formData.name}
+      onChange={handleChange}
+      required
+      className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+    <input
+      type="email"
+      name="email"
+      placeholder="Email"
+      value={formData.email}
+      onChange={handleChange}
+      required
+      className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+    <input
+      type="text"
+      name="make"
+      placeholder="Car Make"
+      value={formData.make}
+      onChange={handleChange}
+      className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+    <button
+      type="submit"
+      className="w-full p-3 text-sm font-semibold text-white bg-orange-500 hover:bg-orange-600 rounded transition"
+    >
+      Submit to get discounts when we launch
+    </button>
+  </form>
+</div>
         </div>
       </div>
     </main>
