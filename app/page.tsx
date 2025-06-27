@@ -62,7 +62,7 @@ export default function LandingPage() {
 
         {/* White Card with desktop-only background and upward shift */}
         <div
-          className="relative bg-white/90 rounded-xl shadow-2xl p-6 md:p-20 pt-28 mt-12 md:mt-24 md:-mt-12 flex flex-col justify-center"
+          className="relative bg-white/70 rounded-xl shadow-2xl p-6 md:p-20 pt-28 mt-12 md:mt-24 md:-mt-12 flex flex-col justify-center"
           style={
             isDesktop
               ? {
