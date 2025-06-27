@@ -23,14 +23,14 @@ body {
       transform: translateY(0);
     }
     40% {
-      transform: translateY(-20px);
+      transform: translateY(-40px); /* higher bounce */
     }
     60% {
-      transform: translateY(-10px);
+      transform: translateY(-20px); /* higher dip */
     }
   }
 
   .animate-bounce-once {
-    animation: bounceOnce 1s ease-out 1;
+    animation: bounceOnce 1.4s ease-out 1; /* slower */
   }
 }
