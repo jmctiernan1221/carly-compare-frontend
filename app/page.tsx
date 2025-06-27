@@ -11,6 +11,15 @@ export default function LandingPage() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  // Check screen size to apply desktop-specific background
+  useEffect(() => {
+    const checkScreen = () => setIsDesktop(window.innerWidth >= 768);
+    checkScreen();
+    window.addEventListener('resize', checkScreen);
+    return () => window.removeEventListener('resize', checkScreen);
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -37,13 +46,10 @@ export default function LandingPage() {
 
   return (
     <main
-      className="relative min-h-screen bg-cover bg-bottom bg-no-repeat bg-fixed flex flex-col md:flex-row items-start justify-center px-4 py-6 md:py-24"
-      style={{ backgroundImage: "url('/background.png')" }}
+      className="min-h-screen bg-cover bg-bottom bg-no-repeat bg-fixed flex flex-col md:flex-row items-start justify-center px-4 py-6 md:py-24"
+      style={!isDesktop ? { backgroundImage: "url('/background.png')" } : {}}
     >
-      {/* ✅ White overlay over background for ALL screen sizes */}
-      <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-0" />
-
-      <div className="relative z-10 w-full max-w-3xl overflow-visible">
+      <div className="relative w-full max-w-3xl overflow-visible">
         {/* Avatar Image */}
         <Image
           src="/avatar-6-26.png"
@@ -54,55 +60,74 @@ export default function LandingPage() {
           priority
         />
 
-        {/* ✅ Solid white card on top of overlay */}
-        <div className="relative bg-white rounded-xl shadow-2xl p-6 md:p-20 pt-28 mt-12 md:mt-24 md:-mt-12 flex flex-col justify-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
-            COMING SOON
-          </h1>
-          <p className="text-center text-gray-800 text-base md:text-lg mb-6">
-            Carly compares real-time offers from Carvana, KBB, and CarMax so you can sell your car for the most cash—fast.
-          </p>
+        {/* White Card with overlay and background image on desktop */}
+        <div
+          className="relative bg-transparent rounded-xl shadow-2xl p-6 md:p-20 pt-28 mt-12 md:mt-24 md:-mt-12 flex flex-col justify-center overflow-hidden"
+          style={
+            isDesktop
+              ? {
+                  backgroundImage: "url('/background.png')",
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  minHeight: '800px',
+                }
+              : {}
+          }
+        >
+          {/* Overlay layer for semi-transparent white background */}
+          <div className="absolute inset-0 bg-white/70 rounded-xl z-0" />
 
-          {submitted && (
-            <div className="bg-green-100 text-green-800 text-center p-3 mb-4 rounded shadow text-sm md:text-base">
-              ✅ Thank you! You’ve been added to the waitlist.
-            </div>
-          )}
+          {/* Card Content */}
+          <div className="relative z-10">
+            <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
+              COMING SOON
+            </h1>
+            <p className="text-center text-gray-800 text-base md:text-lg mb-6">
+              Carly compares real-time offers from Carvana, KBB, and CarMax so you can sell your car for the most cash—fast.
+            </p>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="text"
-              name="make"
-              placeholder="Car Make"
-              value={formData.make}
-              onChange={handleChange}
-              className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <button
-              type="submit"
-              className="w-full p-3 text-sm font-semibold text-white bg-orange-500 hover:bg-orange-600 rounded transition"
-            >
-              Submit to get discounts when we launch
-            </button>
-          </form>
+            {submitted && (
+              <div className="bg-green-100 text-green-800 text-center p-3 mb-4 rounded shadow text-sm md:text-base">
+                ✅ Thank you! You’ve been added to the waitlist.
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <input
+                type="text"
+                name="make"
+                placeholder="Car Make"
+                value={formData.make}
+                onChange={handleChange}
+                className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <button
+                type="submit"
+                className="w-full p-3 text-sm font-semibold text-white bg-orange-500 hover:bg-orange-600 rounded transition"
+              >
+                Submit to get discounts when we launch
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </main>
