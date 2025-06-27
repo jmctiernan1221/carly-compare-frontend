@@ -89,7 +89,7 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
   className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
 />
-          />
+          
           <input
             type="text"
             name="make"
