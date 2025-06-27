@@ -45,7 +45,7 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       {/* Carly Wave Image */}
       <div className="flex justify-center md:justify-end md:mr-8 mb-6 md:mb-0">
         <Image
-          src="/carly-wave.png"
+          src="/Avatar%206.26.png"
           alt="Carly Waving"
           width={200}
           height={200}
