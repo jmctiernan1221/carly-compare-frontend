@@ -79,7 +79,7 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             required
             className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-       <input
+   <input
   type="email"
   name="email"
   placeholder="Email"
