@@ -60,7 +60,7 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
           COMING SOON
         </h1>
         <p className="text-center text-gray-800 text-base md:text-lg mb-6">
-          Carly compares real-time cash offers from top sites like Carvana and KBB to help you get the best deal. Launching soon!
+          Carly compares real-time cash offers from top sites like Carvana, KBB, and CarMax to help you sell smarter. Launching soon!
         </p>
 
         {submitted && (
