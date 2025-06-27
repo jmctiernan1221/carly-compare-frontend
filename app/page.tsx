@@ -13,7 +13,7 @@ export default function LandingPage() {
   const [submitted, setSubmitted] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
 
-  // Check screen size to apply desktop-only background logic
+  // Check screen size to apply background logic
   useEffect(() => {
     const checkScreen = () => setIsDesktop(window.innerWidth >= 768);
     checkScreen();
@@ -60,21 +60,20 @@ export default function LandingPage() {
           priority
         />
 
-        {/* White Card with background image on desktop only */}
+        {/* White Card with desktop-only background and upward shift */}
         <div
-          <div className="relative bg-white/90 rounded-xl shadow-2xl p-6 md:p-20 pt-28 mt-12 md:mt-24 md:-mt-12 flex flex-col justify-center"
-
- style={
-  isDesktop
-    ? {
-        backgroundImage: "url('/background.png')",
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover', // <- fills the whole box
-        backgroundPosition: 'center',
-        minHeight: '800px',
-      }
-    : {}
-}
+          className="relative bg-white/90 rounded-xl shadow-2xl p-6 md:p-20 pt-28 mt-12 md:mt-24 md:-mt-12 flex flex-col justify-center"
+          style={
+            isDesktop
+              ? {
+                  backgroundImage: "url('/background.png')",
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  minHeight: '800px',
+                }
+              : {}
+          }
         >
           <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
             COMING SOON
