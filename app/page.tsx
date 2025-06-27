@@ -89,8 +89,15 @@ className="relative bg-white rounded-xl shadow-2xl p-6 md:p-20 pt-48 md:pt-28 mt
   <h1 className="hidden md:block text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
     COMING SOON
   </h1>
-{/* P2 – New additional text above P1 */}
-<p className="text-sm text-gray-800 text-center mb-4 px-2">
+{/* ✅ P2: Wrap text around avatar on mobile */}
+<div className="flex md:hidden mb-4 px-2">
+  <p className="text-sm text-gray-800 flex-1 pr-2">
+    Carly Compare takes the stress out of selling by putting top real-time offers from trusted buyers in one place — so you don’t have to do the searching yourself.
+  </p>
+</div>
+
+{/* ✅ P2: Full-width version on desktop */}
+<p className="hidden md:block text-sm text-gray-800 text-center mb-4 px-2">
   Carly Compare takes the stress out of selling by putting top real-time offers from trusted buyers in one place — so you don’t have to do the searching yourself.
 </p>
 <p className="text-sm text-gray-700 text-center mb-6 md:mb-8 px-2">
