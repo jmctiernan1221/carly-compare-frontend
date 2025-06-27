@@ -53,7 +53,7 @@ export default function LandingPage() {
         />
 
         {/* White Card */}
-        <div className="relative bg-white/90 rounded-lg shadow-lg p-6 md:p-8 pt-28">
+<div className="relative bg-white/90 rounded-lg shadow-lg p-6 md:p-8 pt-28 mt-12 md:mt-24">
           <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
             COMING SOON
           </h1>
