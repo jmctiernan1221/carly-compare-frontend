@@ -36,10 +36,10 @@ export default function LandingPage() {
 
   return (
     <main
-      className="min-h-screen bg-cover bg-bottom flex items-start justify-center px-4 py-6"
+      className="min-h-screen bg-cover bg-bottom flex items-start justify-center px-4 py-6 md:py-32"
       style={{ backgroundImage: "url('/background.png')" }}
     >
-      <div className="w-full max-w-md bg-white/90 rounded-lg shadow-lg p-6 md:p-8 mt-6">
+      <div className="w-full max-w-md bg-white/90 rounded-lg shadow-lg p-6 md:p-8 mt-6 md:mt-0">
         <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
           COMING SOON
         </h1>
