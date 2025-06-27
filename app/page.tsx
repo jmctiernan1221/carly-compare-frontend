@@ -110,7 +110,10 @@ className="relative bg-white/80 md:bg-white rounded-xl shadow-2xl p-6 md:p-20 pt
     </div>
   )}
 
-  <form onSubmit={handleSubmit} className="space-y-4">
+ <form
+  onSubmit={handleSubmit}
+  className={`space-y-4 ${submitted ? 'hidden md:block' : ''}`}
+>
     <input
       type="text"
       name="name"
