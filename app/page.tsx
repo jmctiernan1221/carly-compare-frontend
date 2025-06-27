@@ -48,33 +48,51 @@ export default function LandingPage() {
       className="relative min-h-screen bg-cover bg-bottom bg-no-repeat bg-fixed flex flex-col md:flex-row items-start justify-center px-4 py-6 md:py-24"
       style={!isDesktop ? { backgroundImage: "url('/background.png')" } : {}}
     >
-      {/* Avatar Image - stays fixed in layout */}
       <div className="relative w-full max-w-3xl overflow-visible">
+        {/* Avatar Image */}
         <Image
           src="/avatar-6-26.png"
           alt="Carly Avatar"
           width={220}
           height={220}
-          className="absolute -top-24 -right-14 md:top-10 md:right-8 z-10 object-contain animate-fade-bounce-once"
+          className="absolute -top-24 -right-14 md:-top-32 md:-right-20 z-10 object-contain animate-fade-bounce-once"
           priority
         />
 
-        {/* Mobile-only heading outside the card */}
+        {/* Mobile-only heading above card */}
         <h1 className="text-2xl font-bold text-gray-900 mb-2 pl-4 md:hidden">
           COMING SOON
         </h1>
 
-        {/* White Card */}
-        <div className="relative bg-white rounded-xl shadow-2xl p-6 md:p-20 pt-28 mt-12 md:mt-24 md:-mt-12 flex flex-col justify-center overflow-hidden">
+        {/* White Card with overlay background (desktop only) */}
+        <div
+          className="relative bg-white rounded-xl shadow-2xl p-6 md:p-20 pt-28 mt-12 md:mt-24 md:-mt-12 flex flex-col justify-center overflow-hidden"
+          style={
+            isDesktop
+              ? {
+                  backgroundImage: "url('/background.png')",
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  minHeight: '800px',
+                }
+              : {}
+          }
+        >
+          {/* Overlay for desktop background tint */}
+          {isDesktop && (
+            <div className="absolute inset-0 bg-white/70 backdrop-blur-sm rounded-xl z-0" />
+          )}
+
           <div className="relative z-10">
-            {/* Desktop-only heading inside card */}
+            {/* Desktop-only heading */}
             <h1 className="hidden md:block text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
               COMING SOON
             </h1>
 
-            {/* NEW: Paragraph explaining Carly Compare (all screen sizes) */}
+            {/* Paragraph inside card on all screen sizes */}
             <p className="text-sm text-gray-700 text-center mb-6 md:mb-8 px-2">
-              Carly Compare helps you get the most cash for your car by comparing real-time offers from top buyers like Carvana, KBB, and CarMax — all in one place. Fast. Transparent. Free.
+              Carly Compare helps you get the most cash for your car by comparing real-time offers from Carvana, KBB, and CarMax — all in one place. Fast. Transparent. Free.
             </p>
 
             {submitted && (
