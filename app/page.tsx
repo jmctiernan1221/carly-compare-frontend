@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 export default function LandingPage() {
@@ -11,6 +11,15 @@ export default function LandingPage() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  // Check screen size to conditionally apply background
+  useEffect(() => {
+    const checkScreen = () => setIsDesktop(window.innerWidth >= 768);
+    checkScreen();
+    window.addEventListener('resize', checkScreen);
+    return () => window.removeEventListener('resize', checkScreen);
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -38,9 +47,9 @@ export default function LandingPage() {
   return (
     <main
       className="min-h-screen bg-cover bg-bottom bg-no-repeat bg-fixed flex flex-col md:flex-row items-start justify-center px-4 py-6 md:py-24"
-      style={{ backgroundImage: "url('/background.png')" }}
+      style={!isDesktop ? { backgroundImage: "url('/background.png')" } : {}}
     >
-      {/* Wrapper around image + card */}
+      {/* Container for image + white card */}
       <div className="relative w-full max-w-md overflow-visible">
         {/* Avatar Image */}
         <Image
@@ -52,16 +61,19 @@ export default function LandingPage() {
           priority
         />
 
-        {/* White Card — desktop only background */}
+        {/* White Card with desktop-only background */}
         <div
           className="relative bg-white/90 rounded-lg shadow-lg p-6 md:p-16 pt-28 mt-12 md:mt-24"
-          style={{
-            backgroundImage: "url('/background.png')",
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-            backgroundPosition: 'bottom',
-            backgroundAttachment: 'fixed',
-          }}
+          style={isDesktop
+            ? {
+                backgroundImage: "url('/background.png')",
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+                backgroundPosition: 'bottom',
+                backgroundAttachment: 'fixed',
+              }
+            : {}
+          }
         >
           <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
             COMING SOON
