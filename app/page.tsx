@@ -40,10 +40,8 @@ export default function LandingPage() {
       className="min-h-screen bg-cover bg-bottom bg-no-repeat bg-fixed flex flex-col md:flex-row items-start justify-center px-4 py-6 md:py-24"
       style={{ backgroundImage: "url('/background.png')" }}
     >
-      {/* Card + Avatar Container with background ONLY on desktop */}
-      <div
-        className="relative w-full max-w-md overflow-visible md:bg-none md:rounded-xl md:shadow-xl md:px-4 md:py-20"
-      >
+      {/* Wrapper around image + card */}
+      <div className="relative w-full max-w-md overflow-visible">
         {/* Avatar Image */}
         <Image
           src="/avatar-6-26.png"
@@ -54,11 +52,10 @@ export default function LandingPage() {
           priority
         />
 
-        {/* White Card */}
+        {/* White Card — desktop only background */}
         <div
-          className="relative bg-white/90 rounded-lg shadow-lg p-6 md:p-8 pt-28 mt-12 md:mt-24"
+          className="relative bg-white/90 rounded-lg shadow-lg p-6 md:p-16 pt-28 mt-12 md:mt-24"
           style={{
-            // Contain background on desktop only
             backgroundImage: "url('/background.png')",
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
