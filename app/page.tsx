@@ -43,12 +43,12 @@ export default function LandingPage() {
       {/* Image and Card Wrapper */}
       <div className="relative w-full max-w-md">
         {/* Floating Avatar Image */}
-        <Image
+    <Image
   src="/avatar-6-26.png"
   alt="Carly Avatar"
   width={220}
   height={220}
-  className="absolute -top-24 -right-14 md:-top-28 md:-right-20 z-10 object-contain"
+  className="absolute -top-32 -right-14 md:-top-28 md:-right-20 z-10 object-contain"
   priority
 />
 
