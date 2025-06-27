@@ -62,7 +62,8 @@ export default function LandingPage() {
 
         {/* White Card with background image on desktop only */}
         <div
-          className="relative bg-white/90 rounded-xl shadow-2xl p-6 md:p-20 pt-28 mt-12 md:mt-24 flex flex-col justify-center"
+          <div className="relative bg-white/90 rounded-xl shadow-2xl p-6 md:p-20 pt-28 mt-12 md:mt-24 md:-mt-12 flex flex-col justify-center"
+
  style={
   isDesktop
     ? {
