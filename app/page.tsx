@@ -36,13 +36,15 @@ export default function LandingPage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col md:flex-row items-start justify-center px-4 py-6 md:py-24">
-      {/* Background-wrapped container (desktop only) */}
+    <main
+      className="min-h-screen bg-cover bg-bottom bg-no-repeat bg-fixed flex flex-col md:flex-row items-start justify-center px-4 py-6 md:py-24"
+      style={{ backgroundImage: "url('/background.png')" }}
+    >
+      {/* Card + Avatar Container with background ONLY on desktop */}
       <div
-        className="relative w-full max-w-md overflow-visible md:bg-cover md:bg-bottom md:bg-no-repeat md:bg-fixed md:rounded-xl md:shadow-xl md:px-4 md:py-20"
-        style={{ backgroundImage: "url('/background.png')" }}
+        className="relative w-full max-w-md overflow-visible md:bg-none md:rounded-xl md:shadow-xl md:px-4 md:py-20"
       >
-        {/* Floating Avatar Image */}
+        {/* Avatar Image */}
         <Image
           src="/avatar-6-26.png"
           alt="Carly Avatar"
@@ -53,7 +55,17 @@ export default function LandingPage() {
         />
 
         {/* White Card */}
-        <div className="relative bg-white/90 rounded-lg shadow-lg p-6 md:p-8 pt-28 mt-12 md:mt-24">
+        <div
+          className="relative bg-white/90 rounded-lg shadow-lg p-6 md:p-8 pt-28 mt-12 md:mt-24"
+          style={{
+            // Contain background on desktop only
+            backgroundImage: "url('/background.png')",
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            backgroundPosition: 'bottom',
+            backgroundAttachment: 'fixed',
+          }}
+        >
           <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
             COMING SOON
           </h1>
