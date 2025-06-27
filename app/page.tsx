@@ -49,8 +49,7 @@ export default function LandingPage() {
       className="min-h-screen bg-cover bg-bottom bg-no-repeat bg-fixed flex flex-col md:flex-row items-start justify-center px-4 py-6 md:py-24"
       style={!isDesktop ? { backgroundImage: "url('/background.png')" } : {}}
     >
-      {/* Container for image + white card */}
-      <div className="relative w-full max-w-md overflow-visible">
+      <div className="relative w-full max-w-3xl md:min-h-[700px] overflow-visible">
         {/* Avatar Image */}
         <Image
           src="/avatar-6-26.png"
@@ -61,18 +60,18 @@ export default function LandingPage() {
           priority
         />
 
-        {/* White Card with desktop-only background */}
+        {/* White Card with contained background on desktop */}
         <div
-          className="relative bg-white/90 rounded-lg shadow-lg p-6 md:p-16 pt-28 mt-12 md:mt-24"
-          style={isDesktop
-            ? {
-                backgroundImage: "url('/background.png')",
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-                backgroundPosition: 'bottom',
-                backgroundAttachment: 'fixed',
-              }
-            : {}
+          className="relative bg-white/90 rounded-xl shadow-2xl p-6 md:p-16 pt-28 mt-12 md:mt-24 flex flex-col justify-center"
+          style={
+            isDesktop
+              ? {
+                  backgroundImage: "url('/background.png')",
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'contain',
+                  backgroundPosition: 'center',
+                }
+              : {}
           }
         >
           <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
