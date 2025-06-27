@@ -37,7 +37,7 @@ export default function LandingPage() {
 
   return (
  <main
-  className="min-h-screen bg-cover bg-bottom bg-no-repeat bg-fixed flex flex-col md:flex-row items-start justify-center px-4 py-6 md:py-32"
+  className="min-h-screen bg-cover bg-bottom bg-no-repeat bg-fixed flex flex-col md:flex-row items-start justify-center px-4 py-6 md:py-52"
   style={{ backgroundImage: "url('/background.png')" }}
 >
       {/* Image and Card Wrapper */}
@@ -48,7 +48,7 @@ export default function LandingPage() {
           alt="Carly Avatar"
           width={220}
           height={220}
-          className="absolute -top-32 -right-14 md:-top-52 md:-right-20 z-10 object-contain animate-fade-bounce-once"
+          className="absolute -top-24 -right-14 md:-top-32 md:-right-20 z-10 object-contain animate-fade-bounce-once"
           priority
         />
 
