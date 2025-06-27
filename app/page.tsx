@@ -43,7 +43,7 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       style={{ backgroundImage: "url('/background.png')" }}
     >
       {/* Carly Wave Image */}
-      <div className="flex justify-center md:justify-end md:mr-8 mb-6 md:mb-0">
+      {/*<div className="flex justify-center md:justify-end md:mr-8 mb-6 md:mb-0">
         <Image
           src="/avatar-6-26.png"
           alt="Carly Waving"
@@ -52,10 +52,18 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
           className="object-contain"
           priority
         />
-      </div>
+      </div>*/}
 
       {/* Form Card */}
-      <div className="w-full max-w-md bg-white/90 rounded-lg shadow-lg p-6 md:p-8 mt-6 md:mt-0">
+    <div className="relative w-full max-w-md bg-white/90 rounded-lg shadow-lg p-6 md:p-8 mt-6 md:mt-0">
+      <Image
+  src="/avatar-6-26.png"
+  alt="Carly Avatar"
+  width={80}
+  height={80}
+  className="absolute top-4 right-4 object-contain"
+  priority
+/>
         <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
           COMING SOON
         </h1>
