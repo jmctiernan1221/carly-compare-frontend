@@ -36,10 +36,10 @@ export default function LandingPage() {
   };
 
   return (
-    <main
-className="min-h-screen bg-cover md:bg-contain bg-bottom bg-no-repeat bg-fixed flex flex-col md:flex-row items-start justify-center px-4 py-6 md:py-32"
-      style={{ backgroundImage: "url('/background.png')" }}
-    >
+   <main
+  className="min-h-screen bg-cover bg-center md:bg-[length:100%_auto] bg-no-repeat bg-fixed flex flex-col md:flex-row items-start justify-center px-4 py-6 md:py-32"
+  style={{ backgroundImage: "url('/background.png')" }}
+>
       {/* Image and Card Wrapper */}
       <div className="relative w-full max-w-md">
         {/* Floating Avatar Image */}
