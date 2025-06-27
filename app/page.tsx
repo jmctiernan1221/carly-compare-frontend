@@ -66,7 +66,7 @@ export default function LandingPage() {
 
         {/* White Card with overlay background (desktop only) */}
         <div
-className="relative bg-white rounded-xl shadow-2xl p-6 md:p-20 pt-48 md:pt-28 mt-12 md:mt-24 md:-mt-12 flex flex-col justify-center overflow-hidden"
+className="relative bg-white rounded-xl shadow-2xl p-6 md:p-20 pt-28 md:pt-28 mt-12 md:mt-24 md:-mt-12 flex flex-col justify-center overflow-hidden"
           style={
             isDesktop
               ? {
