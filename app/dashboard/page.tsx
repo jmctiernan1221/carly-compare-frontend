@@ -9,7 +9,8 @@ export default function DashboardPage() {
   const handleLogin = () => {
     if (password === process.env.NEXT_PUBLIC_DASHBOARD) {
       setAuthorized(true);
-      window.location.href = 'https://carly-compare-backend.onrender.com/dashboard';
+      window.location.href = 'https://carly-compare-backend.onrender.com/dashboard?pass=' + password;
+
     } else {
       alert('Incorrect password');
     }
