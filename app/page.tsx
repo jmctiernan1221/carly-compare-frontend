@@ -51,14 +51,14 @@ export default function LandingPage() {
     >
       <div className="relative w-full max-w-3xl overflow-visible">
         {/* Avatar Image */}
-        <Image
-          src="/avatar-6-26.png"
-          alt="Carly Avatar"
-          width={220}
-          height={220}
-          className="absolute -top-24 -right-14 md:-top-32 md:-right-20 z-10 object-contain animate-fade-bounce-once"
-          priority
-        />
+      <Image
+  src="/avatar-6-26.png"
+  alt="Carly Avatar"
+  width={220}
+  height={220}
+  className="absolute -top-24 -right-14 md:top-10 md:right-8 z-10 object-contain animate-fade-bounce-once"
+  priority
+/>
 
         {/* White Card with desktop-only background and upward shift */}
         <div
