@@ -89,11 +89,13 @@ className="relative bg-white rounded-xl shadow-2xl p-6 md:p-20 pt-48 md:pt-28 mt
   <h1 className="hidden md:block text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
     COMING SOON
   </h1>
-
-  {/* 🔍 Paragraph inside card (visible on mobile & desktop) */}
-  <div className="mb-6 md:mb-8 px-3 bg-yellow-100 text-sm text-gray-800 text-center rounded">
-    Carly Compare helps you get the most cash for your car by comparing real-time offers from Carvana, KBB, and CarMax — all in one place. Fast. Transparent. Free.
-  </div>
+{/* P2 – New additional text above P1 */}
+<p className="text-sm text-gray-800 text-center mb-4 px-2">
+  Carly Compare takes the stress out of selling by putting top real-time offers from trusted buyers in one place — so you don’t have to do the searching yourself.
+</p>
+<p className="text-sm text-gray-700 text-center mb-6 md:mb-8 px-2">
+  Carly Compare helps you get the most cash for your car by comparing real-time offers from Carvana, KBB, and CarMax — all in one place. Fast. Transparent. Free.
+</p>
 
   {submitted && (
     <div className="bg-green-100 text-green-800 text-center p-3 mb-4 rounded shadow text-sm md:text-base">
