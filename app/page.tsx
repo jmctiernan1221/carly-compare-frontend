@@ -151,7 +151,7 @@ export default function LandingPage() {
               />
 
               {/* ✅ Checkbox */}
-              <label className="flex items-start gap-2 text-sm text-gray-700">
+<label className="flex items-start gap-2 text-sm text-gray-700 md:bg-white/70 md:backdrop-blur-sm md:p-3 md:rounded-md">
                 <input
                   type="checkbox"
                   checked={agreed}
