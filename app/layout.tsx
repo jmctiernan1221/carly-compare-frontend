@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Carly Compare",
   description: "Compare offers and sell your car fast",
+  icons: {
+    icon: "/favicon.ico", // or "/favicon.png" if using PNG
+  },
 };
 
 export default function RootLayout({
