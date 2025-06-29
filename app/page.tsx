@@ -68,9 +68,9 @@ export default function LandingPage() {
 
         {/* White Card */}
         <div
-          className={`relative rounded-xl shadow-2xl ${
-  submitted ? 'hidden md:flex' : 'bg-white/80 md:bg-white/80 flex'
-          } p-6 md:p-20 pt-20 md:pt-28 mt-12 md:mt-24 md:-mt-12 flex-col justify-center overflow-hidden`}
+        className={`relative rounded-xl shadow-2xl ${
+  submitted ? 'hidden md:flex' : 'bg-white/80 backdrop-blur-sm flex'
+} p-6 md:p-20 pt-20 md:pt-28 mt-12 md:mt-24 md:-mt-12 flex-col justify-center overflow-hidden`}
           style={
             isDesktop
               ? {
