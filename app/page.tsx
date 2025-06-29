@@ -92,26 +92,34 @@ export default function LandingPage() {
               COMING SOON
             </h1>
 
-            {/* P2 - Mobile wrap-around text */}
+            {/* P2 - Mobile wrap-around version */}
             <div className="flex md:hidden mb-4 px-2">
               <p className="text-sm text-gray-800 -mt-8 pr-2 max-w-[70%]">
                 Carly Compare takes the stress out of selling by putting top real-time offers from trusted buyers in one place — so you don’t have to do the searching yourself.
               </p>
             </div>
 
-            {/* P2 - Full version on desktop */}
+            {/* P2 - Full-width desktop version */}
             <p className="hidden md:block text-sm text-gray-800 text-center mb-4 px-2">
               Carly Compare takes the stress out of selling by putting top real-time offers from trusted buyers in one place — so you don’t have to do the searching yourself.
             </p>
 
-            {/* P1 - Always visible in card */}
+            {/* P1 - Shared on all screen sizes */}
             <p className="text-sm text-gray-700 text-center mb-6 md:mb-8 px-2">
               Carly Compare helps you get the most cash for your car by comparing real-time offers from Carvana, KBB, and CarMax — all in one place. Fast. Transparent. Free.
             </p>
 
+            {/* Thank-you message for desktop (inside card) */}
+            {submitted && (
+              <div className="hidden md:block bg-green-100 text-green-800 text-center p-3 mt-4 rounded shadow text-base">
+                ✅ Thank you! You’ve been added to the waitlist.
+              </div>
+            )}
+
+            {/* Form - hidden after submit */}
             <form
               onSubmit={handleSubmit}
-              className={`space-y-4 ${submitted ? 'hidden md:block' : ''}`}
+              className={`space-y-4 ${submitted ? 'hidden' : ''}`}
             >
               <input
                 type="text"
@@ -149,12 +157,12 @@ export default function LandingPage() {
           </div>
         </div>
 
-        {/* Green thank-you box visible on mobile when card is hidden */}
-      {submitted && (
-  <div className="bg-green-100 text-green-800 text-center p-3 mt-6 rounded shadow text-sm md:text-base">
-    ✅ Thank you! You’ve been added to the waitlist.
-  </div>
-)}
+        {/* Thank-you message for mobile (outside card) */}
+        {submitted && (
+          <div className="bg-green-100 text-green-800 text-center p-3 mt-6 rounded shadow text-sm md:hidden">
+            ✅ Thank you! You’ve been added to the waitlist.
+          </div>
+        )}
       </div>
     </main>
   );
