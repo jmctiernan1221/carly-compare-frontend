@@ -130,7 +130,7 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+className="w-full p-3 text-sm text-gray-900 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <input
                 type="email"
@@ -139,7 +139,7 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+className="w-full p-3 text-sm text-gray-900 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <input
                 type="text"
@@ -147,7 +147,7 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
                 placeholder="Car Make"
                 value={formData.make}
                 onChange={handleChange}
-                className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+className="w-full p-3 text-sm text-gray-900 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
 
               {/* ✅ Checkbox */}
