@@ -10,6 +10,7 @@ export default function LandingPage() {
     make: '',
   });
 
+  const [agreed, setAgreed] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
 
@@ -30,7 +31,7 @@ export default function LandingPage() {
       const response = await fetch('https://carly-compare-backend.onrender.com/api/waitlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, agreed }),
       });
 
       if (!response.ok) throw new Error('Failed to submit waitlist data');
@@ -38,6 +39,7 @@ export default function LandingPage() {
       await response.json();
       setSubmitted(true);
       setFormData({ name: '', email: '', make: '' });
+      setAgreed(false);
     } catch (error) {
       console.error('Error submitting form:', error);
     }
@@ -83,7 +85,7 @@ export default function LandingPage() {
         >
           {/* Overlay for desktop background tint */}
           {isDesktop && (
-            <div className="absolute inset-0 bg-white/20 backdrop-blur-sm rounded-xl z-0" />
+            <div className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-xl z-0" />
           )}
 
           <div className="relative z-10">
@@ -116,7 +118,7 @@ export default function LandingPage() {
               </div>
             )}
 
-            {/* Form - hidden after submit */}
+            {/* Form */}
             <form
               onSubmit={handleSubmit}
               className={`space-y-4 ${submitted ? 'hidden' : ''}`}
@@ -147,6 +149,21 @@ export default function LandingPage() {
                 onChange={handleChange}
                 className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
+
+              {/* ✅ Checkbox */}
+              <label className="flex items-start gap-2 text-sm text-gray-700">
+                <input
+                  type="checkbox"
+                  checked={agreed}
+                  onChange={(e) => setAgreed(e.target.checked)}
+                  required
+                  className="mt-1 h-4 w-4 text-blue-500 border-gray-300 rounded focus:ring-blue-500"
+                />
+                <span>
+                  I agree to receive an email from Carly Compare when it goes live.
+                </span>
+              </label>
+
               <button
                 type="submit"
                 className="w-full p-3 text-sm font-semibold text-white bg-orange-500 hover:bg-orange-600 rounded transition"
@@ -158,12 +175,11 @@ export default function LandingPage() {
         </div>
 
         {/* Thank-you message for mobile (outside card) */}
-      
-  {submitted && (
-  <div className="bg-green-100 text-green-800 text-center p-3 mt-24 rounded shadow text-sm z-20 relative md:hidden">
-    ✅ Thank you! You’ve been added to the waitlist.
-  </div>
-)}
+        {submitted && (
+          <div className="bg-green-100 text-green-800 text-center p-3 mt-24 rounded shadow text-sm z-20 relative md:hidden">
+            ✅ Thank you! You’ve been added to the waitlist.
+          </div>
+        )}
       </div>
     </main>
   );
