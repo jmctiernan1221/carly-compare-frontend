@@ -64,9 +64,11 @@ export default function LandingPage() {
           COMING SOON
         </h1>
 
-        {/* White Card with overlay background (desktop only) */}
+        {/* White Card */}
         <div
-className="relative bg-white/80 md:bg-white rounded-xl shadow-2xl p-6 md:p-20 pt-20 md:pt-28 mt-12 md:mt-24 md:-mt-12 flex flex-col justify-center overflow-hidden"
+          className={`relative rounded-xl shadow-2xl ${
+            submitted ? 'hidden md:flex' : 'bg-white/80 md:bg-white flex'
+          } p-6 md:p-20 pt-20 md:pt-28 mt-12 md:mt-24 md:-mt-12 flex-col justify-center overflow-hidden`}
           style={
             isDesktop
               ? {
@@ -84,71 +86,75 @@ className="relative bg-white/80 md:bg-white rounded-xl shadow-2xl p-6 md:p-20 pt
             <div className="absolute inset-0 bg-white/70 backdrop-blur-sm rounded-xl z-0" />
           )}
 
-<div className="relative z-10">
-  {/* Desktop-only heading */}
-  <h1 className="hidden md:block text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
-    COMING SOON
-  </h1>
-{/* ✅ P2: Wrap text around avatar on mobile */}
-<div className="flex md:hidden mb-4 px-2">
-<p className="text-sm text-gray-800 mb-4 px-4 md:px-2 md:text-center float-right md:float-none max-w-[70%] md:max-w-full -mt-8 md:mt-0 clear-both">
-  Carly Compare takes the stress out of selling by putting top real-time offers from trusted buyers in one place — so you don’t have to do the searching yourself.
-</p>
-</div>
+          <div className="relative z-10">
+            {/* Desktop-only heading */}
+            <h1 className="hidden md:block text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
+              COMING SOON
+            </h1>
 
-{/* ✅ P2: Full-width version on desktop */}
-<p className="hidden md:block text-sm text-gray-800 text-center mb-4 px-2">
-  Carly Compare takes the stress out of selling by putting top real-time offers from trusted buyers in one place — so you don’t have to do the searching yourself.
-</p>
-<p className="text-sm text-gray-700 text-center mb-6 md:mb-8 px-2">
-  Carly Compare helps you get the most cash for your car by comparing real-time offers from Carvana, KBB, and CarMax — all in one place. Fast. Transparent. Free.
-</p>
+            {/* P2 - Mobile wrap-around text */}
+            <div className="flex md:hidden mb-4 px-2">
+              <p className="text-sm text-gray-800 -mt-8 pr-2 max-w-[70%]">
+                Carly Compare takes the stress out of selling by putting top real-time offers from trusted buyers in one place — so you don’t have to do the searching yourself.
+              </p>
+            </div>
 
-  {submitted && (
-    <div className="bg-green-100 text-green-800 text-center p-3 mb-4 rounded shadow text-sm md:text-base">
-      ✅ Thank you! You’ve been added to the waitlist.
-    </div>
-  )}
+            {/* P2 - Full version on desktop */}
+            <p className="hidden md:block text-sm text-gray-800 text-center mb-4 px-2">
+              Carly Compare takes the stress out of selling by putting top real-time offers from trusted buyers in one place — so you don’t have to do the searching yourself.
+            </p>
 
- <form
-  onSubmit={handleSubmit}
-  className={`space-y-4 ${submitted ? 'hidden md:block' : ''}`}
->
-    <input
-      type="text"
-      name="name"
-      placeholder="Name"
-      value={formData.name}
-      onChange={handleChange}
-      required
-      className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-    />
-    <input
-      type="email"
-      name="email"
-      placeholder="Email"
-      value={formData.email}
-      onChange={handleChange}
-      required
-      className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-    />
-    <input
-      type="text"
-      name="make"
-      placeholder="Car Make"
-      value={formData.make}
-      onChange={handleChange}
-      className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-    />
-    <button
-      type="submit"
-      className="w-full p-3 text-sm font-semibold text-white bg-orange-500 hover:bg-orange-600 rounded transition"
-    >
-      Submit to get discounts when we launch
-    </button>
-  </form>
-</div>
+            {/* P1 - Always visible in card */}
+            <p className="text-sm text-gray-700 text-center mb-6 md:mb-8 px-2">
+              Carly Compare helps you get the most cash for your car by comparing real-time offers from Carvana, KBB, and CarMax — all in one place. Fast. Transparent. Free.
+            </p>
+
+            <form
+              onSubmit={handleSubmit}
+              className={`space-y-4 ${submitted ? 'hidden md:block' : ''}`}
+            >
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <input
+                type="text"
+                name="make"
+                placeholder="Car Make"
+                value={formData.make}
+                onChange={handleChange}
+                className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <button
+                type="submit"
+                className="w-full p-3 text-sm font-semibold text-white bg-orange-500 hover:bg-orange-600 rounded transition"
+              >
+                Submit to get discounts when we launch
+              </button>
+            </form>
+          </div>
         </div>
+
+        {/* Green thank-you box visible on mobile when card is hidden */}
+        {submitted && (
+          <div className="bg-green-100 text-green-800 text-center p-3 mt-6 rounded shadow text-sm md:hidden">
+            ✅ Thank you! You’ve been added to the waitlist.
+          </div>
+        )}
       </div>
     </main>
   );
