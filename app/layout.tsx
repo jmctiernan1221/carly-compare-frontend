@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "Carly Compare",
   description: "Compare offers and sell your car fast",
   icons: {
-    icon: "/avatar-6-26icon.png", // or "/favicon.png" if using PNG
+    icon: "/favicon.ico", // or "/favicon.png" if using PNG
   },
 };
 
