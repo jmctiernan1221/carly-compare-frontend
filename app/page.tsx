@@ -150,11 +150,11 @@ export default function LandingPage() {
         </div>
 
         {/* Green thank-you box visible on mobile when card is hidden */}
-        {submitted && (
-          <div className="bg-green-100 text-green-800 text-center p-3 mt-6 rounded shadow text-sm md:hidden">
-            ✅ Thank you! You’ve been added to the waitlist.
-          </div>
-        )}
+      {submitted && (
+  <div className="bg-green-100 text-green-800 text-center p-3 mt-6 rounded shadow text-sm md:text-base">
+    ✅ Thank you! You’ve been added to the waitlist.
+  </div>
+)}
       </div>
     </main>
   );
