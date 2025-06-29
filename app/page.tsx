@@ -83,7 +83,7 @@ export default function LandingPage() {
         >
           {/* Overlay for desktop background tint */}
           {isDesktop && (
-            <div className="absolute inset-0 bg-white/70 backdrop-blur-sm rounded-xl z-0" />
+            <div className="absolute inset-0 bg-white/40 backdrop-blur-sm rounded-xl z-0" />
           )}
 
           <div className="relative z-10">
@@ -158,11 +158,11 @@ export default function LandingPage() {
         </div>
 
         {/* Thank-you message for mobile (outside card) */}
-        {submitted && (
-          <div className="bg-green-100 text-green-800 text-center p-3 mt-6 rounded shadow text-sm md:hidden">
-            ✅ Thank you! You’ve been added to the waitlist.
-          </div>
-        )}
+       {submitted && (
+  <div className="bg-green-100 text-green-800 text-center p-3 mt-24 rounded shadow text-sm md:hidden">
+    ✅ Thank you! You’ve been added to the waitlist.
+  </div>
+)}
       </div>
     </main>
   );
