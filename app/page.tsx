@@ -101,10 +101,9 @@ className="absolute z-10 object-contain animate-fade-bounce-once -top-20 -right-
               </p>
             </div>
 
-            {/* P2 - Full-width desktop version */}
-           {/* P2 - Flex layout on desktop like mobile */}
-<div className="hidden md:flex mb-4 px-2">
-  <p className="text-sm text-gray-800 pr-4 max-w-[70%]">
+         {/* Desktop version of paragraph that wraps around avatar */}
+<div className="hidden md:flex px-2 -mt-4">
+  <p className="text-sm text-gray-800 pr-6 max-w-[65%]">
     Carly Compare takes the stress out of selling by putting top real-time offers from trusted buyers in one place — so you don’t have to do the searching yourself.
   </p>
 </div>
