@@ -70,7 +70,7 @@ className="absolute z-10 object-contain animate-fade-bounce-once -top-20 -right-
         <div
         className={`relative rounded-xl shadow-2xl bg-white/80 backdrop-blur-sm ${
   submitted ? 'hidden md:flex' : 'flex'
-} p-6 md:p-20 pt-20 md:pt-28 mt-12 md:mt-24 md:-mt-12 flex-col justify-center overflow-hidden`}
+} p-6 md:p-20 pt-20 md:pt-12 mt-12 md:mt-24 md:-mt-12 flex-col justify-center overflow-hidden`}
           style={
             isDesktop
               ? {
