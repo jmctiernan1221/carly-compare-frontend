@@ -57,7 +57,7 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
           alt="Carly Avatar"
           width={220}
           height={220}
-className="absolute z-10 object-contain animate-fade-bounce-once -top-20 -right-6 md:-top-2 md:-right-6"
+className="absolute z-10 object-contain animate-fade-bounce-once -top-20 -right-6 md:-top-0 md:-right-6"
           priority
         />
 
@@ -102,9 +102,12 @@ className="absolute z-10 object-contain animate-fade-bounce-once -top-20 -right-
             </div>
 
             {/* P2 - Full-width desktop version */}
-            <p className="hidden md:block text-sm text-gray-800 text-center mb-4 px-2">
-              Carly Compare takes the stress out of selling by putting top real-time offers from trusted buyers in one place — so you don’t have to do the searching yourself.
-            </p>
+           {/* P2 - Flex layout on desktop like mobile */}
+<div className="hidden md:flex mb-4 px-2">
+  <p className="text-sm text-gray-800 pr-4 max-w-[70%]">
+    Carly Compare takes the stress out of selling by putting top real-time offers from trusted buyers in one place — so you don’t have to do the searching yourself.
+  </p>
+</div>
 
             {/* P1 - Shared on all screen sizes */}
             <p className="text-sm text-gray-700 text-center mb-6 md:mb-8 px-2">
