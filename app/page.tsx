@@ -88,30 +88,30 @@ className="absolute z-10 object-contain animate-fade-bounce-once -top-20 -right-
             <div className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-xl z-0" />
           )}*/}
 
-          <div className="relative z-10">
-            {/* Desktop-only heading */}
-            <h1 className="hidden md:block text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
-              COMING SOON
-            </h1>
+        <div className="relative z-10">
+  {/* Desktop-only heading */}
+  <h1 className="hidden md:block text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+    COMING SOON
+  </h1>
 
-            {/* P2 - Mobile wrap-around version */}
-            <div className="flex md:hidden mb-4 px-2">
-              <p className="text-sm text-gray-800 -mt-8 pr-2 max-w-[70%]">
-                Carly Compare takes the stress out of selling by putting top real-time offers from trusted buyers in one place — so you don’t have to do the searching yourself.
-              </p>
-            </div>
+  {/* P2 - Mobile wrap-around version */}
+  <div className="flex md:hidden mb-4 px-2">
+    <p className="text-sm text-gray-800 -mt-8 pr-2 max-w-[70%]">
+      Carly Compare takes the stress out of selling by putting top real-time offers from trusted buyers in one place — so you don’t have to do the searching yourself.
+    </p>
+  </div>
 
-         {/* Desktop version of paragraph that wraps around avatar */}
-<div className="hidden md:flex px-2 -mt-4">
-  <p className="text-sm text-gray-800 pr-6 max-w-[65%]">
-    Carly Compare takes the stress out of selling by putting top real-time offers from trusted buyers in one place — so you don’t have to do the searching yourself.
+  {/* ✅ Desktop wrap-around version of paragraph */}
+  <div className="hidden md:flex px-2 -mt-2 mb-4">
+    <p className="text-sm text-gray-800 pr-6 max-w-[65%] leading-relaxed">
+      Carly Compare takes the stress out of selling by putting top real-time offers from trusted buyers in one place — so you don’t have to do the searching yourself.
+    </p>
+  </div>
+
+  {/* ✅ P1 - Visible on all screen sizes with consistent spacing */}
+  <p className="text-sm text-gray-700 text-center md:text-left mb-6 md:mb-8 px-2 leading-relaxed max-w-[75%] md:max-w-[75%]">
+    Carly Compare helps you get the most cash for your car by comparing real-time offers from Carvana, KBB, and CarMax — all in one place. Fast. Transparent. Free.
   </p>
-</div>
-
-            {/* P1 - Shared on all screen sizes */}
-            <p className="text-sm text-gray-700 text-center mb-6 md:mb-8 px-2">
-              Carly Compare helps you get the most cash for your car by comparing real-time offers from Carvana, KBB, and CarMax — all in one place. Fast. Transparent. Free.
-            </p>
 
             {/* Thank-you message for desktop (inside card) */}
             {submitted && (
