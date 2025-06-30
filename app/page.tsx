@@ -109,7 +109,7 @@ className="absolute z-10 object-contain animate-fade-bounce-once -top-20 -right-
   </div>
 
   {/* ✅ P1 - Visible on all screen sizes with consistent spacing */}
-  <p className="text-sm text-gray-700 text-center md:text-left mb-6 md:mb-8 px-2 leading-relaxed max-w-[75%] md:max-w-[75%]">
+     <p className="text-sm text-gray-700 text-center mb-6 md:mb-8 px-2">
     Carly Compare helps you get the most cash for your car by comparing real-time offers from Carvana, KBB, and CarMax — all in one place. Fast. Transparent. Free.
   </p>
 
