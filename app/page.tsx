@@ -88,9 +88,9 @@ className="absolute z-10 object-contain animate-fade-bounce-once -top-20 -right-
             <div className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-xl z-0" />
           )}*/}
 
-        <div className="relative z-10">
+  <div className="relative z-10">
   {/* Desktop-only heading */}
-  <h1 className="hidden md:block text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+  <h1 className="hidden md:block text-3xl md:text-4xl font-bold text-center text-gray-900 mb-2">
     COMING SOON
   </h1>
 
@@ -101,12 +101,10 @@ className="absolute z-10 object-contain animate-fade-bounce-once -top-20 -right-
     </p>
   </div>
 
-  {/* ✅ Desktop wrap-around version of paragraph */}
-  <div className="hidden md:flex px-2 -mt-2 mb-4">
-    <p className="text-sm text-gray-800 pr-6 max-w-[65%] leading-relaxed">
-      Carly Compare takes the stress out of selling by putting top real-time offers from trusted buyers in one place — so you don’t have to do the searching yourself.
-    </p>
-  </div>
+  {/* ✅ Updated Desktop version - centered, closer to avatar */}
+  <p className="hidden md:block text-sm text-gray-800 text-center mb-4 px-2 max-w-[80%] mx-auto leading-relaxed">
+    Carly Compare takes the stress out of selling by putting top real-time offers from trusted buyers in one place — so you don’t have to do the searching yourself.
+  </p>
 
   {/* ✅ P1 - Visible on all screen sizes with consistent spacing */}
      <p className="text-sm text-gray-700 text-center mb-6 md:mb-8 px-2">
