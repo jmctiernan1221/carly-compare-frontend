@@ -57,7 +57,7 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
           alt="Carly Avatar"
           width={220}
           height={220}
-className="absolute z-10 object-contain animate-fade-bounce-once -top-20 -right-6 md:-top-8 md:-right-6"
+className="absolute z-10 object-contain animate-fade-bounce-once -top-20 -right-6 md:-top-12 md:-right-6"
           priority
         />
 
