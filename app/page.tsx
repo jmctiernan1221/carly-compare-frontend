@@ -47,7 +47,7 @@ export default function LandingPage() {
 
   return (
     <main
-className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repeat bg-fixed flex flex-col md:flex-row items-start justify-center px-4 pt-2 pb-6 md:pt-4 md:pb-24"
+className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repeat bg-fixed flex flex-col md:flex-row items-start justify-center px-4 pt-0 pb-6 md:pt-4 md:pb-24"
       style={!isDesktop ? { backgroundImage: "url('/background.png')" } : {}}
     >
       <div className="relative w-full max-w-3xl overflow-visible">
