@@ -95,11 +95,14 @@ className="absolute z-10 object-contain animate-fade-bounce-once -top-20 -right-
   </h1>
 
   {/* P2 - Mobile wrap-around version */}
-  <div className="flex md:hidden mb-4 px-2">
-    <p className="text-sm text-gray-800 -mt-8 pr-2 max-w-[70%]">
-    CarlyCompare.com is your personal guide to making smarter, faster car-selling decisions. Instead of visiting multiple websites and repeating the same information, CarlyCompare helps you explore and compare real-time cash offers from top car-buying services, all in one place. We save you time and give you confidence by helping you understand what your vehicle is worth.
-    </p>
-  </div>
+<div className="md:hidden mb-4 px-4">
+  <p className="text-sm text-gray-800 -mt-8 pr-2 max-w-[70%]">
+    CarlyCompare.com is your personal guide to making smarter, faster car-selling decisions. Instead of visiting multiple websites and repeating the same information, CarlyCompare helps you explore and compare real-time cash offers from top car-buying services, all in one place.
+  </p>
+  <p className="text-sm text-gray-800 pr-2 mt-2">
+    We save you time and give you confidence by helping you understand what your vehicle is worth.
+  </p>
+</div>
 
   {/* ✅ Updated Desktop version - centered, closer to avatar */}
   <p className="hidden md:block text-sm text-gray-800 text-center mb-4 px-2 max-w-[80%] mx-auto leading-relaxed">
