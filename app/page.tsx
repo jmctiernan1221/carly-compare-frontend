@@ -144,8 +144,8 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
 
             {/* Thank-you message for desktop (inside card) */}
             {submitted && (
-              <div className="hidden md:block bg-green-100 text-green-800 text-center p-3 mt-4 rounded shadow text-base">
-                ✅ Thank you! You’ve been added to the waitlist.
+              <div className="hidden md:block bg-orange-500 text-gray-800 text-center p-3 mt-4 rounded shadow text-base">
+                Thank you! You’ve been added to the waitlist.
               </div>
             )}
 
@@ -208,8 +208,8 @@ className="w-full p-2.5 text-base text-gray-800 bg-white/60 border border-gray-3
 
         {/* Thank-you message for mobile (outside card) */}
         {submitted && (
-          <div className="bg-green-100 text-green-800 text-center p-3 mt-24 rounded shadow text-sm z-20 relative md:hidden">
-            ✅ Thank you! You’ve been added to the waitlist.
+          <div className="bg-orange-100 text-gray-800 text-center p-3 mt-24 rounded shadow text-sm z-20 relative md:hidden">
+            Thank you! You’ve been added to the waitlist.
           </div>
         )}
       </div>
