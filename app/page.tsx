@@ -53,18 +53,23 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
     >
       <div className="relative w-full max-w-3xl overflow-visible">
         {/* Avatar Image */}
-      <Image
-  src="/avatar-6-26.png"
-  alt="Carly Avatar"
-  width={220}
-  height={220}
-  className="absolute z-10 object-contain animate-fade-bounce-once top 6 -right-10 md:top-0 md:-right-6"
-  priority
-/>
+
+        {(!submitted || isDesktop) && (
+  <Image
+    src="/avatar-6-26.png"
+    alt="Carly Avatar"
+    width={220}
+    height={220}
+    className="absolute z-10 object-contain animate-fade-bounce-once top 6 -right-10 md:top-0 md:-right-6"
+    priority
+  />
+)}
         {/* Mobile-only heading above card */}
-        <h1 className="text-2xl font-bold text-gray-900 mb-0 text-center mt-0 md:hidden">
-  COMING SOON
-</h1>
+      {!submitted && (
+  <h1 className="text-2xl font-bold text-gray-900 mb-0 text-center mt-0 md:hidden">
+    COMING SOON
+  </h1>
+)}
 
         {/* White Card */}
         <div
