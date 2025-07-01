@@ -64,12 +64,12 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
     priority
   />
 )}
-        {/* Mobile-only heading above card */}
+        {/* Mobile-only heading above card 
       {!submitted && (
   <h1 className="text-2xl font-bold text-gray-900 mb-0 text-center mt-0 md:hidden">
     COMING SOON
   </h1>
-)}
+)} */}
 
         {/* White Card */}
         <div
@@ -192,7 +192,7 @@ className="w-full p-2.5 text-base text-gray-800 bg-white/60 border border-gray-3
                   className="mt-1 h-4 w-4 text-blue-500 border-gray-300 rounded focus:ring-blue-500"
                 />
                 <span>
-                  I agree to receive an email from Carly Compare when it goes live.
+                  I agree to receive an email from Carly Compare when it goes live. 
                 </span>
               </label>
 
@@ -208,7 +208,7 @@ className="w-full p-2.5 text-base text-gray-800 bg-white/60 border border-gray-3
 
         {/* Thank-you message for mobile (outside card) */}
         {submitted && (
-          <div className="bg-orange-100 text-gray-800 text-center p-3 mt-24 rounded shadow text-sm z-20 relative md:hidden">
+          <div className="bg-orange-500 text-gray-800 text-center p-3 mt-24 rounded shadow text-sm z-20 relative md:hidden">
             Thank you! You’ve been added to the waitlist.
           </div>
         )}
