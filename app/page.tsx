@@ -121,7 +121,7 @@ className="absolute z-10 object-contain animate-fade-bounce-once -top-20 -right-
             {/* Form */}
             <form
               onSubmit={handleSubmit}
-              className={space-y-4 ${submitted ? 'hidden' : ''}}
+              className={`space-y-4 ${submitted ? 'hidden' : ''}`}
             >
               <input
                 type="text"
