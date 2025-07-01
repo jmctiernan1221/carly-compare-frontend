@@ -47,7 +47,7 @@ export default function LandingPage() {
 
   return (
     <main
-className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repeat bg-fixed flex flex-col md:flex-row items-start justify-center px-4 pt-2 pb-2 md:pt-4 md:pb-24"
+className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repeat bg-fixed flex flex-col md:flex-row items-start justify-center px-4 pt-0 pb-2 md:pt-4 md:pb-24"
       style={!isDesktop ? { backgroundImage: "url('/background.png')" } : {}}
     >
       <div className="relative w-full max-w-3xl overflow-visible">
@@ -61,7 +61,7 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
   priority
 />
         {/* Mobile-only heading above card */}
-        <h1 className="text-2xl font-bold text-gray-900 mb-2 text-center mt-2 md:hidden">
+        <h1 className="text-2xl font-bold text-gray-900 mb-0 text-center mt-0 md:hidden">
   COMING SOON
 </h1>
 
