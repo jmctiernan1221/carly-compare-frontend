@@ -136,7 +136,7 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
   <button
     type="button"
     onClick={() => setShowMore(!showMore)}
-    className="mt-2 text-blue-600 hover:underline text-sm font-medium"
+    className="mt-2 text-orange-500 hover:underline text-sm font-medium"
   >
     {showMore ? 'Show Less' : 'Read More'}
   </button>
@@ -161,7 +161,7 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
                 value={formData.name}
                 onChange={handleChange}
                 required
-className="w-full p-2.5 text-base text-gray-900 bg-white/20 border border-gray-300 rounded placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+className="w-full p-2.5 text-base text-gray-900 bg-white/30 border border-gray-300 rounded placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <input
                 type="email"
@@ -170,7 +170,7 @@ className="w-full p-2.5 text-base text-gray-900 bg-white/20 border border-gray-3
                 value={formData.email}
                 onChange={handleChange}
                 required
-className="w-full p-2.5 text-base text-gray-900 bg-white/20 border border-gray-300 rounded placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+className="w-full p-2.5 text-base text-gray-900 bg-white/30 border border-gray-300 rounded placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <input
                 type="text"
@@ -178,11 +178,11 @@ className="w-full p-2.5 text-base text-gray-900 bg-white/20 border border-gray-3
                 placeholder="Car Make"
                 value={formData.make}
                 onChange={handleChange}
-className="w-full p-2.5 text-base text-gray-900 bg-white/20 border border-gray-300 rounded placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+className="w-full p-2.5 text-base text-gray-900 bg-white/30 border border-gray-300 rounded placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
 
               {/* ✅ Checkbox */}
-<label className="flex items-start gap-2 text-sm text-gray-700 bg-white/70 backdrop-blur-sm p-3 rounded-md md:bg-white/70 md:backdrop-blur-sm">
+<label className="flex items-start gap-2 text-sm text-gray-700 bg-white/30 backdrop-blur-sm p-3 rounded-md md:bg-white/70 md:backdrop-blur-sm">
 
                 <input
                   type="checkbox"
