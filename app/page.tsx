@@ -110,7 +110,7 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
 </div>
 
   {/* ✅ Updated Desktop version - centered, closer to avatar */}
-  <p className="hidden md:block text-sm text-gray-800 text-center mb-4 px-2 max-w-[80%] mx-auto leading-relaxed">
+  <p className="hidden md:block text-sm text-gray-800 mb-4 px-2 max-w-[80%] mx-auto leading-relaxed">
     CarlyCompare.com is your personal guide to making smarter, faster car-selling decisions. Instead of visiting multiple websites and repeating the same information, CarlyCompare helps you explore and compare real-time cash offers from top car-buying services, all in one place. We save you time and give you confidence by helping you understand what your vehicle is worth.
   </p>
 
