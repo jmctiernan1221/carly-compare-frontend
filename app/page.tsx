@@ -47,36 +47,30 @@ export default function LandingPage() {
 
   return (
     <main
-      className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repeat bg-fixed flex flex-col md:flex-row items-start justify-center px-4 pt-6 pb-6 md:pt-4 md:pb-24"
+className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repeat bg-fixed flex flex-col md:flex-row items-start justify-center px-4 pt-6 pb-6 md:pt-4 md:pb-24"
       style={!isDesktop ? { backgroundImage: "url('/background.png')" } : {}}
     >
       <div className="relative w-full max-w-3xl overflow-visible">
+        {/* Avatar Image */}
+        <Image
+          src="/avatar-6-26.png"
+          alt="Carly Avatar"
+          width={220}
+          height={220}
+className="absolute z-10 object-contain animate-fade-bounce-once -top-20 -right-6 md:-top-0 md:-right-6"
+          priority
+        />
 
         {/* Mobile-only heading above card */}
-        <h1 className="text-2xl font-bold text-gray-900 mb-2 text-center mt-2 md:hidden">
+        <h1 className="text-2xl font-bold text-gray-900 mb-2 pl-4 md:hidden">
           COMING SOON
         </h1>
 
-        {/* P2 - Mobile wrap-around version */}
-        <div className="md:hidden mb-4 px-4 after:clear-both after:block">
-          <p className="text-sm text-gray-800 leading-relaxed text-left">
-            <Image
-              src="/avatar-6-26.png"
-              alt="Carly Avatar"
-              width={120}
-              height={120}
-              className="float-right ml-4 mb-2"
-              priority
-            />
-            CarlyCompare.com is your personal guide to making smarter, faster car-selling decisions. Instead of visiting multiple websites and repeating the same information, CarlyCompare helps you explore and compare real-time cash offers from top car-buying services, all in one place. We save you time and give you confidence by helping you understand what your vehicle is worth.
-          </p>
-        </div>
-
         {/* White Card */}
         <div
-          className={`relative rounded-xl shadow-2xl bg-white/80 backdrop-blur-sm ${
-            submitted ? 'hidden md:flex' : 'flex'
-          } p-6 md:p-20 pt-6 md:pt-2 mt-6 md:mt-24 md:-mt-12 flex-col justify-center overflow-hidden`}
+        className={relative rounded-xl shadow-2xl bg-white/80 backdrop-blur-sm ${
+  submitted ? 'hidden md:flex' : 'flex'
+} p-6 md:p-20 pt-20 md:pt-2 mt-12 md:mt-24 md:-mt-12 flex-col justify-center overflow-hidden}
           style={
             isDesktop
               ? {
@@ -89,31 +83,33 @@ export default function LandingPage() {
               : {}
           }
         >
-          <div className="relative z-10">
-            {/* Desktop-only avatar */}
-            <Image
-              src="/avatar-6-26.png"
-              alt="Carly Avatar"
-              width={220}
-              height={220}
-              className="hidden md:block absolute z-10 object-contain animate-fade-bounce-once -top-0 -right-6"
-              priority
-            />
+          {/* Overlay for desktop background tint */}
+          {/*{isDesktop && (
+            <div className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-xl z-0" />
+          )}*/}
 
-            {/* Desktop-only heading */}
-            <h1 className="hidden md:block text-3xl md:text-4xl font-bold text-center text-gray-900 mb-2">
-              COMING SOON
-            </h1>
+  <div className="relative z-10">
+  {/* Desktop-only heading */}
+  <h1 className="hidden md:block text-3xl md:text-4xl font-bold text-center text-gray-900 mb-2">
+    COMING SOON
+  </h1>
 
-            {/* Desktop-only paragraph */}
-            <p className="hidden md:block text-sm text-gray-800 text-center mb-4 px-2 max-w-[80%] mx-auto leading-relaxed">
-              CarlyCompare.com is your personal guide to making smarter, faster car-selling decisions. Instead of visiting multiple websites and repeating the same information, CarlyCompare helps you explore and compare real-time cash offers from top car-buying services, all in one place. We save you time and give you confidence by helping you understand what your vehicle is worth.
-            </p>
+  {/* P2 - Mobile wrap-around version */}
+  <div className="flex md:hidden mb-4 px-2">
+    <p className="text-sm text-gray-800 -mt-8 pr-2 max-w-[70%]">
+    CarlyCompare.com is your personal guide to making smarter, faster car-selling decisions. Instead of visiting multiple websites and repeating the same information, CarlyCompare helps you explore and compare real-time cash offers from top car-buying services, all in one place. We save you time and give you confidence by helping you understand what your vehicle is worth.
+    </p>
+  </div>
 
-            {/* Universal call-to-action blurb */}
-            <p className="text-sm text-gray-700 text-center mb-6 md:mb-8 px-2">
-              Carly Compare helps you get the most cash for your car by comparing real-time offers from Carvana, KBB, and CarMax — all in one place. Fast. Transparent. Free.
-            </p>
+  {/* ✅ Updated Desktop version - centered, closer to avatar */}
+  <p className="hidden md:block text-sm text-gray-800 text-center mb-4 px-2 max-w-[80%] mx-auto leading-relaxed">
+    CarlyCompare.com is your personal guide to making smarter, faster car-selling decisions. Instead of visiting multiple websites and repeating the same information, CarlyCompare helps you explore and compare real-time cash offers from top car-buying services, all in one place. We save you time and give you confidence by helping you understand what your vehicle is worth.
+  </p>
+
+  {/* ✅ P1 - Visible on all screen sizes with consistent spacing */}
+     <p className="text-sm text-gray-700 text-center mb-6 md:mb-8 px-2">
+    Carly Compare helps you get the most cash for your car by comparing real-time offers from Carvana, KBB, and CarMax — all in one place. Fast. Transparent. Free.
+  </p>
 
             {/* Thank-you message for desktop (inside card) */}
             {submitted && (
@@ -125,7 +121,7 @@ export default function LandingPage() {
             {/* Form */}
             <form
               onSubmit={handleSubmit}
-              className={`space-y-4 ${submitted ? 'hidden' : ''}`}
+              className={space-y-4 ${submitted ? 'hidden' : ''}}
             >
               <input
                 type="text"
@@ -134,7 +130,7 @@ export default function LandingPage() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full p-2.5 text-base text-gray-900 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+className="w-full p-2.5 text-base text-gray-900 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <input
                 type="email"
@@ -143,7 +139,7 @@ export default function LandingPage() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full p-2.5 text-base text-gray-900 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+className="w-full p-2.5 text-base text-gray-900 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <input
                 type="text"
@@ -151,10 +147,11 @@ export default function LandingPage() {
                 placeholder="Car Make"
                 value={formData.make}
                 onChange={handleChange}
-                className="w-full p-2.5 text-base text-gray-900 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+className="w-full p-2.5 text-base text-gray-900 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
 
-              <label className="flex items-start gap-2 text-sm text-gray-700 md:bg-white/70 md:backdrop-blur-sm md:p-3 md:rounded-md">
+              {/* ✅ Checkbox */}
+<label className="flex items-start gap-2 text-sm text-gray-700 md:bg-white/70 md:backdrop-blur-sm md:p-3 md:rounded-md">
                 <input
                   type="checkbox"
                   checked={agreed}
