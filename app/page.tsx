@@ -95,7 +95,7 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
 
   {/* P2 - Mobile wrap-around version */}
 <div className="md:hidden mb-4 px-4">
-  <p className="text-sm text-gray-800 -mt-8 pr-2 max-w-[70%]">
+  <p className="text-sm text-gray-800 -mt-8 pr-2 max-w-[70%] bg-white/70 backdrop-blur-sm rounded">
     CarlyCompare.com is your personal guide to making smarter, faster car-selling decisions. Instead of visiting multiple websites and repeating the same information, CarlyCompare helps you explore and compare real-time cash offers from top car-buying services, all in one place.
   </p>
   <p className="text-sm text-gray-800 pr-2 mt-2">
