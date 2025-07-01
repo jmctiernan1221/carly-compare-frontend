@@ -13,6 +13,7 @@ export default function LandingPage() {
   const [agreed, setAgreed] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [showMore, setShowMore] = useState(false); 
 
   useEffect(() => {
     const checkScreen = () => setIsDesktop(window.innerWidth >= 768);
@@ -108,10 +109,33 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
     CarlyCompare.com is your personal guide to making smarter, faster car-selling decisions. Instead of visiting multiple websites and repeating the same information, CarlyCompare helps you explore and compare real-time cash offers from top car-buying services, all in one place. We save you time and give you confidence by helping you understand what your vehicle is worth.
   </p>
 
-  {/* ✅ P1 - Visible on all screen sizes with consistent spacing */}
-     <p className="text-sm text-gray-700 text-center mb-6 md:mb-8 px-2">
-    Carly Compare helps you get the most cash for your car by comparing real-time offers from Carvana, KBB, and CarMax — all in one place. Fast. Transparent. Free.
+ <div className="text-sm text-gray-700 mb-6 md:mb-8 px-4">
+  <p className="font-semibold mb-2 text-center md:text-left">
+    When we launch, you’ll be able to get:
   </p>
+
+  <ul className="list-disc pl-5 space-y-1">
+    <li>Side-by-side cash offer comparisons from major car buyers</li>
+    <li>A personalized estimate of your car’s value</li>
+
+    {showMore && (
+      <>
+        <li>Analysis of resale trends for your vehicle type</li>
+        <li>Insights on the best time to sell based on market data</li>
+        <li>Detailed reporting you can download or share</li>
+        <li>Tips to prepare your car for sale and maximize your offer</li>
+      </>
+    )}
+  </ul>
+
+  <button
+    type="button"
+    onClick={() => setShowMore(!showMore)}
+    className="mt-2 text-blue-600 hover:underline text-sm font-medium"
+  >
+    {showMore ? 'Show Less' : 'Read More'}
+  </button>
+</div>
 
             {/* Thank-you message for desktop (inside card) */}
             {submitted && (
