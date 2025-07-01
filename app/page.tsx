@@ -182,7 +182,8 @@ className="w-full p-2.5 text-base text-gray-900 border border-gray-300 rounded f
               />
 
               {/* ✅ Checkbox */}
-<label className="flex items-start gap-2 text-sm text-gray-700 md:bg-white/70 md:backdrop-blur-sm md:p-3 md:rounded-md">
+<label className="flex items-start gap-2 text-sm text-gray-700 bg-white/70 backdrop-blur-sm p-3 rounded-md md:bg-white/70 md:backdrop-blur-sm">
+
                 <input
                   type="checkbox"
                   checked={agreed}
