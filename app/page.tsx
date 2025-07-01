@@ -47,7 +47,7 @@ export default function LandingPage() {
 
   return (
     <main
-className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repeat bg-fixed flex flex-col md:flex-row items-start justify-center px-4 pt-6 pb-6 md:pt-4 md:pb-24"
+className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repeat bg-fixed flex flex-col md:flex-row items-start justify-center px-4 pt-2 pb-2 md:pt-4 md:pb-24"
       style={!isDesktop ? { backgroundImage: "url('/background.png')" } : {}}
     >
       <div className="relative w-full max-w-3xl overflow-visible">
@@ -61,9 +61,9 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
   priority
 />
         {/* Mobile-only heading above card */}
-        <h1 className="text-2xl font-bold text-gray-900 mb-2 pl-4 md:hidden">
-          COMING SOON
-        </h1>
+        <h1 className="text-2xl font-bold text-gray-900 mb-2 text-center mt-2 md:hidden">
+  COMING SOON
+</h1>
 
         {/* White Card */}
         <div
@@ -95,7 +95,7 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
 
   {/* P2 - Mobile wrap-around version */}
 <div className="md:hidden mb-4 px-4 relative z-20">
-  <p className="text-sm text-gray-800 -mt-8 pr-2 max-w-[70%] bg-white/70 backdrop-blur-sm rounded px-2 py-1">
+  <p className="text-sm text-gray-800 -mt-8 pr-2 max-w-[70%]">
     CarlyCompare.com is your personal guide to making smarter, faster car-selling decisions. Instead of visiting multiple websites and repeating the same information, CarlyCompare helps you explore and compare real-time cash offers from top car-buying services, all in one place.
   </p>
   <p className="text-sm text-gray-800 pr-2 mt-2">
