@@ -103,7 +103,7 @@ className="absolute z-10 object-contain animate-fade-bounce-once -top-20 -right-
 
   {/* ✅ Updated Desktop version - centered, closer to avatar */}
   <p className="hidden md:block text-sm text-gray-800 text-center mb-4 px-2 max-w-[80%] mx-auto leading-relaxed">
-    Carly Compare takes the stress out of selling by putting top real-time offers from trusted buyers in one place — so you don’t have to do the searching yourself.
+    CarlyCompare.com is your personal guide to making smarter, faster car-selling decisions. Instead of visiting multiple websites and repeating the same information, CarlyCompare helps you explore and compare real-time cash offers from top car-buying services, all in one place. We save you time and give you confidence by helping you understand what your vehicle is worth.
   </p>
 
   {/* ✅ P1 - Visible on all screen sizes with consistent spacing */}
