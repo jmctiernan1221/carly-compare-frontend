@@ -97,7 +97,7 @@ className="absolute z-10 object-contain animate-fade-bounce-once -top-20 -right-
   {/* P2 - Mobile wrap-around version */}
   <div className="flex md:hidden mb-4 px-2">
     <p className="text-sm text-gray-800 -mt-8 pr-2 max-w-[70%]">
-      Carly Compare takes the stress out of selling by putting top real-time offers from trusted buyers in one place — so you don’t have to do the searching yourself.
+    CarlyCompare.com is your personal guide to making smarter, faster car-selling decisions. Instead of visiting multiple websites and repeating the same information, CarlyCompare helps you explore and compare real-time cash offers from top car-buying services, all in one place. We save you time and give you confidence by helping you understand what your vehicle is worth.
     </p>
   </div>
 
