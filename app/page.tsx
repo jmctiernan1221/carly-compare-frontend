@@ -54,17 +54,14 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
       <div className="relative w-full max-w-3xl overflow-visible">
         {/* Avatar Image */}
 
-{(!submitted || isDesktop) && (
+{/* Desktop-only avatar, unchanged */}
+{isDesktop && !submitted && (
   <Image
     src="/avatar-6-26.png"
     alt="Carly Avatar"
     width={220}
     height={220}
-    className={`${
-      isDesktop
-        ? 'absolute z-10 object-contain animate-fade-bounce-once top-0 -right-6'
-        : 'absolute z-10 object-contain top-0 right-[2px] w-[180px] translate-y-[24px]'
-    }`}
+    className="absolute z-10 object-contain animate-fade-bounce-once top-0 -right-6"
     priority
   />
 )}
@@ -104,6 +101,19 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
   </h1>
 
   {/* P2 - Mobile wrap-around version */}
+  {/* Mobile-only avatar inside layout, uses natural spacing */}
+{!isDesktop && !submitted && (
+  <div className="flex justify-end px-4 mb-2">
+    <Image
+      src="/avatar-6-26.png"
+      alt="Carly Avatar"
+      width={180}
+      height={180}
+      className="object-contain"
+      priority
+    />
+  </div>
+)}  
 <div className="md:hidden mb-4 px-4 relative z-20">
   <p className="text-sm text-gray-800 -mt-8 pr-2 max-w-[70%]">
     CarlyCompare.com is your personal guide to making smarter, faster car-selling decisions. Instead of visiting multiple websites and repeating the same information, CarlyCompare helps you explore and compare real-time cash offers from top car-buying services, all in one place.
