@@ -54,17 +54,19 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
       <div className="relative w-full max-w-3xl overflow-visible">
         {/* Avatar Image */}
 
-        {(!submitted || isDesktop) && (
-<Image
-  src="/avatar-6-26.png"
-  alt="Carly Avatar"
-  width={220}
-  height={220}
-  className={`absolute z-10 object-contain animate-fade-bounce-once
-    top-[5%] right-4 w-[160px]
-    md:top-0 md:-right-6 md:w-[220px]`}
-  priority
-/>
+{(!submitted || isDesktop) && (
+  <Image
+    src="/avatar-6-26.png"
+    alt="Carly Avatar"
+    width={220}
+    height={220}
+    className={`${
+      isDesktop
+        ? 'absolute z-10 object-contain animate-fade-bounce-once top-0 -right-6'
+        : 'absolute z-10 object-contain top-0 right-4 w-[180px] translate-y-[50px]'
+    }`}
+    priority
+  />
 )}
         {/* Mobile-only heading above card 
       {!submitted && (
