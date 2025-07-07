@@ -50,7 +50,7 @@ export default function LandingPage() {
   return (
     <main
       className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repeat bg-fixed flex flex-col items-start justify-center px-4 pt-6 pb-24 gap-6"
-      style={!isDesktop ? { backgroundImage: "url('/background.png')" } : {}}
+      
     >
       <div className="w-full max-w-3xl mx-auto">
         {/* Logo (visible on all screens) */}
