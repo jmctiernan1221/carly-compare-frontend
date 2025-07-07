@@ -63,7 +63,7 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
     className={`${
       isDesktop
         ? 'absolute z-10 object-contain animate-fade-bounce-once top-0 -right-6'
-        : 'absolute z-10 object-contain top-0 right-4 w-[180px] translate-y-[50px]'
+        : 'absolute z-10 object-contain top-0 right-2 w-[180px] translate-y-[30px]'
     }`}
     priority
   />
