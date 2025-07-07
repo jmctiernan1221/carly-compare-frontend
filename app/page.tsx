@@ -103,7 +103,7 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
   {/* P2 - Mobile wrap-around version */}
   {/* Mobile-only avatar inside layout, uses natural spacing */}
 {!isDesktop && !submitted && (
-  <div className="md:hidden flex flex-row items-start gap-3 px-4 mb-4">
+  <div className="md:hidden flex flex-row-reverse items-start gap-3 px-4 mb-4">
     <div className="flex-shrink-0">
       <Image
         src="/avatar-6-26.png"
