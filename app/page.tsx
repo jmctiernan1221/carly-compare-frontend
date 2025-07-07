@@ -124,10 +124,12 @@ export default function LandingPage() {
 
         {/* Form */}
       {!submitted && (
-<div className="relative p-6 rounded-xl shadow mt-6">
-  <div className="absolute inset-0 bg-[url('/backgroundcropped.png')] bg-cover bg-top bg-no-repeat rounded-xl z-0" />
-  
-  <form onSubmit={handleSubmit} className="space-y-4 p-4 rounded relative z-10">
+<section className="w-full bg-[url('/backgroundcropped.png')] bg-cover bg-top bg-no-repeat py-10">
+  <div className="w-full max-w-3xl mx-auto px-4">
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-4 bg-white/70 p-6 rounded-xl shadow"
+    >
       <input
         type="text"
         name="name"
@@ -176,6 +178,7 @@ export default function LandingPage() {
       </button>
     </form>
   </div>
+  </section>
         )}
       </div>
     </main>
