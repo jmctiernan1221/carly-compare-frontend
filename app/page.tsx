@@ -76,7 +76,7 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
         <div
         className={`relative rounded-xl shadow-2xl ${
   submitted ? 'hidden md:flex' : 'flex'
-} p-6 md:p-20 pt-20 md:pt-2 mt-4 md:mt-24 md:-mt-12 flex-col justify-center overflow-hidden`}
+} p-6 md:p-6 pt-20 md:pt-2 mt-4 md:mt-24 md:-mt-12 flex-col justify-center overflow-hidden`}
           style={
             isDesktop
               ? {
