@@ -54,23 +54,23 @@ export default function LandingPage() {
     >
       <div className="w-full max-w-3xl mx-auto">
         {/* Logo (visible on all screens) */}
-        {!submitted && (
-          <div className="flex justify-center mb-4 px-4">
-            <Image
-              src="/mobilelogotop.png"
-              alt="Carly Compare Logo"
-              width={320}
-              height={140}
-              className="object-contain"
-              priority
-            />
-          </div>
-        )}
+       <div className="flex justify-center mb-4 px-4">
+  <Image
+    src="/mobilelogotop.png"
+    alt="Carly Compare Logo"
+    width={320}
+    height={140}
+    className="object-contain"
+    priority
+  />
+</div>
 
         {/* Heading */}
-        <h1 className="text-xl md:text-2xl font-bold text-center text-gray-900 mb-4">
-  COMING SOON
-</h1>
+    {!submitted && (
+  <h1 className="text-xl md:text-2xl font-bold text-center text-gray-900 mb-4">
+    COMING SOON
+  </h1>
+)}
 
         {/* Intro Paragraphs */}
         {!submitted && (
@@ -127,7 +127,7 @@ export default function LandingPage() {
 <section className="w-full bg-[url('/backgroundcropped.png')] bg-cover bg-no-repeat bg-center py-12">
   <form
     onSubmit={handleSubmit}
-    className="w-full max-w-md p-6 rounded-xl shadow space-y-4 mx-auto"
+    className="w-full max-w-md p-6 rounded-xl space-y-4 mx-auto"
   >
     <input
       type="text"
