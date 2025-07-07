@@ -108,7 +108,7 @@ export default function LandingPage() {
             <button
               type="button"
               onClick={() => setShowMore(!showMore)}
-              className="mt-2 text-orange-500 hover:underline text-sm font-medium"
+              className="mt-2 mb-4 text-orange-500 hover:underline text-sm font-medium"
             >
               {showMore ? 'Show Less' : 'Read More'}
             </button>
@@ -127,7 +127,7 @@ export default function LandingPage() {
 <section className="w-full bg-[url('/backgroundcropped.png')] bg-cover bg-no-repeat bg-center py-12">
   <form
     onSubmit={handleSubmit}
-    className="w-full max-w-md bg-white/80 p-6 rounded-xl shadow space-y-4 mx-auto"
+    className="w-full max-w-md p-6 rounded-xl shadow space-y-4 mx-auto"
   >
     <input
       type="text"
