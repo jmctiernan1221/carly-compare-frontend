@@ -124,8 +124,10 @@ export default function LandingPage() {
 
         {/* Form */}
       {!submitted && (
-<div className="bg-[url('/backgroundcropped.png')] bg-contain bg-no-repeat bg-top min-h-[300px] p-6 rounded-xl shadow mt-6">
-    <form onSubmit={handleSubmit} className="space-y-4 p-4 rounded">
+<div className="relative p-6 rounded-xl shadow mt-6">
+  <div className="absolute inset-0 bg-[url('/backgroundcropped.png')] bg-cover bg-top bg-no-repeat rounded-xl z-0" />
+  
+  <form onSubmit={handleSubmit} className="space-y-4 bg-white/70 p-4 rounded relative z-10">
       <input
         type="text"
         name="name"
