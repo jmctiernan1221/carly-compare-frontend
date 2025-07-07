@@ -62,7 +62,7 @@ export default function LandingPage() {
       </div>
 
       {/* Background section */}
-      <section className="w-full bg-[url('/background.png')] bg-cover bg-no-repeat bg-center py-12">
+      <section className="w-full bg-[url('/background.png')] bg-contain bg-no-repeat bg-center py-12">
         <div className="w-full max-w-3xl mx-auto px-4">
           {/* Heading */}
           {!submitted && (
@@ -124,7 +124,7 @@ export default function LandingPage() {
           {!submitted && (
             <form
               onSubmit={handleSubmit}
-              className="w-full max-w-md p-6 rounded-xl space-y-4 mx-auto bg-white/80 shadow"
+              className="w-full max-w-md p-6 rounded-xl space-y-4 mx-auto shadow"
             >
               <input
                 type="text"
