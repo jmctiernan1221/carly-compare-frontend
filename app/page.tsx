@@ -108,8 +108,8 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
       <Image
         src="/avatar-6-26.png"
         alt="Carly Avatar"
-        width={100}
-        height={100}
+        width={140}
+        height={140}
         className="object-contain mt-1"
         priority
       />
