@@ -124,7 +124,7 @@ export default function LandingPage() {
 
         {/* Form */}
       {!submitted && (
-<div className="bg-[url('/backgroundcropped.png')] md:bg-[url('/backgroundcropped.png')] bg-cover bg-center min-h-[300px] p-6 rounded-xl shadow mt-6">
+<div className="bg-[url('/backgroundcropped.png')] bg-contain md:bg-cover bg-no-repeat bg-top min-h-[300px] p-6 rounded-xl shadow mt-6">
     <form onSubmit={handleSubmit} className="space-y-4 p-4 rounded">
       <input
         type="text"
@@ -133,7 +133,7 @@ export default function LandingPage() {
         value={formData.name}
         onChange={handleChange}
         required
-        className="w-full p-2.5 text-base text-gray-800 bg-white border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full p-2.5 text-base text-gray-800 bg-white/70 border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
       <input
         type="email"
@@ -142,7 +142,7 @@ export default function LandingPage() {
         value={formData.email}
         onChange={handleChange}
         required
-        className="w-full p-2.5 text-base text-gray-800 bg-white border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full p-2.5 text-base text-gray-800 bg-white/70 border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
       <input
         type="text"
@@ -150,7 +150,7 @@ export default function LandingPage() {
         placeholder="Car Make"
         value={formData.make}
         onChange={handleChange}
-        className="w-full p-2.5 text-base text-gray-800 bg-white border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full p-2.5 text-base text-gray-800 bg-white/70 border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
 
       <label className="flex items-start gap-2 text-sm text-gray-700 bg-white/70 p-3 rounded-md">
