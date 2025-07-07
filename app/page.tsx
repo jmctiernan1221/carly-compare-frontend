@@ -68,9 +68,9 @@ export default function LandingPage() {
         )}
 
         {/* Heading */}
-        <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
-          COMING SOON
-        </h1>
+        <h1 className="text-xl md:text-2xl font-bold text-center text-gray-900 mb-4">
+  COMING SOON
+</h1>
 
         {/* Intro Paragraphs */}
         {!submitted && (
