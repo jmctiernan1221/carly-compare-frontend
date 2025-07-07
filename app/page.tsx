@@ -61,8 +61,8 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
   width={220}
   height={220}
   className={`absolute z-10 object-contain animate-fade-bounce-once
-    top-[5%] right-4 h-[120px] 
-    md:top-0 md:-right-6 md:h-[220px]`}
+    top-[5%] right-4 w-[160px]
+    md:top-0 md:-right-6 md:w-[220px]`}
   priority
 />
 )}
