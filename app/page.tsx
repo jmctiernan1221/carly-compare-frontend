@@ -72,19 +72,18 @@ export default function LandingPage() {
         >
           <div className="relative z-10">
 
-            {/* Mobile-only logo at top */}
-            {!isDesktop && !submitted && (
-              <div className="md:hidden flex justify-center mb-4 px-4">
-                <Image
-                  src="/mobilelogotop.png"
-                  alt="Carly Compare Logo"
-                  width={200}
-                  height={80}
-                  className="object-contain"
-                  priority
-                />
-              </div>
-            )}
+          {!submitted && (
+  <div className="flex justify-center mb-4 px-4">
+    <Image
+      src="/mobilelogotop.png"
+      alt="Carly Compare Logo"
+      width={200}
+      height={80}
+      className="object-contain"
+      priority
+    />
+  </div>
+)}
 
             {/* Desktop-only heading */}
             <h1 className="hidden md:block text-3xl md:text-4xl font-bold text-center text-gray-900 mb-2">
