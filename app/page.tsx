@@ -49,159 +49,132 @@ export default function LandingPage() {
 
   return (
     <main
-      className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repeat bg-fixed flex flex-col md:flex-row items-start justify-center px-4 pt-0 pb-2 md:pt-4 md:pb-24"
+      className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repeat bg-fixed flex flex-col items-start justify-center px-4 pt-6 pb-24 gap-6"
       style={!isDesktop ? { backgroundImage: "url('/background.png')" } : {}}
     >
-      <div className="relative w-full max-w-3xl overflow-visible">
-        {/* White Card */}
-        <div
-          className={`relative rounded-xl shadow-2xl ${
-            submitted ? 'hidden md:flex' : 'flex'
-          } pt-4 px-6 pb-6 md:pt-2 mt-4 md:mt-24 md:-mt-12 flex-col justify-center overflow-hidden`}
-          style={
-            isDesktop
-              ? {
-                  backgroundImage: "url('/background.png')",
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  minHeight: '800px',
-                }
-              : {}
-          }
-        >
-          <div className="relative z-10">
+      <div className="w-full max-w-3xl mx-auto">
+        {/* Logo (visible on all screens) */}
+        {!submitted && (
+          <div className="flex justify-center mb-4 px-4">
+            <Image
+              src="/mobilelogotop.png"
+              alt="Carly Compare Logo"
+              width={200}
+              height={80}
+              className="object-contain"
+              priority
+            />
+          </div>
+        )}
 
-          {!submitted && (
-  <div className="flex justify-center mb-4 px-4">
-    <Image
-      src="/mobilelogotop.png"
-      alt="Carly Compare Logo"
-      width={200}
-      height={80}
-      className="object-contain"
-      priority
-    />
-  </div>
-)}
+        {/* Heading */}
+        <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
+          COMING SOON
+        </h1>
 
-            {/* Desktop-only heading */}
-            <h1 className="hidden md:block text-3xl md:text-4xl font-bold text-center text-gray-900 mb-2">
-              COMING SOON
-            </h1>
+        {/* Intro Paragraphs */}
+        {!submitted && (
+          <div className="px-4 text-sm text-gray-800 space-y-3">
+            <p>
+              CarlyCompare.com is your personal guide to making smarter, faster car-selling decisions. Instead of visiting multiple websites and repeating the same information, CarlyCompare helps you explore and compare real-time cash offers from top car-buying services, all in one place.
+            </p>
+            <p>
+              We save you time and give you confidence by helping you understand what your vehicle is worth.
+            </p>
+          </div>
+        )}
 
-            {/* Mobile text block */}
-            {!isDesktop && !submitted && (
-              <div className="md:hidden px-4 mb-4">
-                <p className="text-sm text-gray-800 mb-2">
-                  CarlyCompare.com is your personal guide to making smarter, faster car-selling decisions. Instead of visiting multiple websites and repeating the same information, CarlyCompare helps you explore and compare real-time cash offers from top car-buying services, all in one place.
-                </p>
-                <p className="text-sm text-gray-800">
-                  We save you time and give you confidence by helping you understand what your vehicle is worth.
-                </p>
-              </div>
-            )}
-
-            {/* Desktop version text */}
-            <p className="hidden md:block text-sm text-gray-800 mb-4 px-2 max-w-[80%] mx-auto leading-relaxed">
-              CarlyCompare.com is your personal guide to making smarter, faster car-selling decisions. Instead of visiting multiple websites and repeating the same information, CarlyCompare helps you explore and compare real-time cash offers from top car-buying services, all in one place. We save you time and give you confidence by helping you understand what your vehicle is worth.
+        {/* Feature List */}
+        {!submitted && (
+          <div className="text-sm text-gray-700 mt-4 px-4">
+            <p className="font-semibold mb-2 text-center md:text-left">
+              When we launch, you’ll be able to get:
             </p>
 
-            <div className="text-sm text-gray-700 mb-6 md:mb-8 px-4">
-              <p className="font-semibold mb-2 text-center md:text-left">
-                When we launch, you’ll be able to get:
-              </p>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Side-by-side cash offer comparisons from major car buyers</li>
+              <li>A personalized estimate of your car’s value</li>
 
-              <ul className="list-disc pl-5 space-y-1">
-                <li>Side-by-side cash offer comparisons from major car buyers</li>
-                <li>A personalized estimate of your car’s value</li>
+              {showMore && (
+                <>
+                  <li>Analysis of resale trends for your vehicle type</li>
+                  <li>Insights on the best time to sell based on market data</li>
+                  <li>Detailed reporting you can download or share</li>
+                  <li>Tips to prepare your car for sale and maximize your offer</li>
+                </>
+              )}
+            </ul>
 
-                {showMore && (
-                  <>
-                    <li>Analysis of resale trends for your vehicle type</li>
-                    <li>Insights on the best time to sell based on market data</li>
-                    <li>Detailed reporting you can download or share</li>
-                    <li>Tips to prepare your car for sale and maximize your offer</li>
-                  </>
-                )}
-              </ul>
-
-              <button
-                type="button"
-                onClick={() => setShowMore(!showMore)}
-                className="mt-2 text-orange-500 hover:underline text-sm font-medium"
-              >
-                {showMore ? 'Show Less' : 'Read More'}
-              </button>
-            </div>
-
-            {/* Thank-you message for desktop */}
-            {submitted && (
-              <div className="hidden md:block bg-orange-500 text-gray-800 text-center p-3 mt-4 rounded shadow text-base">
-                Thank you! You’ve been added to the waitlist.
-              </div>
-            )}
-
-            {/* Form */}
-            <form
-              onSubmit={handleSubmit}
-              className={`space-y-4 ${submitted ? 'hidden' : ''}`}
+            <button
+              type="button"
+              onClick={() => setShowMore(!showMore)}
+              className="mt-2 text-orange-500 hover:underline text-sm font-medium"
             >
-              <input
-                type="text"
-                name="name"
-                placeholder="Name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full p-2.5 text-base text-gray-800 bg-white/80 border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full p-2.5 text-base text-gray-800 bg-white/80 border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <input
-                type="text"
-                name="make"
-                placeholder="Car Make"
-                value={formData.make}
-                onChange={handleChange}
-                className="w-full p-2.5 text-base text-gray-800 bg-white/80 border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-
-              <label className="flex items-start gap-2 text-sm text-gray-700 bg-white/60 backdrop-blur-sm p-3 rounded-md md:bg-white/70 md:backdrop-blur-sm">
-                <input
-                  type="checkbox"
-                  checked={agreed}
-                  onChange={(e) => setAgreed(e.target.checked)}
-                  required
-                  className="mt-1 h-4 w-4 text-blue-500 border-gray-300 rounded focus:ring-blue-500"
-                />
-                <span>
-                  I agree to receive an email from Carly Compare when it goes live. 
-                </span>
-              </label>
-
-              <button
-                type="submit"
-                className="w-full p-3 text-sm font-semibold text-white bg-orange-500 hover:bg-orange-600 rounded transition"
-              >
-                Submit to get discounts when we launch
-              </button>
-            </form>
+              {showMore ? 'Show Less' : 'Read More'}
+            </button>
           </div>
-        </div>
+        )}
 
-        {/* Thank-you message for mobile */}
+        {/* Thank-you message */}
         {submitted && (
-          <div className="bg-orange-500 text-gray-800 text-center p-3 mt-24 rounded shadow text-sm z-20 relative md:hidden">
+          <div className="bg-orange-500 text-gray-800 text-center p-3 mt-6 rounded shadow text-sm">
             Thank you! You’ve been added to the waitlist.
           </div>
+        )}
+
+        {/* Form */}
+        {!submitted && (
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-4 mt-6 px-4"
+          >
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="w-full p-2.5 text-base text-gray-800 bg-white/80 border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="w-full p-2.5 text-base text-gray-800 bg-white/80 border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <input
+              type="text"
+              name="make"
+              placeholder="Car Make"
+              value={formData.make}
+              onChange={handleChange}
+              className="w-full p-2.5 text-base text-gray-800 bg-white/80 border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+
+            <label className="flex items-start gap-2 text-sm text-gray-700 bg-white/60 backdrop-blur-sm p-3 rounded-md">
+              <input
+                type="checkbox"
+                checked={agreed}
+                onChange={(e) => setAgreed(e.target.checked)}
+                required
+                className="mt-1 h-4 w-4 text-blue-500 border-gray-300 rounded focus:ring-blue-500"
+              />
+              <span>
+                I agree to receive an email from Carly Compare when it goes live. 
+              </span>
+            </label>
+
+            <button
+              type="submit"
+              className="w-full p-3 text-sm font-semibold text-white bg-orange-500 hover:bg-orange-600 rounded transition"
+            >
+              Submit to get discounts when we launch
+            </button>
+          </form>
         )}
       </div>
     </main>
