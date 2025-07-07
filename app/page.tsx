@@ -59,8 +59,8 @@ export default function LandingPage() {
             <Image
               src="/mobilelogotop.png"
               alt="Carly Compare Logo"
-              width={280}
-              height={100}
+              width={320}
+              height={140}
               className="object-contain"
               priority
             />
