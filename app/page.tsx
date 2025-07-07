@@ -163,7 +163,7 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
                 value={formData.name}
                 onChange={handleChange}
                 required
-className="w-full p-2.5 text-base text-gray-800 bg-white/60 border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+className="w-full p-2.5 text-base text-gray-800 bg-white/70 border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <input
                 type="email"
@@ -172,7 +172,7 @@ className="w-full p-2.5 text-base text-gray-800 bg-white/60 border border-gray-3
                 value={formData.email}
                 onChange={handleChange}
                 required
-className="w-full p-2.5 text-base text-gray-800 bg-white/60 border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+className="w-full p-2.5 text-base text-gray-800 bg-white/70 border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <input
                 type="text"
@@ -180,7 +180,7 @@ className="w-full p-2.5 text-base text-gray-800 bg-white/60 border border-gray-3
                 placeholder="Car Make"
                 value={formData.make}
                 onChange={handleChange}
-className="w-full p-2.5 text-base text-gray-800 bg-white/60 border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+className="w-full p-2.5 text-base text-gray-800 bg-white/70 border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
 
               {/* ✅ Checkbox */}
