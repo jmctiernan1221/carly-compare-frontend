@@ -124,14 +124,11 @@ export default function LandingPage() {
 
         {/* Form */}
       {!submitted && (
-<section
-  className="w-full h-[300px] bg-[url('/backgroundcropped.png')] bg-contain bg-no-repeat bg-center"
+<section className="w-full h-[300px] bg-[url('/backgroundcropped.png')] bg-contain bg-no-repeat bg-center flex items-center justify-center">
+  <form
+    onSubmit={handleSubmit}
+    className="w-full max-w-md bg-white/80 p-6 rounded-xl shadow space-y-4"
   >
-  <div className="w-full max-w-3xl mx-auto px-4">
-    <form
-      onSubmit={handleSubmit}
-      className="space-y-4 bg-white/70 p-6 rounded-xl shadow"
-    >
       <input
         type="text"
         name="name"
@@ -179,7 +176,6 @@ export default function LandingPage() {
         Submit to get discounts when we launch
       </button>
     </form>
-  </div>
   </section>
         )}
       </div>
