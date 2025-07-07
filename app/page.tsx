@@ -103,25 +103,27 @@ className="relative min-h-screen overflow-x-hidden bg-cover bg-bottom bg-no-repe
   {/* P2 - Mobile wrap-around version */}
   {/* Mobile-only avatar inside layout, uses natural spacing */}
 {!isDesktop && !submitted && (
-  <div className="flex justify-end px-4 mb-2">
-    <Image
-      src="/avatar-6-26.png"
-      alt="Carly Avatar"
-      width={180}
-      height={180}
-      className="object-contain"
-      priority
-    />
+  <div className="md:hidden flex items-start gap-4 px-4 mb-4">
+    <div className="flex-shrink-0">
+      <Image
+        src="/avatar-6-26.png"
+        alt="Carly Avatar"
+        width={100}
+        height={100}
+        className="object-contain mt-1"
+        priority
+      />
+    </div>
+    <div className="text-sm text-gray-800">
+      <p className="mb-2">
+        CarlyCompare.com is your personal guide to making smarter, faster car-selling decisions. Instead of visiting multiple websites and repeating the same information, CarlyCompare helps you explore and compare real-time cash offers from top car-buying services, all in one place.
+      </p>
+      <p>
+        We save you time and give you confidence by helping you understand what your vehicle is worth.
+      </p>
+    </div>
   </div>
-)}  
-<div className="md:hidden mb-4 px-4 relative z-20">
-  <p className="text-sm text-gray-800 -mt-8 pr-2 max-w-[70%]">
-    CarlyCompare.com is your personal guide to making smarter, faster car-selling decisions. Instead of visiting multiple websites and repeating the same information, CarlyCompare helps you explore and compare real-time cash offers from top car-buying services, all in one place.
-  </p>
-  <p className="text-sm text-gray-800 pr-2 mt-2">
-    We save you time and give you confidence by helping you understand what your vehicle is worth.
-  </p>
-</div>
+)}
 
   {/* ✅ Updated Desktop version - centered, closer to avatar */}
   <p className="hidden md:block text-sm text-gray-800 mb-4 px-2 max-w-[80%] mx-auto leading-relaxed">
