@@ -124,7 +124,9 @@ export default function LandingPage() {
 
         {/* Form */}
       {!submitted && (
-<section className="w-full bg-[url('/backgroundcropped.png')] bg-cover bg-top bg-no-repeat py-10">
+<section
+  className="w-full h-[300px] bg-[url('/backgroundcropped.png')] bg-contain bg-no-repeat bg-center"
+  >
   <div className="w-full max-w-3xl mx-auto px-4">
     <form
       onSubmit={handleSubmit}
