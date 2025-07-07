@@ -117,7 +117,7 @@ export default function LandingPage() {
 
         {/* Thank-you message */}
         {submitted && (
-          <div className="bg-orange-500 text-gray-800 text-center p-3 mt-6 rounded shadow text-sm">
+          <div className="bg-orange-500 text-white text-center p-3 mt-6 rounded shadow text-sm">
             Thank you! You’ve been added to the waitlist.
           </div>
         )}
