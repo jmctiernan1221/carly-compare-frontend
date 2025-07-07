@@ -124,57 +124,56 @@ export default function LandingPage() {
 
         {/* Form */}
         {!submitted && (
-          <form
-            onSubmit={handleSubmit}
-            className="space-y-4 mt-6 px-4"
-          >
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="w-full p-2.5 text-base text-gray-800 bg-white/80 border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full p-2.5 text-base text-gray-800 bg-white/80 border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="text"
-              name="make"
-              placeholder="Car Make"
-              value={formData.make}
-              onChange={handleChange}
-              className="w-full p-2.5 text-base text-gray-800 bg-white/80 border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+  <div
+    className="bg-[url('/backgroundcropped.png')] bg-cover bg-center p-6 rounded-xl shadow px-4 mt-6"
+  >
+    <form onSubmit={handleSubmit} className="space-y-4 backdrop-blur-sm bg-white/80 p-4 rounded">
+      <input
+        type="text"
+        name="name"
+        placeholder="Name"
+        value={formData.name}
+        onChange={handleChange}
+        required
+        className="w-full p-2.5 text-base text-gray-800 bg-white border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        value={formData.email}
+        onChange={handleChange}
+        required
+        className="w-full p-2.5 text-base text-gray-800 bg-white border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <input
+        type="text"
+        name="make"
+        placeholder="Car Make"
+        value={formData.make}
+        onChange={handleChange}
+        className="w-full p-2.5 text-base text-gray-800 bg-white border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
 
-            <label className="flex items-start gap-2 text-sm text-gray-700 bg-white/60 backdrop-blur-sm p-3 rounded-md">
-              <input
-                type="checkbox"
-                checked={agreed}
-                onChange={(e) => setAgreed(e.target.checked)}
-                required
-                className="mt-1 h-4 w-4 text-blue-500 border-gray-300 rounded focus:ring-blue-500"
-              />
-              <span>
-                I agree to receive an email from Carly Compare when it goes live. 
-              </span>
-            </label>
+      <label className="flex items-start gap-2 text-sm text-gray-700 bg-white/70 p-3 rounded-md">
+        <input
+          type="checkbox"
+          checked={agreed}
+          onChange={(e) => setAgreed(e.target.checked)}
+          required
+          className="mt-1 h-4 w-4 text-blue-500 border-gray-300 rounded focus:ring-blue-500"
+        />
+        <span>I agree to receive an email from Carly Compare when it goes live.</span>
+      </label>
 
-            <button
-              type="submit"
-              className="w-full p-3 text-sm font-semibold text-white bg-orange-500 hover:bg-orange-600 rounded transition"
-            >
-              Submit to get discounts when we launch
-            </button>
-          </form>
+      <button
+        type="submit"
+        className="w-full p-3 text-sm font-semibold text-white bg-orange-500 hover:bg-orange-600 rounded transition"
+      >
+        Submit to get discounts when we launch
+      </button>
+    </form>
+  </div>
         )}
       </div>
     </main>
