@@ -135,7 +135,7 @@ export default function LandingPage() {
         value={formData.name}
         onChange={handleChange}
         required
-        className="w-full p-2.5 text-base text-gray-800 bg-white/70 border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full p-2.5 text-base text-gray-800 bg-white/70 border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:font-semibold"
       />
       <input
         type="email"
@@ -144,7 +144,7 @@ export default function LandingPage() {
         value={formData.email}
         onChange={handleChange}
         required
-        className="w-full p-2.5 text-base text-gray-800 bg-white/70 border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full p-2.5 text-base text-gray-800 bg-white/70 border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:font-semibold"
       />
       <input
         type="text"
@@ -152,7 +152,7 @@ export default function LandingPage() {
         placeholder="Car Make"
         value={formData.make}
         onChange={handleChange}
-        className="w-full p-2.5 text-base text-gray-800 bg-white/70 border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full p-2.5 text-base text-gray-800 bg-white/70 border border-gray-300 rounded placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:font-semibold"
       />
 
       <label className="flex items-start gap-2 text-sm text-gray-700 bg-white/70 p-3 rounded-md">
@@ -163,7 +163,9 @@ export default function LandingPage() {
           required
           className="mt-1 h-4 w-4 text-blue-500 border-gray-300 rounded focus:ring-blue-500"
         />
-        <span>I agree to receive an email from Carly Compare when it goes live.</span>
+        <span className="font-semibold">
+          I agree to receive an email from Carly Compare when it goes live.
+        </span>
       </label>
 
       <button
