@@ -82,33 +82,41 @@ export default function LandingPage() {
       </div>
     )}
 
-    {/* Feature List */}
-    {!submitted && (
-      <div className="text-sm text-gray-800 text-left space-y-2">
+  {/* Feature List */}
+{!submitted && (
+  <div className="text-sm text-gray-800 text-left space-y-2">
+    {!showMore ? (
+      <button
+        type="button"
+        onClick={() => setShowMore(true)}
+        className="text-orange-500 hover:underline text-sm font-medium"
+      >
+        Read More
+      </button>
+    ) : (
+      <>
         <p className="font-semibold">
           When we launch, you’ll be able to get:
         </p>
         <ul className="list-disc pl-5 space-y-1">
           <li>Side-by-side cash offer comparisons from major car buyers</li>
           <li>A personalized estimate of your car’s value</li>
-          {showMore && (
-            <>
-              <li>Analysis of resale trends for your vehicle type</li>
-              <li>Insights on the best time to sell based on market data</li>
-              <li>Detailed reporting you can download or share</li>
-              <li>Tips to prepare your car for sale and maximize your offer</li>
-            </>
-          )}
+          <li>Analysis of resale trends for your vehicle type</li>
+          <li>Insights on the best time to sell based on market data</li>
+          <li>Detailed reporting you can download or share</li>
+          <li>Tips to prepare your car for sale and maximize your offer</li>
         </ul>
         <button
           type="button"
-          onClick={() => setShowMore(!showMore)}
+          onClick={() => setShowMore(false)}
           className="mt-2 text-orange-500 hover:underline text-sm font-medium"
         >
-          {showMore ? 'Show Less' : 'Read More'}
+          Show Less
         </button>
-      </div>
+      </>
     )}
+  </div>
+)}
 
     {/* Waitlist Form */}
     <div className="pt-4">
