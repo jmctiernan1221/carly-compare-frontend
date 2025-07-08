@@ -63,7 +63,7 @@ export default function LandingPage() {
 <section
   className="w-full bg-[url('/newbackground.jpg')] bg-cover bg-center bg-no-repeat mt-12 py-12 px-4 text-white text-center"
 >
-  <div className="max-w-2xl mx-auto space-y-8 bg-white/90 backdrop-blur-md p-6 md:p-10 rounded-xl text-gray-900">
+  <div className="max-w-2xl mx-auto space-y-8 bg-white/70 backdrop-blur-md p-6 md:p-10 rounded-xl text-gray-900">
     {/* Intro Paragraphs */}
     {!submitted && (
       <div className="space-y-4 text-sm md:text-base text-gray-800 text-left">
