@@ -52,7 +52,7 @@ export default function LandingPage() {
       {/* Logo - separate from background */}
       <div className="flex justify-center mb-4 px-4 mt-6">
         <Image
-          src="/mobilelogotop.png"
+          src="/carlylogotext.png"
           alt="Carly Compare Logo"
           width={320}
           height={140}
