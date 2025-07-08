@@ -63,16 +63,47 @@ export default function LandingPage() {
 <section
   className="w-full bg-[url('/newbackground.jpg')] bg-cover bg-center bg-no-repeat mt-12 py-12 px-4 text-white text-center"
 >
-  <div className="max-w-2xl mx-auto space-y-4">
-    <h2 className="text-2xl md:text-3xl font-bold">Why Carly Compare?</h2>
-    <p className="text-base md:text-lg">
-      We give you the tools and confidence to get the best deal when selling your car —
-      without wasting hours bouncing between sites.
-    </p>
-    <p className="text-sm md:text-base text-white/90">
-      Everything is built to make your life easier. No hassle. No cost. Just data-backed insight.
-    </p>
-  </div>
+   {/* Intro Paragraphs */}
+          {!submitted && (
+            <div className="text-sm text-gray-800 space-y-3">
+              <p>
+                CarlyCompare.com is your personal guide to making smarter, faster car-selling decisions. Instead of visiting multiple websites and repeating the same information, CarlyCompare helps you explore and compare real-time cash offers from top car-buying services, all in one place.
+              </p>
+              <p>
+                We save you time and give you confidence by helping you understand what your vehicle is worth.
+              </p>
+            </div>
+          )}
+
+          {/* Feature List */}
+          {!submitted && (
+            <div className="text-sm text-gray-700 mt-4">
+              <p className="font-semibold mb-2 text-center md:text-left">
+                When we launch, you’ll be able to get:
+              </p>
+
+              <ul className="list-disc pl-5 space-y-1">
+                <li>Side-by-side cash offer comparisons from major car buyers</li>
+                <li>A personalized estimate of your car’s value</li>
+                {showMore && (
+                  <>
+                    <li>Analysis of resale trends for your vehicle type</li>
+                    <li>Insights on the best time to sell based on market data</li>
+                    <li>Detailed reporting you can download or share</li>
+                    <li>Tips to prepare your car for sale and maximize your offer</li>
+                  </>
+                )}
+              </ul>
+
+              <button
+                type="button"
+                onClick={() => setShowMore(!showMore)}
+                className="mt-2 mb-4 text-orange-500 hover:underline text-sm font-medium"
+              >
+                {showMore ? 'Show Less' : 'Read More'}
+              </button>
+            </div>
+          )}
   <div className="max-w-xl mx-auto space-y-6 bg-white/90 backdrop-blur-md p-6 rounded-xl text-gray-900">
     <h2 className="text-2xl font-bold text-center">Join the Waitlist</h2>
 
