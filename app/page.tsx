@@ -50,7 +50,7 @@ export default function LandingPage() {
   return (
     <main className="min-h-screen flex flex-col items-center px-4 pb-24">
       {/* Logo - separate from background */}
-      <div className="flex justify-center mb-4 px-4 mt-6">
+      <div className="flex justify-center mb-2 px-4 mt-2 sm:mb-2 sm:mt-6">
         <Image
           src="/carlylogotext.png"
           alt="Carly Compare Logo"
@@ -62,7 +62,7 @@ export default function LandingPage() {
       </div>
 <section
   className="w-full bg-center bg-no-repeat px-4 text-white text-center 
-           bg-contain min-h-[650px] pt-4 pb-10 
+           bg-contain min-h-[650px] pt-2 pb-10 
            sm:bg-cover sm:pt-12 sm:pb-12"
   style={{ backgroundImage: "url('/newbackground.jpg')" }}
 >
