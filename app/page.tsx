@@ -50,7 +50,7 @@ export default function LandingPage() {
   return (
     <main className="min-h-screen flex flex-col items-center px-4 pb-24">
       {/* Logo - separate from background */}
-      <div className="flex justify-center mb-4 px-4 mt-6">
+      <div className="flex justify-center mb-2 px-4 mt-2 sm:mb-4 sm:mt-6">
         <Image
           src="/carlylogotext.png"
           alt="Carly Compare Logo"
