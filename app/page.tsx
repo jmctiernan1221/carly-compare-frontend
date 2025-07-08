@@ -62,9 +62,8 @@ export default function LandingPage() {
         />
       </div>
 <section
-  className="w-full bg-center bg-no-repeat px-4 text-white text-center 
-           bg-contain pt-2 pb-10 
-           sm:bg-cover sm:pt-12 sm:pb-12"
+  className="w-full bg-no-repeat bg-top bg-[length:100%_auto] px-4 text-white text-center pt-4 pb-10
+             sm:bg-cover sm:pt-12 sm:pb-12"
   style={{ backgroundImage: "url('/newbackground.jpg')" }}
 >
   <div className="max-w-2xl mx-auto space-y-8 bg-white/50 p-6 md:p-10 rounded-xl text-gray-900">
