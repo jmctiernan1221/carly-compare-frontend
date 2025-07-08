@@ -54,13 +54,18 @@ export default function LandingPage() {
         </div>
 
         {/* Main Section with Background */}
-        <section
-          className="w-full bg-top sm:bg-center bg-no-repeat px-4 text-white text-center
-                     bg-contain pt-4 pb-10 sm:bg-cover sm:pt-12 sm:pb-16"
-          style={{ backgroundImage: "url('/newbackground.jpg')" }}
-        >
-          <div className="max-w-3xl mx-auto space-y-8 bg-white/70 backdrop-blur-md p-6 sm:p-8 md:p-10 rounded-xl text-gray-900">
-            
+       <section className="w-full">
+  <Image
+    src="/newbackground.jpg"
+    alt="Carly Compare Banner"
+    width={1920}
+    height={600}
+    className="w-full h-auto object-cover"
+    priority
+  />
+</section>
+         <section className="w-full px-4 pt-8 pb-12 text-center text-gray-900">
+  <div className="max-w-3xl mx-auto space-y-8 bg-white/70 backdrop-blur-md p-6 sm:p-8 md:p-10 rounded-xl">
             {/* Intro Text */}
             {!submitted && (
               <div className="space-y-4 text-sm sm:text-base md:text-lg text-gray-800 text-left">
