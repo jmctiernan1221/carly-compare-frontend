@@ -60,7 +60,12 @@ export default function LandingPage() {
           priority
         />
       </div>
-
+      <section
+  className="w-full bg-[url('/newbackground.png')] bg-cover bg-center bg-no-repeat mt-12 py-12 px-4 text-white text-center"
+>
+<div className="max-w-2xl mx-auto space-y-4">
+    </div>
+</section>
       {/* Background section */}
       <section className="w-full bg-[url('/background.png')] bg-contain bg-no-repeat bg-center py-12">
         <div className="w-full max-w-3xl mx-auto px-4">
