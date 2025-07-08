@@ -111,8 +111,9 @@ export default function LandingPage() {
 
     {/* Waitlist Form */}
     <div className="pt-4">
-      <h2 className="text-2xl font-bold text-center mb-4">Join the Waitlist</h2>
-
+  {!submitted && (
+    <h2 className="text-2xl font-bold text-center mb-4">Join the Waitlist</h2>
+  )}
       {submitted ? (
         <div className="bg-orange-500 text-white text-center p-3 rounded shadow text-sm">
           Thank you! You’ve been added to the waitlist.
