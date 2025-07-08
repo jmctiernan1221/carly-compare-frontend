@@ -73,6 +73,62 @@ export default function LandingPage() {
       Everything is built to make your life easier. No hassle. No cost. Just data-backed insight.
     </p>
   </div>
+  <div className="max-w-xl mx-auto space-y-6 bg-white/90 backdrop-blur-md p-6 rounded-xl text-gray-900">
+    <h2 className="text-2xl font-bold text-center">Join the Waitlist</h2>
+
+    {submitted ? (
+      <div className="bg-orange-500 text-white text-center p-3 rounded shadow text-sm">
+        Thank you! You’ve been added to the waitlist.
+      </div>
+    ) : (
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+          className="w-full p-3 text-base text-gray-800 border border-gray-300 rounded placeholder-gray-800 bg-white/80"
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+          className="w-full p-3 text-base text-gray-800 border border-gray-300 rounded placeholder-gray-800 bg-white/80"
+        />
+        <input
+          type="text"
+          name="make"
+          placeholder="Car Make"
+          value={formData.make}
+          onChange={handleChange}
+          className="w-full p-3 text-base text-gray-800 border border-gray-300 rounded placeholder-gray-800 bg-white/80"
+        />
+        <label className="flex items-start gap-2 text-sm text-gray-700 bg-white/80 p-3 rounded-md">
+          <input
+            type="checkbox"
+            checked={agreed}
+            onChange={(e) => setAgreed(e.target.checked)}
+            required
+            className="mt-1 h-4 w-4"
+          />
+          <span className="font-semibold">
+            I agree to receive an email from Carly Compare when it goes live.
+          </span>
+        </label>
+        <button
+          type="submit"
+          className="w-full p-3 text-sm font-semibold text-white bg-orange-500 hover:bg-orange-600 rounded transition"
+        >
+          Submit to get discounts when we launch
+        </button>
+      </form>
+    )}
+  </div>
 </section>
       {/* Background section */}
       <section className="w-full bg-[url('/background.png')] bg-contain bg-no-repeat bg-center py-12">
