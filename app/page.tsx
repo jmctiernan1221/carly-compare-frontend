@@ -60,11 +60,19 @@ export default function LandingPage() {
           priority
         />
       </div>
-      <section
+<section
   className="w-full bg-[url('/newbackground.png')] bg-cover bg-center bg-no-repeat mt-12 py-12 px-4 text-white text-center"
 >
-<div className="max-w-2xl mx-auto space-y-4">
-    </div>
+  <div className="max-w-2xl mx-auto space-y-4">
+    <h2 className="text-2xl md:text-3xl font-bold">Why Carly Compare?</h2>
+    <p className="text-base md:text-lg">
+      We give you the tools and confidence to get the best deal when selling your car —
+      without wasting hours bouncing between sites.
+    </p>
+    <p className="text-sm md:text-base text-white/90">
+      Everything is built to make your life easier. No hassle. No cost. Just data-backed insight.
+    </p>
+  </div>
 </section>
       {/* Background section */}
       <section className="w-full bg-[url('/background.png')] bg-contain bg-no-repeat bg-center py-12">
