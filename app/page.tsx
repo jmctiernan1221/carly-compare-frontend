@@ -62,6 +62,7 @@ export default function LandingPage() {
       </div>
 <section
   className="w-full bg-[url('/newbackground.png')] bg-cover bg-center bg-no-repeat mt-12 py-12 px-4 text-white text-center"
+  style={{ backgroundColor: 'darkblue' }}
 >
   <div className="max-w-2xl mx-auto space-y-4">
     <h2 className="text-2xl md:text-3xl font-bold">Why Carly Compare?</h2>
