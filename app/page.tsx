@@ -53,19 +53,27 @@ export default function LandingPage() {
           />
         </div>
 
-        {/* Main Section with Background */}
-       <section className="w-full">
-  <Image
-    src="/newbackground.jpg"
-    alt="Carly Compare Banner"
-    width={1920}
-    height={600}
-    className="w-full h-auto object-cover"
-    priority
-  />
-</section>
-         <section className="w-full px-4 pt-8 pb-12 text-center text-gray-900">
-<div className="max-w-3xl mx-auto space-y-8 bg-sky-200 p-6 sm:p-8 md:p-10 rounded-xl text-gray-900">
+        {/* Main Section with Banner and Thank You Overlay */}
+        <section className="w-full relative">
+          <Image
+            src="/newbackground.jpg"
+            alt="Carly Compare Banner"
+            width={1920}
+            height={600}
+            className="w-full h-auto object-cover"
+            priority
+          />
+          {submitted && (
+            <div className="absolute inset-0 flex items-center justify-center bg-black/60 z-10">
+              <div className="bg-white text-orange-600 font-semibold text-lg sm:text-xl px-6 py-4 rounded shadow-lg text-center">
+                ✅ Thank you! You’ve been added to the waitlist.
+              </div>
+            </div>
+          )}
+        </section>
+
+        <section className="w-full px-4 pt-8 pb-12 text-center text-gray-900">
+          <div className="max-w-3xl mx-auto space-y-8 bg-[#a9e0ff] p-6 sm:p-8 md:p-10 rounded-xl text-gray-900">
             {/* Intro Text */}
             {!submitted && (
               <div className="space-y-4 text-sm sm:text-base md:text-lg text-gray-800 text-left">
@@ -121,11 +129,7 @@ export default function LandingPage() {
               {!submitted && (
                 <h2 className="text-xl sm:text-2xl font-bold text-center mb-4">Join the Waitlist</h2>
               )}
-              {submitted ? (
-                <div className="bg-orange-500 text-white text-center p-3 rounded shadow text-sm sm:text-base">
-                  Thank you! You’ve been added to the waitlist.
-                </div>
-              ) : (
+              {!submitted && (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <input
                     type="text"
@@ -134,7 +138,7 @@ export default function LandingPage() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full p-3 text-sm sm:text-base text-gray-800 border border-gray-300 rounded bg-white/80 placeholder-gray-800"
+                    className="w-full p-3 text-sm sm:text-base text-gray-800 border border-gray-300 rounded bg-white/80 placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
                   />
                   <input
                     type="email"
@@ -143,7 +147,7 @@ export default function LandingPage() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full p-3 text-sm sm:text-base text-gray-800 border border-gray-300 rounded bg-white/80 placeholder-gray-800"
+                    className="w-full p-3 text-sm sm:text-base text-gray-800 border border-gray-300 rounded bg-white/80 placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
                   />
                   <input
                     type="text"
@@ -151,10 +155,11 @@ export default function LandingPage() {
                     placeholder="Car Make"
                     value={formData.make}
                     onChange={handleChange}
-                    className="w-full p-3 text-sm sm:text-base text-gray-800 border border-gray-300 rounded bg-white/80 placeholder-gray-800"
+                    className="w-full p-3 text-sm sm:text-base text-gray-800 border border-gray-300 rounded bg-white/80 placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
                   />
                   <label className="flex items-start gap-2 text-sm sm:text-base text-gray-700 bg-white/80 p-3 rounded-md">
                     <input
+                      id="agree"
                       type="checkbox"
                       checked={agreed}
                       onChange={(e) => setAgreed(e.target.checked)}
