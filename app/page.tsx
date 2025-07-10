@@ -77,7 +77,7 @@ export default function LandingPage() {
 
        <section className="w-full px-4 pt-8 pb-12 text-center text-gray-900 flex justify-center">
   <div className="w-full max-w-full lg:max-w-[1400px] xl:max-w-[1600px] mx-auto">
-    <div className="space-y-8 bg-[#a9e0ff] p-6 sm:p-8 md:p-10 rounded-xl text-gray-900 px-4">
+<div className="space-y-8 bg-[#a9e0ff] px-4 sm:px-8 md:px-10 py-6 sm:py-8 md:py-10 rounded-xl text-gray-900">
             {/* Intro Text */}
             {!submitted && (
               <div className="space-y-4 text-sm sm:text-base md:text-lg text-gray-800 text-left">
@@ -180,12 +180,13 @@ export default function LandingPage() {
                   >
                     Submit to get discounts when we launch
                   </button>
-                </form>
+                       </form>
               )}
-            </div>
-          </div>
-        </section>
-      </main>
+            </div> {/* closes .pt-4 form wrapper */}
+          </div>   {/* closes .space-y-8 (card background wrapper) */}
+        </div>     {/* closes max-width container */}
+      </section>   {/* closes full section */}
+    </main>
 
       <footer className="w-full bg-gray-100 text-center text-sm text-gray-600 py-4">
         © {new Date().getFullYear()} Carly Compare. All rights reserved.
