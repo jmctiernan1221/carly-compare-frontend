@@ -55,13 +55,13 @@ export default function LandingPage() {
 
         {/* Main Section with Banner and Thank You Overlay */}
     <section className="w-full flex justify-center relative">
-  <div className="w-full lg:max-w-[1200px]">
+  <div className="w-full max-w-full lg:max-w-[1400px] xl:max-w-[1600px]">
     <Image
       src="/newbackground.jpg"
       alt="Carly Compare Banner"
       width={1920}
       height={600}
-      className="w-full h-64 sm:h-80 md:h-96 lg:h-[400px] xl:h-[360px] object-cover lg:object-contain"
+      className="w-full h-64 sm:h-80 md:h-96 lg:h-[400px] xl:h-[360px] object-contain"
       priority
     />
   </div>
