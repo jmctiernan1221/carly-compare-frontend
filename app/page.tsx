@@ -75,8 +75,9 @@ export default function LandingPage() {
   )}
 </section>
 
-        <section className="w-full px-4 pt-8 pb-12 text-center text-gray-900">
-          <div className="max-w-3xl mx-auto space-y-8 bg-[#a9e0ff] p-6 sm:p-8 md:p-10 rounded-xl text-gray-900">
+       <section className="w-full px-4 pt-8 pb-12 text-center text-gray-900 flex justify-center">
+  <div className="w-full max-w-full lg:max-w-[1400px] xl:max-w-[1600px] mx-auto">
+    <div className="space-y-8 bg-[#a9e0ff] p-6 sm:p-8 md:p-10 rounded-xl text-gray-900 px-4">
             {/* Intro Text */}
             {!submitted && (
               <div className="space-y-4 text-sm sm:text-base md:text-lg text-gray-800 text-left">
