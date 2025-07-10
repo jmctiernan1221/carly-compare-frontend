@@ -52,7 +52,23 @@ export default function LandingPage() {
             priority
           />
         </div>
-
+<div className="flex justify-center gap-6 mt-2 sm:mt-4 text-gray-600">
+  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+    <svg className="w-6 h-6 hover:text-orange-500 transition" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M22 12a10 10 0 10-11.5 9.87v-6.99h-2.3V12h2.3v-1.5c0-2.28 1.35-3.55 3.42-3.55.99 0 2.02.18 2.02.18v2.23h-1.14c-1.12 0-1.47.7-1.47 1.42V12h2.5l-.4 2.88h-2.1v6.99A10 10 0 0022 12z" />
+    </svg>
+  </a>
+  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+    <svg className="w-6 h-6 hover:text-orange-500 transition" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zm8.75 2a.75.75 0 110 1.5.75.75 0 010-1.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7z" />
+    </svg>
+  </a>
+  <a href="mailto:hello@carlycompare.com" aria-label="Email">
+    <svg className="w-6 h-6 hover:text-orange-500 transition" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M4 4h16a2 2 0 012 2v1.18a2 2 0 01-.61 1.42l-8 7.6a2 2 0 01-2.78 0l-8-7.6A2 2 0 012 7.18V6a2 2 0 012-2zm0 4.36l7.29 6.93a1 1 0 001.42 0L20 8.36V18a2 2 0 01-2 2H6a2 2 0 01-2-2V8.36z" />
+    </svg>
+  </a>
+</div>
         {/* Banner + Thank You Overlay */}
         <section className="w-full flex justify-center relative">
           <div className="w-full max-w-full lg:max-w-[1400px] xl:max-w-[1600px] mx-auto">
