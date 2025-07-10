@@ -54,26 +54,26 @@ export default function LandingPage() {
         </div>
 
         {/* Banner + Thank You Overlay */}
-        <section className="w-full flex justify-center relative">
-          <div className="w-full max-w-full lg:max-w-[1400px] xl:max-w-[1600px] mx-auto">
-            <Image
-              src="/newbackground.jpg"
-              alt="Carly Compare Banner"
-              width={1920}
-              height={600}
-              className="w-full h-64 sm:h-80 md:h-96 lg:h-[400px] xl:h-[360px] object-contain"
-              priority
-            />
-          </div>
+       <section className="w-full px-4 flex justify-center relative">
+  <div className="w-full max-w-3xl mx-auto">
+    <Image
+      src="/newbackground.jpg"
+      alt="Carly Compare Banner"
+      width={1920}
+      height={600}
+      className="w-full h-64 sm:h-80 md:h-96 object-contain rounded-xl shadow"
+      priority
+    />
+  </div>
 
-          {submitted && (
-            <div className="absolute inset-0 flex items-center justify-center z-10">
-              <div className="bg-white text-orange-600 font-semibold text-lg sm:text-xl px-6 py-4 rounded shadow-lg text-center">
-                ✅ Thank you! You’ve been added to the waitlist.
-              </div>
-            </div>
-          )}
-        </section>
+  {submitted && (
+    <div className="absolute inset-0 flex items-center justify-center z-10">
+      <div className="bg-white text-orange-600 font-semibold text-lg sm:text-xl px-6 py-4 rounded shadow-lg text-center">
+        ✅ Thank you! You’ve been added to the waitlist.
+      </div>
+    </div>
+  )}
+</section>
 
         {/* Form Section */}
         {!submitted && (
