@@ -177,13 +177,12 @@ export default function LandingPage() {
                       Submit to get discounts when we launch
                     </button>
                   </form>
-                  <div className="pt-6 border-t border-white/50 mt-8">
-
-                </div>
               </div>
             </div>
           </section>
-      <section className="w-full px-4 pt-6 text-center text-gray-700">
+   
+         )}
+                  <section className="w-full px-4 pt-6 text-center text-gray-700">
   <div className="max-w-3xl mx-auto flex flex-col items-center gap-4">
     <div className="flex gap-6">
       <a href="https://www.facebook.com/share/16dssyoApG/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
@@ -202,7 +201,6 @@ export default function LandingPage() {
     </a>
   </div>
 </section>
-    
       </main>
 
       <footer className="w-full bg-gray-100 text-center text-sm text-gray-600 py-4">
