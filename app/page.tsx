@@ -181,7 +181,7 @@ export default function LandingPage() {
                     Submit to get discounts when we launch
                   </button>
                        </form>
-              )}
+              
             </div> {/* closes .pt-4 form wrapper */}
           </div>   {/* closes .space-y-8 (card background wrapper) */}
         </div>     {/* closes max-width container */}
