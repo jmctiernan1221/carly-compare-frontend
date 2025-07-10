@@ -67,14 +67,14 @@ export default function LandingPage() {
   </div>
 
   {submitted && (
-    <div className="absolute inset-0 flex items-center justify-center bg-black/60 z-10">
+    <div className="absolute inset-0 flex items-center justify-center z-10">
       <div className="bg-white text-orange-600 font-semibold text-lg sm:text-xl px-6 py-4 rounded shadow-lg text-center">
         ✅ Thank you! You’ve been added to the waitlist.
       </div>
     </div>
   )}
 </section>
-
+{!submitted && (
        <section className="w-full px-4 pt-8 pb-12 text-center text-gray-900 flex justify-center">
   <div className="w-full max-w-3xl mx-auto">
   <div className="space-y-8 bg-[#a9e0ff] px-6 sm:px-8 py-8 rounded-xl text-gray-900 shadow-md">
@@ -186,6 +186,7 @@ export default function LandingPage() {
           </div>   {/* closes .space-y-8 (card background wrapper) */}
         </div>     {/* closes max-width container */}
       </section>   {/* closes full section */}
+        )}
     </main>
 
       <footer className="w-full bg-gray-100 text-center text-sm text-gray-600 py-4">
