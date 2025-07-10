@@ -177,6 +177,7 @@ export default function LandingPage() {
                       Submit to get discounts when we launch
                     </button>
                   </form>
+                  </div>
               </div>
             </div>
           </section>
