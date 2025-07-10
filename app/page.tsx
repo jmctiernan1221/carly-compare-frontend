@@ -79,7 +79,7 @@ export default function LandingPage() {
   <div className="w-full max-w-3xl mx-auto">
   <div className="space-y-8 bg-[#a9e0ff] px-6 sm:px-8 py-8 rounded-xl text-gray-900 shadow-md">
             {/* Intro Text */}
-            {!submitted && (
+
               <div className="space-y-4 text-sm sm:text-base md:text-lg text-gray-800 text-left">
                 <p>
                   CarlyCompare.com is your personal guide to making smarter, faster car-selling decisions.
