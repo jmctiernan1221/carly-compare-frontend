@@ -54,7 +54,7 @@ export default function LandingPage() {
         </div>
 
         {/* Main Section with Banner and Thank You Overlay */}
-        <section className="w-full flex justify-center">
+    <section className="w-full flex justify-center relative">
   <div className="w-full lg:max-w-[1200px]">
     <Image
       src="/newbackground.jpg"
@@ -65,15 +65,15 @@ export default function LandingPage() {
       priority
     />
   </div>
+
+  {submitted && (
+    <div className="absolute inset-0 flex items-center justify-center bg-black/60 z-10">
+      <div className="bg-white text-orange-600 font-semibold text-lg sm:text-xl px-6 py-4 rounded shadow-lg text-center">
+        ✅ Thank you! You’ve been added to the waitlist.
+      </div>
+    </div>
+  )}
 </section>
-          {submitted && (
-            <div className="absolute inset-0 flex items-center justify-center bg-black/60 z-10">
-              <div className="bg-white text-orange-600 font-semibold text-lg sm:text-xl px-6 py-4 rounded shadow-lg text-center">
-                ✅ Thank you! You’ve been added to the waitlist.
-              </div>
-            </div>
-          )}
-        </section>
 
         <section className="w-full px-4 pt-8 pb-12 text-center text-gray-900">
           <div className="max-w-3xl mx-auto space-y-8 bg-[#a9e0ff] p-6 sm:p-8 md:p-10 rounded-xl text-gray-900">
