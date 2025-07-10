@@ -180,18 +180,19 @@ export default function LandingPage() {
                   >
                     Submit to get discounts when we launch
                   </button>
-                       </form>
-              
+                    </form>
+              )}
             </div> {/* closes .pt-4 form wrapper */}
-          </div>   {/* closes .space-y-8 (card background wrapper) */}
+          </div>   {/* closes card background wrapper */}
         </div>     {/* closes max-width container */}
       </section>   {/* closes full section */}
-        )}
-    </main>
+    )}             {/* ✅ closes the conditional rendering block */}
 
-      <footer className="w-full bg-gray-100 text-center text-sm text-gray-600 py-4">
-        © {new Date().getFullYear()} Carly Compare. All rights reserved.
-      </footer>
-    </>
+  </main>
+
+  <footer className="w-full bg-gray-100 text-center text-sm text-gray-600 py-4">
+    © {new Date().getFullYear()} Carly Compare. All rights reserved.
+  </footer>
+</>
   );
 }
