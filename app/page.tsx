@@ -179,7 +179,7 @@ export default function LandingPage() {
                   <div className="pt-6 border-t border-white/50 mt-8">
   <div className="flex flex-col items-center gap-4 text-gray-700">
     <div className="flex gap-6">
-      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+      <a href="https://www.facebook.com/share/16dssyoApG/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
         <svg className="w-8 h-8 hover:text-orange-500 transition" fill="currentColor" viewBox="0 0 24 24">
           <path d="M22 12a10 10 0 10-11.5 9.87v-6.99h-2.3V12h2.3v-1.5c0-2.28 1.35-3.55 3.42-3.55.99 0 2.02.18 2.02.18v2.23h-1.14c-1.12 0-1.47.7-1.47 1.42V12h2.5l-.4 2.88h-2.1v6.99A10 10 0 0022 12z" />
         </svg>
