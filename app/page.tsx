@@ -55,14 +55,14 @@ export default function LandingPage() {
 
         {/* Main Section with Banner and Thank You Overlay */}
         <section className="w-full relative">
-          <Image
-            src="/newbackground.jpg"
-            alt="Carly Compare Banner"
-            width={1920}
-            height={600}
-            className="w-full h-auto object-cover"
-            priority
-          />
+         <Image
+  src="/newbackground.jpg"
+  alt="Carly Compare Banner"
+  width={1920}
+  height={600}
+  className="w-full object-cover h-64 sm:h-80 md:h-96 lg:h-[400px] xl:h-[360px]"
+  priority
+/>
           {submitted && (
             <div className="absolute inset-0 flex items-center justify-center bg-black/60 z-10">
               <div className="bg-white text-orange-600 font-semibold text-lg sm:text-xl px-6 py-4 rounded shadow-lg text-center">
