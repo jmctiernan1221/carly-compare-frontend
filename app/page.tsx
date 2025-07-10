@@ -55,12 +55,12 @@ export default function LandingPage() {
 
         {/* Main Section with Banner and Thank You Overlay */}
         <section className="w-full relative">
-         <Image
+       <Image
   src="/newbackground.jpg"
   alt="Carly Compare Banner"
   width={1920}
   height={600}
-  className="w-full object-cover h-64 sm:h-80 md:h-96 lg:h-[400px] xl:h-[360px]"
+  className="w-full h-64 sm:h-80 md:h-96 lg:h-[400px] xl:h-[360px] object-cover lg:object-contain"
   priority
 />
           {submitted && (
