@@ -43,6 +43,7 @@ export default function LandingPage() {
       <main className="min-h-screen flex flex-col items-center px-4 pb-24">
         {/* Logo */}
         <div className="flex justify-center mb-2 px-4 mt-2 sm:mb-6 sm:mt-8">
+           <a href="https://carlycompare.com" aria-label="Carly Compare Homepage">
           <Image
             src="/carlylogotext.png"
             alt="Carly Compare Logo"
@@ -51,6 +52,7 @@ export default function LandingPage() {
             className="object-contain"
             priority
           />
+             </a>
         </div>
 
         {/* Banner + Thank You Overlay */}
