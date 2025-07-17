@@ -176,7 +176,7 @@ export default function LandingPage() {
                       type="submit"
                       className="w-full p-3 text-sm sm:text-base font-semibold text-white bg-orange-500 hover:bg-orange-600 rounded transition"
                     >
-                      Submit to get discounts when we launch
+                      Be One of the First 500 
                     </button>
                   </form>
                   </div>
