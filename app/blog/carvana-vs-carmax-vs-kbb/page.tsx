@@ -1,5 +1,5 @@
-
 import { Metadata } from 'next';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Carvana vs CarMax vs KBB — Who Pays More?',
@@ -8,10 +8,28 @@ export const metadata: Metadata = {
 
 export default function BlogPost() {
   return (
-    <main className="max-w-3xl mx-auto px-4 py-12 text-gray-800">
-      <h1 className="text-4xl font-bold mb-6">Carvana vs CarMax vs KBB — Who Pays More?</h1>
+    <main className="min-h-screen flex flex-col items-center px-4 pb-24 text-gray-800">
+      {/* Logo */}
+      <div className="flex justify-center mb-2 px-4 mt-2 sm:mb-6 sm:mt-8">
+        <a href="https://carlycompare.com" aria-label="Carly Compare Homepage">
+          <Image
+            src="/carlylogotext.png"
+            alt="Carly Compare Logo"
+            width={320}
+            height={140}
+            className="object-contain"
+            priority
+          />
+        </a>
+      </div>
 
-           <section className="space-y-6 text-lg leading-8">
+      {/* Article Content */}
+      <article className="max-w-3xl w-full">
+        <h1 className="text-4xl font-bold mb-6 text-center">
+          Carvana vs CarMax vs KBB — Who Pays More?
+        </h1>
+
+        <section className="space-y-6 text-lg leading-8">
           <p><strong>Carvana, CarMax, and Kelley Blue Book (KBB)</strong> all promise to give you a good deal when selling your car — but who actually delivers the best price?</p>
 
           <h2 className="text-2xl font-semibold mt-10">Quick Overview</h2>
@@ -66,7 +84,7 @@ export default function BlogPost() {
             🎉 <a href="/" className="underline">Join the Carly Compare waitlist</a> to get early access when we launch!
           </div>
         </section>
-      </main>
-    </>
+      </article>
+    </main>
   );
 }
