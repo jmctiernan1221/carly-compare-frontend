@@ -4,6 +4,27 @@ import Image from 'next/image';
 export const metadata: Metadata = {
   title: 'Carvana vs CarMax vs KBB — Who Pays More?',
   description: 'We compare Carvana, CarMax, and Kelley Blue Book to find out who offers the best price when selling your car.',
+  openGraph: {
+    title: 'Carvana vs CarMax vs KBB — Who Pays More?',
+    description: 'We tested all 3 to find out which one gives the highest offer. Results inside.',
+    url: 'https://carlycompare.com/blog/carvana-vs-carmax-vs-kbb',
+    siteName: 'Carly Compare',
+    images: [
+      {
+        url: 'https://carlycompare.com/og/car-comparison.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Carvana vs CarMax vs KBB',
+      },
+    ],
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Carvana vs CarMax vs KBB — Who Pays More?',
+    description: 'We tested all 3 to find out which one gives the highest offer. Results inside.',
+    images: ['https://carlycompare.com/og/car-comparison.jpg'],
+  },
 };
 
 export default function BlogPost() {
