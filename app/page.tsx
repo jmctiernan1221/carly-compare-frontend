@@ -178,7 +178,7 @@ export default function LandingPage() {
                       type="submit"
                       className="w-full p-3 text-sm sm:text-base font-semibold text-white bg-orange-500 hover:bg-orange-600 rounded transition"
                     >
-                      ONLY the first 500 signups will get our launch-day bonus!
+                      ONLY the first 500 sign-ups will get our launch-day bonus!
                     </button>
                   </form>
                   </div>
