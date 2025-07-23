@@ -2,9 +2,14 @@
 
 import { useEffect } from 'react';
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
 export function GoogleAnalytics() {
   useEffect(() => {
-    // Avoid duplicate script injection
     if (window.gtag) return;
 
     const script1 = document.createElement('script');
