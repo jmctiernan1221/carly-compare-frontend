@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { GoogleAnalytics } from './GoogleAnalytics';
 
 export default function LandingPage() {
   const [formData, setFormData] = useState({
@@ -40,6 +41,7 @@ export default function LandingPage() {
 
   return (
     <>
+      <GoogleAnalytics />
       <main className="min-h-screen flex flex-col items-center px-4 pb-24">
         {/* Logo */}
         <div className="flex justify-center mb-2 px-4 mt-2 sm:mb-6 sm:mt-8">
