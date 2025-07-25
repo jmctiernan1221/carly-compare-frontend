@@ -215,39 +215,31 @@ const handleSubmit = async (e: React.FormEvent) => {
   <div className="bg-white p-4 rounded shadow text-sm text-left">
     <h2 className="text-lg font-bold mb-2">💬 Your Estimated Offers</h2>
 
-    {quote.estimatedTradeInValues && (
+    {quote.estimated_trade_in_values && (
       <ul className="mb-4 space-y-1">
-  {Object.entries(quote.estimatedTradeInValues).map(([platform, range]: [string, any]) => {
-  if (
-    typeof range !== 'object' ||
-    range === null ||
-    !('min' in range) ||
-    !('max' in range)
-  ) {
-    console.warn('⚠️ Unexpected range shape:', platform, range);
-    return null;
-  }
+        {Object.entries(quote.estimated_trade_in_values).map(([platform, range]: [string, any]) => {
+          if (!range || typeof range !== 'object' || !('low' in range) || !('high' in range)) {
+            console.warn('⚠️ Unexpected range:', platform, range);
+            return null;
+          }
 
-  return (
-    <li key={platform}>
-      <strong>{platform}:</strong> {formatCurrency(range.min)} – {formatCurrency(range.max)}
-    </li>
-  );
-})}
+          return (
+            <li key={platform}>
+              <strong>{platform}:</strong> {formatCurrency(range.low)} – {formatCurrency(range.high)}
+            </li>
+          );
+        })}
       </ul>
     )}
 
-    {quote.recommendation && (
+    {quote.best_season_to_sell && (
+      <p><strong>📅 Best Time to Sell:</strong> {quote.best_season_to_sell}</p>
+    )}
+
+    {quote.platform_recommendation && (
       <>
-        {quote.recommendation.bestSeasonToSell && (
-          <p><strong>📅 Best Time to Sell:</strong> {quote.recommendation.bestSeasonToSell}</p>
-        )}
-        {quote.recommendation.platformRecommendation && (
-          <p><strong>✅ Recommended Platform:</strong> {quote.recommendation.platformRecommendation}</p>
-        )}
-        {quote.recommendation.explanation && (
-          <p className="mt-2"><strong>💡 Why:</strong> {quote.recommendation.explanation}</p>
-        )}
+        <p><strong>✅ Recommended Platform:</strong> {quote.platform_recommendation.best_platform}</p>
+        <p className="mt-2"><strong>💡 Why:</strong> {quote.platform_recommendation.explanation}</p>
       </>
     )}
   </div>
