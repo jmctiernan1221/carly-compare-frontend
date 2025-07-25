@@ -82,30 +82,32 @@ export default function LandingPage() {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      const response = await fetch('https://carly-compare-backend.onrender.com/api/quote-ai', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  try {
+    const response = await fetch('https://carly-compare-backend.onrender.com/api/quote-ai', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
 
-      if (!response.ok) throw new Error('Quote API failed');
+    console.log("📡 Response status:", response.status);
 
-      const data = await response.json();
-      const parsed = typeof data.quote === 'string' ? JSON.parse(data.quote) : data.quote;
-      setQuote(parsed);
-      setSubmitted(true);
-    } catch (err) {
-      console.error('Error fetching AI quote:', err);
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error("❌ Error response:", errorText);
+      throw new Error('Quote API failed');
     }
-  };
 
-  const nextStep = async () => {
-    if (step === 1 && formData.vin) await decodeVIN();
-    setStep((prev) => prev + 1);
-  };
+    const data = await response.json();
+    const parsed = typeof data.quote === 'string' ? JSON.parse(data.quote) : data.quote;
+    console.log("✅ Quote received:", parsed);
+    setQuote(parsed);
+    setSubmitted(true);
+  } catch (err) {
+    console.error('Error fetching AI quote:', err);
+  }
+};
 
   const prevStep = () => setStep((prev) => prev - 1);
 
