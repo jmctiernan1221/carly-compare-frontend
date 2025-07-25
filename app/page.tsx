@@ -276,7 +276,7 @@ const handleSubmit = async (e: React.FormEvent) => {
       </ul>
     )}
 
- {quote.recommendations && (
+
   <>
     {quote.recommendations.best_season_to_sell && (
       <p><strong>📅 Best Time to Sell:</strong> {quote.recommendations.best_season_to_sell}</p>
@@ -288,7 +288,7 @@ const handleSubmit = async (e: React.FormEvent) => {
       <p className="mt-2"><strong>💡 Why:</strong> {quote.recommendations.explanation}</p>
     )}
   </>
-)}
+
   </div>
 )}
 
