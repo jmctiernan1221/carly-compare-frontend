@@ -82,25 +82,37 @@ export default function LandingPage() {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      const response = await fetch('https://carly-compare-backend.onrender.com/api/quote-ai', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  console.log("🚀 Submitting form with data:", formData);
 
-      if (!response.ok) throw new Error('Quote API failed');
+  try {
+    const response = await fetch('https://carly-compare-backend.onrender.com/api/quote-ai', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
 
-      const data = await response.json();
-      const parsed = typeof data.quote === 'string' ? JSON.parse(data.quote) : data.quote;
-      setQuote(parsed);
-      setSubmitted(true);
-    } catch (err) {
-      console.error('Error fetching AI quote:', err);
+    console.log("📡 Response status:", response.status);
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error("❌ Error response from backend:", errorText);
+      throw new Error('Quote API failed');
     }
-  };
+
+    const data = await response.json();
+    console.log("📦 Raw response JSON:", data);
+
+    const parsed = typeof data.quote === 'string' ? JSON.parse(data.quote) : data.quote;
+    console.log("✅ Quote received:", parsed);
+
+    setQuote(parsed);
+    setSubmitted(true);
+  } catch (err) {
+    console.error("💥 Error fetching AI quote:", err);
+  }
+};
 
   const nextStep = async () => {
     if (step === 1 && formData.vin) await decodeVIN();
@@ -255,11 +267,15 @@ export default function LandingPage() {
                     Next ➡
                   </button>
                 )}
-                {step === 6 && (
-                  <button type="submit" className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">
-                    Get Offers
-                  </button>
-                )}
+               {step === 6 && (
+  <button
+    type="submit"
+    className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600"
+    onClick={() => console.log("🟠 Submit button clicked")}
+  >
+    Get Offers
+  </button>
+)}
               </div>
             </form>
           )}
