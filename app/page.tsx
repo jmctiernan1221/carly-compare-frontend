@@ -203,9 +203,9 @@ export default function LandingPage() {
   <div className="bg-white p-4 rounded shadow text-sm text-left">
     <h2 className="text-lg font-bold mb-2">💬 Your Estimated Offers</h2>
 
-    <ul className="mb-4 space-y-1">
-      {quote.estimatedTradeInValues &&
-        Object.entries(quote.estimatedTradeInValues).map(([platform, range]: [string, any]) => {
+    {quote.estimatedTradeInValues && (
+      <ul className="mb-4 space-y-1">
+        {Object.entries(quote.estimatedTradeInValues).map(([platform, range]: [string, any]) => {
           if (
             typeof range !== 'object' ||
             range === null ||
@@ -222,7 +222,8 @@ export default function LandingPage() {
             </li>
           );
         })}
-    </ul>
+      </ul>
+    )}
 
     {quote.recommendation && (
       <>
