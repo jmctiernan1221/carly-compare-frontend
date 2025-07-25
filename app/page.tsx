@@ -13,6 +13,7 @@ export default function LandingPage() {
 
   const [formData, setFormData] = useState({
     vin: '',
+    year: '',
     make: '',
     model: '',
     trim: '',
@@ -65,22 +66,24 @@ export default function LandingPage() {
     }
   };
 
-  const decodeVIN = async () => {
-    const response = await fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVin/${formData.vin}?format=json`);
-    const data = await response.json();
-    const result = data.Results.reduce((acc: any, item: any) => {
-      if (item.Variable === 'Make') acc.make = item.Value;
-      if (item.Variable === 'Model') acc.model = item.Value;
-      if (item.Variable === 'Trim') acc.trim = item.Value;
-      return acc;
-    }, {});
-    setFormData((prev) => ({
-      ...prev,
-      make: result.make || '',
-      model: result.model || '',
-      trim: result.trim || '',
-    }));
-  };
+const decodeVIN = async () => {
+  const response = await fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVin/${formData.vin}?format=json`);
+  const data = await response.json();
+  const result = data.Results.reduce((acc: any, item: any) => {
+    if (item.Variable === 'Make') acc.make = item.Value;
+    if (item.Variable === 'Model') acc.model = item.Value;
+    if (item.Variable === 'Trim') acc.trim = item.Value;
+    if (item.Variable === 'Model Year') acc.year = item.Value; // 👈 ADD THIS
+    return acc;
+  }, {});
+  setFormData((prev) => ({
+    ...prev,
+    make: result.make || '',
+    model: result.model || '',
+    trim: result.trim || '',
+    year: result.year || '', // 👈 ADD THIS
+  }));
+};
 
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
@@ -126,32 +129,73 @@ const handleSubmit = async (e: React.FormEvent) => {
   const renderStep = () => {
     switch (step) {
       case 1:
-        return (
-          <>
-            <input type="text" name="vin" placeholder="Enter VIN (optional)" value={formData.vin} onChange={handleChange} className="w-full p-3 border border-gray-300 rounded" />
-            {!formData.vin && (
-              <>
-                <select name="make" value={formData.make} onChange={handleChange} required>
-                  <option value="">Select Make</option>
-                  {makes.map((make) => (
-                    <option key={make} value={make}>{make}</option>
-                  ))}
-                </select>
-                {formData.make && (
-                  <select name="model" value={formData.model} onChange={handleChange} required>
-                    <option value="">Select Model</option>
-                    {models.map((model) => (
-                      <option key={model} value={model}>{model}</option>
-                    ))}
-                  </select>
-                )}
-                {formData.model && (
-                  <input type="text" name="trim" placeholder="Enter Trim (optional)" value={formData.trim} onChange={handleChange} className="w-full p-3 border border-gray-300 rounded" />
-                )}
-              </>
-            )}
-          </>
-        );
+  return (
+    <>
+      <input
+        type="text"
+        name="vin"
+        placeholder="Enter VIN (optional)"
+        value={formData.vin}
+        onChange={handleChange}
+        className="w-full p-3 border border-gray-300 rounded"
+      />
+      {!formData.vin && (
+        <>
+          {/* 👇 New year input field when not using VIN */}
+          <input
+            type="text"
+            name="year"
+            placeholder="Enter Year"
+            value={formData.year}
+            onChange={handleChange}
+            className="w-full p-3 border border-gray-300 rounded"
+            required
+          />
+
+          <select
+            name="make"
+            value={formData.make}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select Make</option>
+            {makes.map((make) => (
+              <option key={make} value={make}>
+                {make}
+              </option>
+            ))}
+          </select>
+
+          {formData.make && (
+            <select
+              name="model"
+              value={formData.model}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select Model</option>
+              {models.map((model) => (
+                <option key={model} value={model}>
+                  {model}
+                </option>
+              ))}
+            </select>
+          )}
+
+          {formData.model && (
+            <input
+              type="text"
+              name="trim"
+              placeholder="Enter Trim (optional)"
+              value={formData.trim}
+              onChange={handleChange}
+              className="w-full p-3 border border-gray-300 rounded"
+            />
+          )}
+        </>
+      )}
+    </>
+  );
       case 2:
         return <input type="number" name="mileage" placeholder="Mileage" value={formData.mileage} onChange={handleChange} required />;
       case 3:
