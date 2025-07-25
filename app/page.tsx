@@ -257,35 +257,34 @@ const nextStep = async () => {
             className="mx-auto"
           />
           {submitted && quote && (
-            <div className="bg-white p-4 rounded shadow text-sm text-left">
-              <h2 className="text-lg font-bold mb-2">💬 Your Estimated Offers</h2>
-             <ul className="mb-4 space-y-1">
-  {Object.entries(quote.estimated_trade_in_values).map(([platform, range]: [string, any]) => {
-    if (typeof range !== 'object' || range === null || !('low' in range) || !('high' in range)) {
-      console.warn('⚠️ Unexpected range shape:', platform, range);
-      return null;
-    }
+  <div className="bg-white p-4 rounded shadow text-sm text-left">
+    <h2 className="text-lg font-bold mb-2">💬 Your Estimated Offers</h2>
+    <ul className="mb-4 space-y-1">
+      {quote.estimated_values &&
+        Object.entries(quote.estimated_values).map(([platform, range]: [string, any]) => {
+          if (typeof range !== 'object' || range === null || !('low' in range) || !('high' in range)) {
+            console.warn('⚠️ Unexpected range shape:', platform, range);
+            return null;
+          }
 
-    return (
-      <li key={platform}>
-        <strong>{platform}:</strong> {formatCurrency(range.low)} – {formatCurrency(range.high)}
-      </li>
-    );
-  })}
-</ul>
-             
-              <p><strong>📅 Best Time to Sell:</strong> {quote.best_season_to_sell}</p>
-              {typeof quote.platform_recommendation === 'object' && quote.platform_recommendation !== null ? (
-  <>
-    <p><strong>✅ Recommended Platform:</strong> {quote.platform_recommendation.best_platform}</p>
-    <p className="mt-2"><strong>💡 Why:</strong> {quote.platform_recommendation.explanation}</p>
-  </>
-) : (
-  <p><strong>✅ Recommended Platform:</strong> {quote.platform_recommendation}</p>
+          return (
+            <li key={platform}>
+              <strong>{platform}:</strong> {formatCurrency(range.low)} – {formatCurrency(range.high)}
+            </li>
+          );
+        })}
+    </ul>
+    <p><strong>📅 Best Time to Sell:</strong> {quote.best_season_to_sell}</p>
+    {typeof quote.platform_recommendation === 'object' && quote.platform_recommendation !== null ? (
+      <>
+        <p><strong>✅ Recommended Platform:</strong> {quote.platform_recommendation.best_platform}</p>
+        <p className="mt-2"><strong>💡 Why:</strong> {quote.platform_recommendation.explanation}</p>
+      </>
+    ) : (
+      <p><strong>✅ Recommended Platform:</strong> {quote.platform_recommendation}</p>
+    )}
+  </div>
 )}
-              <p className="mt-2"><strong>💡 Why:</strong> {quote.explanation}</p>
-            </div>
-          )}
           {!submitted && (
             <form onSubmit={handleSubmit} className="space-y-4">
               {renderStep()}
