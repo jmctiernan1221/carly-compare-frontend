@@ -217,23 +217,23 @@ const handleSubmit = async (e: React.FormEvent) => {
 
     {quote.estimatedTradeInValues && (
       <ul className="mb-4 space-y-1">
-        {Object.entries(quote.estimatedTradeInValues).map(([platform, range]: [string, any]) => {
-          if (
-            typeof range !== 'object' ||
-            range === null ||
-            !('low' in range) ||
-            !('high' in range)
-          ) {
-            console.warn('⚠️ Unexpected range shape:', platform, range);
-            return null;
-          }
+  {Object.entries(quote.estimatedTradeInValues).map(([platform, range]: [string, any]) => {
+  if (
+    typeof range !== 'object' ||
+    range === null ||
+    !('min' in range) ||
+    !('max' in range)
+  ) {
+    console.warn('⚠️ Unexpected range shape:', platform, range);
+    return null;
+  }
 
-          return (
-            <li key={platform}>
-              <strong>{platform}:</strong> {formatCurrency(range.low)} – {formatCurrency(range.high)}
-            </li>
-          );
-        })}
+  return (
+    <li key={platform}>
+      <strong>{platform}:</strong> {formatCurrency(range.min)} – {formatCurrency(range.max)}
+    </li>
+  );
+})}
       </ul>
     )}
 
