@@ -199,43 +199,46 @@ export default function LandingPage() {
         <div className="w-full max-w-md bg-white/90 p-6 rounded-lg shadow-lg text-center space-y-6">
           <Image src="/carlylogotext.png" alt="Carly Compare Logo" width={300} height={100} className="mx-auto" />
 
-          {submitted && quote && (
-            <div className="bg-white p-4 rounded shadow text-sm text-left">
-              <h2 className="text-lg font-bold mb-2">💬 Your Estimated Offers</h2>
-              <ul className="mb-4 space-y-1">
-                {quote.estimatedTradeInValues &&
-                  Object.entries(quote.estimatedTradeInValues).map(([platform, range]: [string, any]) => {
-                    if (typeof range !== 'object' || range === null || !('low' in range) || !('high' in range)) {
-                      console.warn('⚠️ Unexpected range shape:', platform, range);
-                      return null;
-                    }
-                    return (
-                      <li key={platform}>
-                        <strong>{platform}:</strong> {formatCurrency(range.low)} – {formatCurrency(range.high)}
-                      </li>
-                    );
-                  })}
-              </ul>
-console.log("🔍 quote.recommendation:", quote.recommendation);
-{quote.recommendation && (
-  <>
-    {quote.recommendation.bestSeasonToSell && (
-      <p><strong>📅 Best Time to Sell:</strong> {quote.recommendation.bestSeasonToSell}</p>
+{submitted && quote && (
+  <div className="bg-white p-4 rounded shadow text-sm text-left">
+    <h2 className="text-lg font-bold mb-2">💬 Your Estimated Offers</h2>
+
+    <ul className="mb-4 space-y-1">
+      {quote.estimatedTradeInValues &&
+        Object.entries(quote.estimatedTradeInValues).map(([platform, range]: [string, any]) => {
+          if (
+            typeof range !== 'object' ||
+            range === null ||
+            !('low' in range) ||
+            !('high' in range)
+          ) {
+            console.warn('⚠️ Unexpected range shape:', platform, range);
+            return null;
+          }
+
+          return (
+            <li key={platform}>
+              <strong>{platform}:</strong> {formatCurrency(range.low)} – {formatCurrency(range.high)}
+            </li>
+          );
+        })}
+    </ul>
+
+    {quote.recommendation && (
+      <>
+        {quote.recommendation.bestSeasonToSell && (
+          <p><strong>📅 Best Time to Sell:</strong> {quote.recommendation.bestSeasonToSell}</p>
+        )}
+        {quote.recommendation.platformRecommendation && (
+          <p><strong>✅ Recommended Platform:</strong> {quote.recommendation.platformRecommendation}</p>
+        )}
+        {quote.recommendation.explanation && (
+          <p className="mt-2"><strong>💡 Why:</strong> {quote.recommendation.explanation}</p>
+        )}
+      </>
     )}
-    {quote.recommendation.platformRecommendation && (
-      <p><strong>✅ Recommended Platform:</strong> {quote.recommendation.platformRecommendation}</p>
-    )}
-    {quote.recommendation.explanation && (
-      <p className="mt-2"><strong>💡 Why:</strong> {quote.recommendation.explanation}</p>
-    )}
-  </>
+  </div>
 )}
-  </>
-) : (
-  <p className="text-red-500">⚠️ Unable to display recommendation details.</p>
-)}
-            </div>
-          )}
 
           {!submitted && (
             <form onSubmit={handleSubmit} className="space-y-4">
