@@ -48,15 +48,19 @@ export default function LandingPage() {
   }, [formData.make]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value, type, checked } = e.target;
-    if (name === 'vin') {
+    const { name, value, type } = e.target;
+    const checked = type === 'checkbox' ? (e.target as HTMLInputElement).checked : undefined;
+
+    if (type === 'checkbox') {
+      setFormData((prev) => ({ ...prev, [name]: checked }));
+    } else if (name === 'vin') {
       setFormData((prev) => ({ ...prev, vin: value, make: '', model: '', trim: '' }));
     } else if (name === 'make') {
       setFormData((prev) => ({ ...prev, make: value, model: '', trim: '' }));
     } else if (name === 'model') {
       setFormData((prev) => ({ ...prev, model: value, trim: '' }));
     } else {
-      setFormData((prev) => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
+      setFormData((prev) => ({ ...prev, [name]: value }));
     }
   };
 
