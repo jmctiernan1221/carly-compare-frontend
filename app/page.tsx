@@ -217,7 +217,7 @@ export default function LandingPage() {
                   })}
               </ul>
 console.log("🔍 quote.recommendation:", quote.recommendation);
-{quote.recommendation ? (
+{quote.recommendation && (
   <>
     {quote.recommendation.bestSeasonToSell && (
       <p><strong>📅 Best Time to Sell:</strong> {quote.recommendation.bestSeasonToSell}</p>
@@ -228,6 +228,8 @@ console.log("🔍 quote.recommendation:", quote.recommendation);
     {quote.recommendation.explanation && (
       <p className="mt-2"><strong>💡 Why:</strong> {quote.recommendation.explanation}</p>
     )}
+  </>
+)}
   </>
 ) : (
   <p className="text-red-500">⚠️ Unable to display recommendation details.</p>
