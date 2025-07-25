@@ -275,7 +275,14 @@ const nextStep = async () => {
 </ul>
              
               <p><strong>📅 Best Time to Sell:</strong> {quote.best_season_to_sell}</p>
-              <p><strong>✅ Recommended Platform:</strong> {quote.platform_recommendation}</p>
+              {typeof quote.platform_recommendation === 'object' && quote.platform_recommendation !== null ? (
+  <>
+    <p><strong>✅ Recommended Platform:</strong> {quote.platform_recommendation.best_platform}</p>
+    <p className="mt-2"><strong>💡 Why:</strong> {quote.platform_recommendation.explanation}</p>
+  </>
+) : (
+  <p><strong>✅ Recommended Platform:</strong> {quote.platform_recommendation}</p>
+)}
               <p className="mt-2"><strong>💡 Why:</strong> {quote.explanation}</p>
             </div>
           )}
