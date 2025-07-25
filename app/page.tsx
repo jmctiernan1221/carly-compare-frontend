@@ -276,16 +276,19 @@ const handleSubmit = async (e: React.FormEvent) => {
       </ul>
     )}
 
-    {quote.best_season_to_sell && (
-      <p><strong>📅 Best Time to Sell:</strong> {quote.best_season_to_sell}</p>
+ {quote.recommendations && (
+  <>
+    {quote.recommendations.best_season_to_sell && (
+      <p><strong>📅 Best Time to Sell:</strong> {quote.recommendations.best_season_to_sell}</p>
     )}
-
-    {quote.platform_recommendation && (
-      <>
-        <p><strong>✅ Recommended Platform:</strong> {quote.platform_recommendation.best_platform}</p>
-        <p className="mt-2"><strong>💡 Why:</strong> {quote.platform_recommendation.explanation}</p>
-      </>
+    {quote.recommendations.platform_with_best_deal && (
+      <p><strong>✅ Recommended Platform:</strong> {quote.recommendations.platform_with_best_deal}</p>
     )}
+    {quote.recommendations.explanation && (
+      <p className="mt-2"><strong>💡 Why:</strong> {quote.recommendations.explanation}</p>
+    )}
+  </>
+)}
   </div>
 )}
 
