@@ -111,6 +111,134 @@ export default function LandingPage() {
 
   const formatCurrency = (amount: number) => `$${amount.toLocaleString()}`;
 
+  const renderStep = () => {
+    switch (step) {
+      case 1:
+        return (
+          <>
+            <input
+              type="text"
+              name="vin"
+              placeholder="Enter VIN (optional)"
+              value={formData.vin}
+              onChange={handleChange}
+              className="w-full p-3 border border-gray-300 rounded"
+            />
+            {!formData.vin && (
+              <>
+                <select name="make" value={formData.make} onChange={handleChange} required>
+                  <option value="">Select Make</option>
+                  {makes.map((make) => (
+                    <option key={make} value={make}>{make}</option>
+                  ))}
+                </select>
+                {formData.make && (
+                  <select name="model" value={formData.model} onChange={handleChange} required>
+                    <option value="">Select Model</option>
+                    {models.map((model) => (
+                      <option key={model} value={model}>{model}</option>
+                    ))}
+                  </select>
+                )}
+                {formData.model && (
+                  <input
+                    type="text"
+                    name="trim"
+                    placeholder="Enter Trim (optional)"
+                    value={formData.trim}
+                    onChange={handleChange}
+                    className="w-full p-3 border border-gray-300 rounded"
+                  />
+                )}
+              </>
+            )}
+          </>
+        );
+      case 2:
+        return (
+          <input
+            type="number"
+            name="mileage"
+            placeholder="Mileage"
+            value={formData.mileage}
+            onChange={handleChange}
+            required
+          />
+        );
+      case 3:
+        return (
+          <>
+            <select name="interior" value={formData.interior} onChange={handleChange} required>
+              <option value="">Interior Condition</option>
+              <option value="Excellent">Excellent</option>
+              <option value="Good">Good</option>
+              <option value="Fair">Fair</option>
+              <option value="Poor">Poor</option>
+            </select>
+            <select name="exterior" value={formData.exterior} onChange={handleChange} required>
+              <option value="">Exterior Condition</option>
+              <option value="Excellent">Excellent</option>
+              <option value="Good">Good</option>
+              <option value="Fair">Fair</option>
+              <option value="Poor">Poor</option>
+            </select>
+          </>
+        );
+      case 4:
+        return (
+          <>
+            <select name="owners" value={formData.owners} onChange={handleChange} required>
+              <option value="">Number of Owners</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3+">3+</option>
+            </select>
+            <label>
+              <input
+                type="checkbox"
+                name="accidents"
+                checked={formData.accidents}
+                onChange={handleChange}
+              />
+              Has it been in an accident?
+            </label>
+            {formData.accidents && (
+              <select name="damage" value={formData.damage} onChange={handleChange} required>
+                <option value="">Damage Severity</option>
+                <option value="Low">Low (cosmetic)</option>
+                <option value="Medium">Medium (body)</option>
+                <option value="High">High (frame)</option>
+              </select>
+            )}
+          </>
+        );
+      case 5:
+        return (
+          <input
+            type="text"
+            name="zip"
+            placeholder="ZIP Code"
+            value={formData.zip}
+            onChange={handleChange}
+            required
+          />
+        );
+      case 6:
+        return (
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <>
       <GoogleAnalytics />
