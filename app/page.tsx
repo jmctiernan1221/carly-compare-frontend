@@ -7,6 +7,7 @@ import { GoogleAnalytics } from './GoogleAnalytics';
 export default function LandingPage() {
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
+  const [quote, setQuote] = useState<string | null>(null);
   const [makes, setMakes] = useState<string[]>([]);
   const [models, setModels] = useState<string[]>([]);
 
@@ -84,16 +85,19 @@ export default function LandingPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://carly-compare-backend.onrender.com/api/waitlist', {
+      const response = await fetch('https://carly-compare-backend.onrender.com/api/quote-ai', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-      if (!response.ok) throw new Error('Failed to submit form');
-      await response.json();
+
+      if (!response.ok) throw new Error('Quote API failed');
+
+      const data = await response.json();
+      setQuote(data.quote);
       setSubmitted(true);
     } catch (err) {
-      console.error(err);
+      console.error('Error fetching AI quote:', err);
     }
   };
 
@@ -244,9 +248,13 @@ export default function LandingPage() {
             height={100}
             className="mx-auto"
           />
-          {submitted ? (
-            <p className="text-green-700 font-semibold">✅ Thank you! Your submission was received.</p>
-          ) : (
+          {submitted && quote && (
+            <div className="bg-white p-4 rounded shadow text-sm text-left whitespace-pre-wrap">
+              <h2 className="text-lg font-bold mb-2">💬 Your Estimated Offers</h2>
+              <pre>{quote}</pre>
+            </div>
+          )}
+          {!submitted && (
             <form onSubmit={handleSubmit} className="space-y-4">
               {renderStep()}
               <div className="flex justify-between pt-4">
