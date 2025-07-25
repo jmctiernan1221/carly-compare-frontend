@@ -273,7 +273,7 @@ const nextStep = async () => {
     );
   })}
 </ul>
-              </ul>
+             
               <p><strong>📅 Best Time to Sell:</strong> {quote.best_season_to_sell}</p>
               <p><strong>✅ Recommended Platform:</strong> {quote.platform_recommendation}</p>
               <p className="mt-2"><strong>💡 Why:</strong> {quote.explanation}</p>
