@@ -82,36 +82,31 @@ export default function LandingPage() {
     }));
   };
 
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  try {
-    const response = await fetch('https://carly-compare-backend.onrender.com/api/quote-ai', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    });
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('https://carly-compare-backend.onrender.com/api/quote-ai', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
 
-    console.log("📡 Response status:", response.status);
+      if (!response.ok) throw new Error('Quote API failed');
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error("❌ Error response:", errorText);
-      throw new Error('Quote API failed');
+      const data = await response.json();
+      const parsed = typeof data.quote === 'string' ? JSON.parse(data.quote) : data.quote;
+      setQuote(parsed);
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Error fetching AI quote:', err);
     }
+  };
 
-    const data = await response.json();
-    const parsed = typeof data.quote === 'string' ? JSON.parse(data.quote) : data.quote;
-    console.log("✅ Quote received:", parsed);
-    setQuote(parsed);
-    setSubmitted(true);
-  } catch (err) {
-    console.error('Error fetching AI quote:', err);
-  }
-};
-const nextStep = async () => {
-  if (step === 1 && formData.vin) await decodeVIN();
-  setStep((prev) => prev + 1);
-};
+  const nextStep = async () => {
+    if (step === 1 && formData.vin) await decodeVIN();
+    setStep((prev) => prev + 1);
+  };
+
   const prevStep = () => setStep((prev) => prev - 1);
 
   const formatCurrency = (amount: number) => `$${amount.toLocaleString()}`;
@@ -121,14 +116,7 @@ const nextStep = async () => {
       case 1:
         return (
           <>
-            <input
-              type="text"
-              name="vin"
-              placeholder="Enter VIN (optional)"
-              value={formData.vin}
-              onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded"
-            />
+            <input type="text" name="vin" placeholder="Enter VIN (optional)" value={formData.vin} onChange={handleChange} className="w-full p-3 border border-gray-300 rounded" />
             {!formData.vin && (
               <>
                 <select name="make" value={formData.make} onChange={handleChange} required>
@@ -146,30 +134,14 @@ const nextStep = async () => {
                   </select>
                 )}
                 {formData.model && (
-                  <input
-                    type="text"
-                    name="trim"
-                    placeholder="Enter Trim (optional)"
-                    value={formData.trim}
-                    onChange={handleChange}
-                    className="w-full p-3 border border-gray-300 rounded"
-                  />
+                  <input type="text" name="trim" placeholder="Enter Trim (optional)" value={formData.trim} onChange={handleChange} className="w-full p-3 border border-gray-300 rounded" />
                 )}
               </>
             )}
           </>
         );
       case 2:
-        return (
-          <input
-            type="number"
-            name="mileage"
-            placeholder="Mileage"
-            value={formData.mileage}
-            onChange={handleChange}
-            required
-          />
-        );
+        return <input type="number" name="mileage" placeholder="Mileage" value={formData.mileage} onChange={handleChange} required />;
       case 3:
         return (
           <>
@@ -199,13 +171,7 @@ const nextStep = async () => {
               <option value="3+">3+</option>
             </select>
             <label>
-              <input
-                type="checkbox"
-                name="accidents"
-                checked={formData.accidents}
-                onChange={handleChange}
-              />
-              Has it been in an accident?
+              <input type="checkbox" name="accidents" checked={formData.accidents} onChange={handleChange} /> Has it been in an accident?
             </label>
             {formData.accidents && (
               <select name="damage" value={formData.damage} onChange={handleChange} required>
@@ -218,27 +184,9 @@ const nextStep = async () => {
           </>
         );
       case 5:
-        return (
-          <input
-            type="text"
-            name="zip"
-            placeholder="ZIP Code"
-            value={formData.zip}
-            onChange={handleChange}
-            required
-          />
-        );
+        return <input type="text" name="zip" placeholder="ZIP Code" value={formData.zip} onChange={handleChange} required />;
       case 6:
-        return (
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        );
+        return <input type="email" name="email" placeholder="Your Email" value={formData.email} onChange={handleChange} required />;
       default:
         return null;
     }
@@ -249,41 +197,31 @@ const nextStep = async () => {
       <GoogleAnalytics />
       <main className="min-h-screen flex flex-col items-center px-4 pb-24 pt-12">
         <div className="w-full max-w-md bg-white/90 p-6 rounded-lg shadow-lg text-center space-y-6">
-          <Image
-            src="/carlylogotext.png"
-            alt="Carly Compare Logo"
-            width={300}
-            height={100}
-            className="mx-auto"
-          />
+          <Image src="/carlylogotext.png" alt="Carly Compare Logo" width={300} height={100} className="mx-auto" />
+
           {submitted && quote && (
-  <div className="bg-white p-4 rounded shadow text-sm text-left">
-    <h2 className="text-lg font-bold mb-2">💬 Your Estimated Offers</h2>
-    <ul className="mb-4 space-y-1">
-  {quote.estimated_trade_in_values &&
-  Object.entries(quote.estimated_trade_in_values).map(([platform, range]: [string, any]) => {
-    if (typeof range !== 'object' || range === null || !('low' in range) || !('high' in range)) {
-      console.warn('⚠️ Unexpected range shape:', platform, range);
-      return null;
-    }
-    return (
-      <li key={platform}>
-        <strong>{platform}:</strong> {formatCurrency(range.low)} – {formatCurrency(range.high)}
-      </li>
-    );
-  })}
-    </ul>
-    <p><strong>📅 Best Time to Sell:</strong> {quote.best_season_to_sell}</p>
-    {typeof quote.platform_recommendation === 'object' && quote.platform_recommendation !== null ? (
-      <>
-        <p><strong>✅ Recommended Platform:</strong> {quote.platform_recommendation.best_platform}</p>
-        <p className="mt-2"><strong>💡 Why:</strong> {quote.platform_recommendation.reason}</p>
-      </>
-    ) : (
-      <p><strong>✅ Recommended Platform:</strong> {quote.platform_recommendation}</p>
-    )}
-  </div>
-)}
+            <div className="bg-white p-4 rounded shadow text-sm text-left">
+              <h2 className="text-lg font-bold mb-2">💬 Your Estimated Offers</h2>
+              <ul className="mb-4 space-y-1">
+                {quote.estimatedTradeInValues &&
+                  Object.entries(quote.estimatedTradeInValues).map(([platform, range]: [string, any]) => {
+                    if (typeof range !== 'object' || range === null || !('low' in range) || !('high' in range)) {
+                      console.warn('⚠️ Unexpected range shape:', platform, range);
+                      return null;
+                    }
+                    return (
+                      <li key={platform}>
+                        <strong>{platform}:</strong> {formatCurrency(range.low)} – {formatCurrency(range.high)}
+                      </li>
+                    );
+                  })}
+              </ul>
+              <p><strong>📅 Best Time to Sell:</strong> {quote.recommendation.bestSeasonToSell}</p>
+              <p><strong>✅ Recommended Platform:</strong> {quote.recommendation.platformRecommendation}</p>
+              <p className="mt-2"><strong>💡 Why:</strong> {quote.recommendation.explanation}</p>
+            </div>
+          )}
+
           {!submitted && (
             <form onSubmit={handleSubmit} className="space-y-4">
               {renderStep()}
@@ -299,10 +237,7 @@ const nextStep = async () => {
                   </button>
                 )}
                 {step === 6 && (
-                  <button
-                    type="submit"
-                    className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600"
-                  >
+                  <button type="submit" className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">
                     Get Offers
                   </button>
                 )}
