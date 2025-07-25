@@ -108,7 +108,10 @@ const handleSubmit = async (e: React.FormEvent) => {
     console.error('Error fetching AI quote:', err);
   }
 };
-
+const nextStep = async () => {
+  if (step === 1 && formData.vin) await decodeVIN();
+  setStep((prev) => prev + 1);
+};
   const prevStep = () => setStep((prev) => prev - 1);
 
   const formatCurrency = (amount: number) => `$${amount.toLocaleString()}`;
