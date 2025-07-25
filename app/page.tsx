@@ -127,7 +127,7 @@ export default function LandingPage() {
             <div className="bg-white p-4 rounded shadow text-sm text-left">
               <h2 className="text-lg font-bold mb-2">💬 Your Estimated Offers</h2>
               <ul className="mb-4 space-y-1">
-                {Object.entries(quote.estimated_trade_in_values).map(([platform, range]) => (
+                {Object.entries(quote.estimated_trade_in_values).map(([platform, range]: [string, any]) => (
                   <li key={platform}>
                     <strong>{platform}:</strong> {formatCurrency(range.low)} – {formatCurrency(range.high)}
                   </li>
