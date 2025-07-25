@@ -216,9 +216,15 @@ export default function LandingPage() {
                     );
                   })}
               </ul>
-              <p><strong>📅 Best Time to Sell:</strong> {quote.recommendation.bestSeasonToSell}</p>
-              <p><strong>✅ Recommended Platform:</strong> {quote.recommendation.platformRecommendation}</p>
-              <p className="mt-2"><strong>💡 Why:</strong> {quote.recommendation.explanation}</p>
+{quote.recommendation ? (
+  <>
+    <p><strong>📅 Best Time to Sell:</strong> {quote.recommendation.bestSeasonToSell}</p>
+    <p><strong>✅ Recommended Platform:</strong> {quote.recommendation.platformRecommendation}</p>
+    <p className="mt-2"><strong>💡 Why:</strong> {quote.recommendation.explanation}</p>
+  </>
+) : (
+  <p className="text-red-500">⚠️ Unable to display recommendation details.</p>
+)}
             </div>
           )}
 
