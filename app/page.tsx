@@ -271,14 +271,27 @@ const handleSubmit = async (e: React.FormEvent) => {
 
     {quote.estimated_trade_in_values && (
       <ul className="mb-4 space-y-1">
-        {Object.entries(quote.estimated_trade_in_values).map(([platform, range]) => {
-          const { low, high } = range as { low: number; high: number };
-          return (
-            <li key={platform}>
-              <strong>{platform}:</strong> {formatCurrency(low)} – {formatCurrency(high)}
-            </li>
-          );
-        })}
+  {Object.entries(quote.estimated_trade_in_values).map(([platform, range]) => {
+  if (
+    !range ||
+    typeof range !== 'object' ||
+    typeof (range as any).low !== 'number' ||
+    typeof (range as any).high !== 'number'
+  ) {
+    return (
+      <li key={platform}>
+        <strong>{platform}:</strong> {typeof range === 'string' ? range : 'Unavailable'}
+      </li>
+    );
+  }
+
+  const { low, high } = range as { low: number; high: number };
+  return (
+    <li key={platform}>
+      <strong>{platform}:</strong> {formatCurrency(low)} – {formatCurrency(high)}
+    </li>
+  );
+})}
       </ul>
     )}
 
