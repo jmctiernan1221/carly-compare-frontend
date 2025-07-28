@@ -28,13 +28,25 @@ export default function LandingPage() {
   });
 
   useEffect(() => {
-    fetch('https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json')
-      .then((res) => res.json())
-      .then((data) => {
-        const makeList = data.Results.map((item: any) => item.Make_Name);
-        setMakes(makeList.sort());
-      });
-  }, []);
+  const topMakes = [
+    'Audi',
+    'BMW',
+    'Chevrolet',
+    'Ford',
+    'Honda',
+    'Hyundai',
+    'Jeep',
+    'Kia',
+    'Lexus',
+    'Mazda',
+    'Mercedes-Benz',
+    'Nissan',
+    'Subaru',
+    'Toyota',
+    'Volkswagen',
+  ];
+  setMakes(topMakes);
+}, []);
 
   useEffect(() => {
     if (formData.make) {
