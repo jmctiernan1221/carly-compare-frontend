@@ -111,6 +111,16 @@ const handleSubmit = async (e: React.FormEvent) => {
     console.log("✅ Quote received:", parsed);
 
     setQuote(parsed);
+        // ✅ Submit to waitlist after quote is generated
+    await fetch('https://carly-compare-backend.onrender.com/api/waitlist', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: `${formData.make} ${formData.model}`,
+        email: formData.email,
+        make: formData.make,
+      }),
+    });
     setSubmitted(true);
   } catch (err) {
     console.error("💥 Error fetching AI quote:", err);
@@ -276,19 +286,17 @@ const handleSubmit = async (e: React.FormEvent) => {
       </ul>
     )}
 
-{quote.recommendations && (
-  <>
-    {quote.recommendations.best_season_to_sell && (
-      <p><strong>📅 Best Time to Sell:</strong> {quote.recommendations.best_season_to_sell}</p>
-    )}
-    {quote.recommendations.platform_with_best_deal && (
-      <p><strong>✅ Recommended Platform:</strong> {quote.recommendations.platform_with_best_deal}</p>
-    )}
-    {quote.recommendations.explanation && (
-      <p className="mt-2"><strong>💡 Why:</strong> {quote.recommendations.explanation}</p>
-    )}
-  </>
-)}
+<>
+  {quote.best_season_to_sell && (
+    <p><strong>📅 Best Time to Sell:</strong> {quote.best_season_to_sell}</p>
+  )}
+  {quote.platform_recommendation?.best_platform && (
+    <p><strong>✅ Recommended Platform:</strong> {quote.platform_recommendation.best_platform}</p>
+  )}
+  {quote.platform_recommendation?.explanation && (
+    <p className="mt-2"><strong>💡 Why:</strong> {quote.platform_recommendation.explanation}</p>
+  )}
+</>
   </div>
 )}
 
