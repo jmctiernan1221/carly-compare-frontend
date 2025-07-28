@@ -269,20 +269,16 @@ const handleSubmit = async (e: React.FormEvent) => {
   <div className="bg-white p-4 rounded shadow text-sm text-left">
     <h2 className="text-lg font-bold mb-2">💬 Your Estimated Offers</h2>
 
-    {/* DEBUG QUOTE OBJECT */}
-    {/* <pre className="text-xs text-gray-500">{JSON.stringify(quote, null, 2)}</pre> */}
-
     {quote.estimated_trade_in_values && (
       <ul className="mb-4 space-y-1">
-    {Object.entries(quote.estimated_trade_in_values).map(([platform, range]) => {
-  const { low, high } = range as { low: number; high: number };
-
-  return (
-    <li key={platform}>
-      <strong>{platform}:</strong> {formatCurrency(low)} – {formatCurrency(high)}
-    </li>
-  );
-})}
+        {Object.entries(quote.estimated_trade_in_values).map(([platform, range]) => {
+          const { low, high } = range as { low: number; high: number };
+          return (
+            <li key={platform}>
+              <strong>{platform}:</strong> {formatCurrency(low)} – {formatCurrency(high)}
+            </li>
+          );
+        })}
       </ul>
     )}
 
@@ -299,7 +295,6 @@ const handleSubmit = async (e: React.FormEvent) => {
     )}
   </div>
 )}
-
           {!submitted && (
             <form onSubmit={handleSubmit} className="space-y-4">
               {renderStep()}
