@@ -269,11 +269,14 @@ const handleSubmit = async (e: React.FormEvent) => {
   <div className="bg-white p-4 rounded shadow text-sm text-left">
     <h2 className="text-lg font-bold mb-2">💬 Your Estimated Offers</h2>
 
+    {/* DEBUG QUOTE OBJECT */}
+    {/* <pre className="text-xs text-gray-500">{JSON.stringify(quote, null, 2)}</pre> */}
+
     {quote.estimated_trade_in_values && (
       <ul className="mb-4 space-y-1">
-        {Object.entries(quote.estimated_trade_in_values).map(([platform, range]: [string, any]) => {
-          if (!range || typeof range !== 'object' || !('low' in range) || !('high' in range)) {
-            console.warn('⚠️ Unexpected range:', platform, range);
+        {Object.entries(quote.estimated_trade_in_values).map(([platform, range]) => {
+          if (!range || typeof range !== 'object') {
+            console.warn('⚠️ Unexpected range format:', platform, range);
             return null;
           }
 
@@ -286,17 +289,17 @@ const handleSubmit = async (e: React.FormEvent) => {
       </ul>
     )}
 
-<>
-  {quote.best_season_to_sell && (
-    <p><strong>📅 Best Time to Sell:</strong> {quote.best_season_to_sell}</p>
-  )}
-  {quote.platform_recommendation?.best_platform && (
-    <p><strong>✅ Recommended Platform:</strong> {quote.platform_recommendation.best_platform}</p>
-  )}
-  {quote.platform_recommendation?.explanation && (
-    <p className="mt-2"><strong>💡 Why:</strong> {quote.platform_recommendation.explanation}</p>
-  )}
-</>
+    {quote.best_season_to_sell && (
+      <p><strong>📅 Best Time to Sell:</strong> {quote.best_season_to_sell}</p>
+    )}
+
+    {quote.platform_recommendation?.best_platform && (
+      <p><strong>✅ Recommended Platform:</strong> {quote.platform_recommendation.best_platform}</p>
+    )}
+
+    {quote.platform_recommendation?.explanation && (
+      <p className="mt-2"><strong>💡 Why:</strong> {quote.platform_recommendation.explanation}</p>
+    )}
   </div>
 )}
 
