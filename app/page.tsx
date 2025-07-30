@@ -302,7 +302,7 @@ const handleSubmit = async (e: React.FormEvent) => {
   {/* Image Column */}
   <div className="md:w-1/2">
     <Image
-      src="/hero-car.png" // <-- Replace with your image path
+      src="/avatar-6-26.png" // <-- Replace with your image path
       alt="Car Hero"
       width={500}
       height={350}
