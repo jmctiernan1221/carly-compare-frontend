@@ -287,7 +287,7 @@ const handleSubmit = async (e: React.FormEvent) => {
   </div>
 
   {/* Page content begins */}
-  <div className="w-full max-w-5xl px-4 pt-8">
+ <div className="w-full max-w-5xl px-4 mt-[-1rem]">
 
   {/* Two Column Layout */}
   <div className="flex flex-col md:flex-row items-center justify-between gap-8 min-h-[350px]">
