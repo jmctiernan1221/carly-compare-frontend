@@ -284,6 +284,16 @@ const handleSubmit = async (e: React.FormEvent) => {
   />
 </div>
       <main className="min-h-screen flex flex-col items-center px-4 pb-24 pt-12 bg-[#F8E9CF]">
+        <div className="w-full max-w-md px-4 mt-8">
+  <Image
+    src="/carlylogotext.png"
+    alt="Carly Compare Logo"
+    width={260}
+    height={80}
+    priority
+    className="mb-8"
+  />
+</div>
         <div className="w-full max-w-md bg-white/90 p-6 rounded-lg shadow-lg text-center space-y-6">
         
 
