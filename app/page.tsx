@@ -286,7 +286,7 @@ const handleSubmit = async (e: React.FormEvent) => {
     </div>
   </div>
 
-  <main className="min-h-screen flex flex-col items-center px-4 pb-24 pt-12 bg-[#F8E9CF]"
+  <main className="min-h-screen flex flex-col items-center px-4 pb-24 pt-12 bg-[#F8E9CF]">
 
 {/* Now begin the 2-column layout */}
 <div className="w-full max-w-5xl px-4">
