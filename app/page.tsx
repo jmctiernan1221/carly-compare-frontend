@@ -370,21 +370,42 @@ const handleSubmit = async (e: React.FormEvent) => {
   <p className="text-gray-700 mb-6">
     We make selling your car easy by comparing top offers from trusted buyers — all in one place.
   </p>
+
   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+    {/* Real-Time Offers */}
     <div className="bg-white/90 p-4 rounded shadow">
-      <h4 className="font-semibold text-lg mb-2">✅ Real-Time Offers</h4>
+      <div className="flex items-start space-x-2 mb-2">
+        <svg className="w-5 h-5 text-orange-500 mt-1" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+        </svg>
+        <h4 className="font-semibold text-lg">Real-Time Offers</h4>
+      </div>
       <p className="text-sm text-gray-700">
         Instantly see what Carvana, KBB, CarMax, and more would pay for your car.
       </p>
     </div>
+
+    {/* No Time Wasted */}
     <div className="bg-white/90 p-4 rounded shadow">
-      <h4 className="font-semibold text-lg mb-2">🕒 No Time Wasted</h4>
+      <div className="flex items-start space-x-2 mb-2">
+        <svg className="w-5 h-5 text-orange-500 mt-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4m5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <h4 className="font-semibold text-lg">No Time Wasted</h4>
+      </div>
       <p className="text-sm text-gray-700">
         Skip the hassle of visiting dealer sites — we bring the offers to you.
       </p>
     </div>
+
+    {/* Transparent Comparison */}
     <div className="bg-white/90 p-4 rounded shadow">
-      <h4 className="font-semibold text-lg mb-2">⚖️ Transparent Comparison</h4>
+      <div className="flex items-start space-x-2 mb-2">
+        <svg className="w-5 h-5 text-blue-500 mt-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v18m0 0c-1.472 0-2.882.265-4.185.75M12 21c1.472 0 2.882.265 4.185.75M18.75 4.97C16.545 4.66 14.29 4.5 12 4.5c-2.291 0-4.546.16-6.75.47m13.5 0l2.62 10.725c.122.5-.106 1.028-.59 1.202-.634.229-1.318.354-2.03.354s-1.396-.125-2.03-.354c-.483-.174-.711-.702-.59-1.202L18.75 4.97zM5.25 4.97L7.87 15.695c.122.5-.106 1.028-.59 1.202-.634.229-1.318.354-2.03.354s-1.396-.125-2.03-.354c-.483-.174-.711-.702-.59-1.202L5.25 4.97z" />
+        </svg>
+        <h4 className="font-semibold text-lg">Transparent Comparison</h4>
+      </div>
       <p className="text-sm text-gray-700">
         Know who’s offering what — and why — so you can make the smartest choice.
       </p>
