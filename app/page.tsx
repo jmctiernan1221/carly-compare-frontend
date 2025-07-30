@@ -175,15 +175,14 @@ const handleSubmit = async (e: React.FormEvent) => {
       {!formData.vin && (
         <>
           {/* 👇 New year input field when not using VIN */}
-          <input
-            type="text"
-            name="year"
-            placeholder="Enter Year"
-            value={formData.year}
-            onChange={handleChange}
-            className="w-full p-3 border border-gray-300 rounded"
-            required
-          />
+        <input
+  type="text"
+  name="year"
+  placeholder="Enter Year"
+  value={formData.year}
+  onChange={handleChange}
+  className="w-full p-3 border border-gray-300 rounded"
+/>
 
           <select
             name="make"
