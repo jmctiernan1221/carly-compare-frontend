@@ -143,7 +143,9 @@ const renderInput = (
   type: string = 'text',
   required: boolean = false
 ) => {
-  const value = typeof formData[name] === 'boolean' ? '' : (formData[name] as string | number | undefined);
+  const rawValue = formData[name];
+  const value = typeof rawValue === 'boolean' ? '' : rawValue ?? '';
+
   return (
     <>
       <input
