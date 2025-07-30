@@ -292,25 +292,24 @@ const handleSubmit = async (e: React.FormEvent) => {
 <div className="w-full max-w-5xl px-4">
 
   {/* Two Column Layout */}
-  <div className="flex flex-col md:flex-row items-start justify-between gap-8">
-    {/* Left Column: Text & Button */}
-    <div className="md:w-1/2">
-      <h2 className="text-3xl font-bold text-gray-900 mb-2">
-        Compare Cash Offers Instantly
-      </h2>
-      <p className="text-gray-700 text-base mb-4">
-        Carly Compare helps you get the best deal by pulling real-time offers from trusted platforms like Carvana, KBB, and CarMax.
-      </p>
-      <button
-        className="bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-600 transition"
-        onClick={() => {
-          const formEl = document.getElementById('quote-form');
-          formEl?.scrollIntoView({ behavior: 'smooth' });
-        }}
-      >
-        Get Your Offer
-      </button>
-    </div>
+  <div className="flex flex-col md:flex-row items-center justify-between gap-8 min-h-[350px]">
+  <div className="md:w-1/2 flex flex-col justify-center h-full">
+  <h2 className="text-3xl font-bold text-gray-900 mb-2">
+    Compare Cash Offers Instantly
+  </h2>
+  <p className="text-gray-700 text-base mb-4">
+    Carly Compare helps you get the best deal by pulling real-time offers from trusted platforms like Carvana, KBB, and CarMax.
+  </p>
+  <button
+    className="bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-600 transition"
+    onClick={() => {
+      const formEl = document.getElementById('quote-form');
+      formEl?.scrollIntoView({ behavior: 'smooth' });
+    }}
+  >
+    Get Your Offer
+  </button>
+</div>
 
     {/* Right Column: Image */}
     <div className="md:w-1/2">
