@@ -137,18 +137,20 @@ export default function LandingPage() {
 
   const formatCurrency = (amount: number) => `$${amount.toLocaleString()}`;
 
-  const renderInput = (
-    name: keyof typeof formData,
-    placeholder: string,
-    type: string = 'text',
-    required: boolean = false
-  ) => (
+const renderInput = (
+  name: keyof typeof formData,
+  placeholder: string,
+  type: string = 'text',
+  required: boolean = false
+) => {
+  const value = typeof formData[name] === 'boolean' ? '' : (formData[name] as string | number | undefined);
+  return (
     <>
       <input
         type={type}
         name={name}
         placeholder={placeholder}
-        value={formData[name]}
+        value={value}
         onChange={handleChange}
         required={required}
         className="w-full p-3 border border-gray-300 rounded"
@@ -156,6 +158,7 @@ export default function LandingPage() {
       {errors[name] && <p className="text-red-500 text-sm mt-1">{errors[name]}</p>}
     </>
   );
+};
 
   const renderStep = () => {
     switch (step) {
