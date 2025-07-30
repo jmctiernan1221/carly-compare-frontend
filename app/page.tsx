@@ -273,20 +273,20 @@ const handleSubmit = async (e: React.FormEvent) => {
   return (
     <>
       <GoogleAnalytics />
-      <div className="absolute top-6 left-6 z-50">
-  <Image
-    src="/carlylogotext.png"
-    alt="Carly Compare Logo"
-    width={260}
-    height={80}
-    priority
-    className="mb-6"
-  />
-</div>
-      <main className="min-h-screen flex flex-col items-center px-4 pb-24 pt-40 bg-[#F8E9CF]">
-        <div className="w-full max-w-md px-4 mt-8">
+ 
+     <main className="min-h-screen flex flex-col items-center px-4 pb-24 pt-12 bg-[#F8E9CF]">
+  <div className="w-full max-w-md px-4 mt-8 self-start">
+    <Image
+      src="/carlylogotext.png"
+      alt="Carly Compare Logo"
+      width={260}
+      height={80}
+      priority
+      className="mb-8"
+    />
+  </div>
 
-        <div className="w-full max-w-md bg-white/90 p-6 rounded-lg shadow-lg text-center space-y-6">
+  <div className="w-full max-w-md bg-white/90 p-6 rounded-lg shadow-lg text-center space-y-6">
         
 
 {submitted && quote && (
