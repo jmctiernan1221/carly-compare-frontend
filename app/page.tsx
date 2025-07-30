@@ -440,6 +440,9 @@ const handleSubmit = async (e: React.FormEvent) => {
           )}
         </div>
       </main>
+      <footer className="w-full text-center text-sm text-gray-600 py-6">
+  © 2025 CarlyCompare. All rights reserved.
+</footer>
     </>
   );
 }
