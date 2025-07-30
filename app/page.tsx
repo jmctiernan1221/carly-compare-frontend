@@ -280,7 +280,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 {/* Logo aligned far left (no max width) */}
 <div className="w-full pl-4 pt-8 mb-6">
   <Image
-    src="/carlylogotext.png"
+    src="/carlylogotext2.png"
     alt="Carly Compare Logo"
     width={260}
     height={80}
