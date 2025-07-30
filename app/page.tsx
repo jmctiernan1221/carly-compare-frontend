@@ -412,6 +412,17 @@ const handleSubmit = async (e: React.FormEvent) => {
     </div>
   </div>
 </div>
+  <div className="flex justify-center mt-8">
+  <button
+    className="inline-block bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-600 transition"
+    onClick={() => {
+      const formEl = document.getElementById('quote-form');
+      formEl?.scrollIntoView({ behavior: 'smooth' });
+    }}
+  >
+    Get Your Offer
+  </button>
+</div>
   {/* Form Card */}
   <div
     id="quote-form"
