@@ -285,7 +285,31 @@ const handleSubmit = async (e: React.FormEvent) => {
       className="mb-8"
     />
   </div>
+<div className="w-full max-w-5xl px-4 mt-12 flex flex-col md:flex-row items-center justify-between gap-8">
+  {/* Text Column */}
+  <div className="md:w-1/2 space-y-4 text-center md:text-left">
+    <h2 className="text-3xl font-bold text-gray-900">
+      Compare Cash Offers Instantly
+    </h2>
+    <p className="text-gray-700 text-base">
+      Carly Compare helps you get the best deal by pulling real-time offers from trusted platforms like Carvana, KBB, and CarMax.
+    </p>
+    <button className="bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-600 transition">
+      Get Your Offer
+    </button>
+  </div>
 
+  {/* Image Column */}
+  <div className="md:w-1/2">
+    <Image
+      src="/hero-car.png" // <-- Replace with your image path
+      alt="Car Hero"
+      width={500}
+      height={350}
+      className="w-full h-auto object-contain"
+    />
+  </div>
+</div>
   <div className="w-full max-w-md bg-white/90 p-6 rounded-lg shadow-lg text-center space-y-6">
         
 
