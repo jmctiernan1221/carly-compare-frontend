@@ -103,6 +103,13 @@ const decodeVIN = async () => {
 
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
+
+  // ✅ Validate year if VIN is not provided
+  if (!formData.vin && !formData.year) {
+    alert("Please enter either a VIN or the vehicle year.");
+    return;
+  }
+
   console.log("🚀 Submitting form with data:", formData);
 
   try {
