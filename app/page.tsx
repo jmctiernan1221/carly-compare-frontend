@@ -10,6 +10,7 @@ export default function LandingPage() {
   const [quote, setQuote] = useState<any | null>(null);
   const [makes, setMakes] = useState<string[]>([]);
   const [models, setModels] = useState<string[]>([]);
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   const [formData, setFormData] = useState({
     vin: '',
@@ -28,35 +29,17 @@ export default function LandingPage() {
   });
 
   useEffect(() => {
-  const topMakes = [
-    'Audi',
-    'BMW',
-    'Bentley',
-    'Chevrolet',
-    'Chrysler',
-    'Ford',
-    'GMC',
-    'Honda',
-    'Hyundai',
-    'Jeep',
-    'Kia',
-    'Lexus',
-    'Mazda',
-    'Mercedes-Benz',
-    'Nissan',
-    'Porsche',
-    'Subaru',
-    'Toyota',
-    'Volkswagen',
-  ];
-  setMakes(topMakes);
-}, []);
+    setMakes([
+      'Audi', 'BMW', 'Bentley', 'Chevrolet', 'Chrysler', 'Ford', 'GMC', 'Honda', 'Hyundai',
+      'Jeep', 'Kia', 'Lexus', 'Mazda', 'Mercedes-Benz', 'Nissan', 'Porsche', 'Subaru', 'Toyota', 'Volkswagen',
+    ]);
+  }, []);
 
   useEffect(() => {
     if (formData.make) {
-      fetch(https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/${formData.make}?format=json)
-        .then((res) => res.json())
-        .then((data) => {
+      fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/${formData.make}?format=json`)
+        .then(res => res.json())
+        .then(data => {
           const modelList = data.Results.map((item: any) => item.Model_Name);
           setModels(modelList.sort());
         });
@@ -69,168 +52,137 @@ export default function LandingPage() {
     const { name, value, type } = e.target;
     const checked = type === 'checkbox' ? (e.target as HTMLInputElement).checked : undefined;
 
+    setErrors(prev => ({ ...prev, [name]: '' }));
+
     if (type === 'checkbox') {
-      setFormData((prev) => ({ ...prev, [name]: checked }));
+      setFormData(prev => ({ ...prev, [name]: checked }));
     } else if (name === 'vin') {
-      setFormData((prev) => ({ ...prev, vin: value, make: '', model: '', trim: '' }));
+      setFormData(prev => ({ ...prev, vin: value, make: '', model: '', trim: '' }));
     } else if (name === 'make') {
-      setFormData((prev) => ({ ...prev, make: value, model: '', trim: '' }));
+      setFormData(prev => ({ ...prev, make: value, model: '', trim: '' }));
     } else if (name === 'model') {
-      setFormData((prev) => ({ ...prev, model: value, trim: '' }));
+      setFormData(prev => ({ ...prev, model: value, trim: '' }));
     } else {
-      setFormData((prev) => ({ ...prev, [name]: value }));
+      setFormData(prev => ({ ...prev, [name]: value }));
     }
   };
 
-const decodeVIN = async () => {
-  const response = await fetch(https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVin/${formData.vin}?format=json);
-  const data = await response.json();
-  const result = data.Results.reduce((acc: any, item: any) => {
-    if (item.Variable === 'Make') acc.make = item.Value;
-    if (item.Variable === 'Model') acc.model = item.Value;
-    if (item.Variable === 'Trim') acc.trim = item.Value;
-    if (item.Variable === 'Model Year') acc.year = item.Value; // 👈 ADD THIS
-    return acc;
-  }, {});
-  setFormData((prev) => ({
-    ...prev,
-    make: result.make || '',
-    model: result.model || '',
-    trim: result.trim || '',
-    year: result.year || '', // 👈 ADD THIS
-  }));
-};
-
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-
-  // ✅ Validate year if VIN is not provided
-  if (!formData.vin && !formData.year) {
-    alert("Please enter either a VIN or the vehicle year.");
-    return;
-  }
-
-  console.log("🚀 Submitting form with data:", formData);
-
-  try {
-    const response = await fetch('https://carly-compare-backend.onrender.com/api/quote-ai', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    });
-
-    console.log("📡 Response status:", response.status);
-
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error("❌ Error response from backend:", errorText);
-      throw new Error('Quote API failed');
-    }
-
+  const decodeVIN = async () => {
+    const response = await fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVin/${formData.vin}?format=json`);
     const data = await response.json();
-    console.log("📦 Raw response JSON:", data);
+    const result = data.Results.reduce((acc: any, item: any) => {
+      if (item.Variable === 'Make') acc.make = item.Value;
+      if (item.Variable === 'Model') acc.model = item.Value;
+      if (item.Variable === 'Trim') acc.trim = item.Value;
+      if (item.Variable === 'Model Year') acc.year = item.Value;
+      return acc;
+    }, {});
+    setFormData(prev => ({
+      ...prev,
+      make: result.make || '',
+      model: result.model || '',
+      trim: result.trim || '',
+      year: result.year || '',
+    }));
+  };
 
-    const parsed = typeof data.quote === 'string' ? JSON.parse(data.quote) : data.quote;
-    console.log("✅ Quote received:", parsed);
+  const validate = () => {
+    const newErrors: Record<string, string> = {};
+    if (!formData.vin && !formData.year) newErrors.year = 'Year is required if no VIN is entered.';
+    if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = 'Invalid email format.';
+    if (formData.zip && !/^\d{5}$/.test(formData.zip)) newErrors.zip = 'ZIP code must be 5 digits.';
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
-    setQuote(parsed);
-        // ✅ Submit to waitlist after quote is generated
-    await fetch('https://carly-compare-backend.onrender.com/api/waitlist', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name: ${formData.make} ${formData.model},
-        email: formData.email,
-        make: formData.make,
-      }),
-    });
-    setSubmitted(true);
-  } catch (err) {
-    console.error("💥 Error fetching AI quote:", err);
-  }
-};
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validate()) return;
+
+    try {
+      const response = await fetch('https://carly-compare-backend.onrender.com/api/quote-ai', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) throw new Error('Quote API failed');
+
+      const data = await response.json();
+      const parsed = typeof data.quote === 'string' ? JSON.parse(data.quote) : data.quote;
+      setQuote(parsed);
+
+      await fetch('https://carly-compare-backend.onrender.com/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: `${formData.make} ${formData.model}`,
+          email: formData.email,
+          make: formData.make,
+        }),
+      });
+
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Error fetching quote:", err);
+    }
+  };
 
   const nextStep = async () => {
     if (step === 1 && formData.vin) await decodeVIN();
-    setStep((prev) => prev + 1);
+    if (validate()) setStep(prev => prev + 1);
   };
 
-  const prevStep = () => setStep((prev) => prev - 1);
+  const prevStep = () => setStep(prev => prev - 1);
 
-  const formatCurrency = (amount: number) => $${amount.toLocaleString()};
+  const formatCurrency = (amount: number) => `$${amount.toLocaleString()}`;
+
+  const renderInput = (
+    name: keyof typeof formData,
+    placeholder: string,
+    type: string = 'text',
+    required: boolean = false
+  ) => (
+    <>
+      <input
+        type={type}
+        name={name}
+        placeholder={placeholder}
+        value={formData[name]}
+        onChange={handleChange}
+        required={required}
+        className="w-full p-3 border border-gray-300 rounded"
+      />
+      {errors[name] && <p className="text-red-500 text-sm mt-1">{errors[name]}</p>}
+    </>
+  );
 
   const renderStep = () => {
     switch (step) {
       case 1:
-  return (
-    <>
-      <input
-        type="text"
-        name="vin"
-        placeholder="Enter VIN (optional)"
-        value={formData.vin}
-        onChange={handleChange}
-        className="w-full p-3 border border-gray-300 rounded"
-      />
-      {!formData.vin && (
-        <>
-          {/* 👇 New year input field when not using VIN */}
-          <input
-            type="text"
-            name="year"
-            placeholder="Enter Year"
-            value={formData.year}
-            onChange={handleChange}
-            className="w-full p-3 border border-gray-300 rounded"
-            required
-          />
-
-          <select
-            name="make"
-            value={formData.make}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select Make</option>
-            {makes.map((make) => (
-              <option key={make} value={make}>
-                {make}
-              </option>
-            ))}
-          </select>
-
-          {formData.make && (
-            <select
-              name="model"
-              value={formData.model}
-              onChange={handleChange}
-              required
-            >
-              <option value="">Select Model</option>
-              {models.map((model) => (
-                <option key={model} value={model}>
-                  {model}
-                </option>
-              ))}
-            </select>
-          )}
-
-          {formData.model && (
-            <input
-              type="text"
-              name="trim"
-              placeholder="Enter Trim (optional)"
-              value={formData.trim}
-              onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded"
-            />
-          )}
-        </>
-      )}
-    </>
-  );
+        return (
+          <>
+            {renderInput('vin', 'Enter VIN (optional)')}
+            {!formData.vin && (
+              <>
+                {renderInput('year', 'Enter Year')}
+                <select name="make" value={formData.make} onChange={handleChange} required>
+                  <option value="">Select Make</option>
+                  {makes.map(make => <option key={make} value={make}>{make}</option>)}
+                </select>
+                {formData.make && (
+                  <select name="model" value={formData.model} onChange={handleChange} required>
+                    <option value="">Select Model</option>
+                    {models.map(model => <option key={model} value={model}>{model}</option>)}
+                  </select>
+                )}
+                {formData.model && renderInput('trim', 'Enter Trim (optional)')}
+              </>
+            )}
+          </>
+        );
       case 2:
-        return <input type="number" name="mileage" placeholder="Mileage" value={formData.mileage} onChange={handleChange} required />;
+        return renderInput('mileage', 'Mileage', 'number', true);
       case 3:
         return (
           <>
@@ -259,8 +211,9 @@ const handleSubmit = async (e: React.FormEvent) => {
               <option value="2">2</option>
               <option value="3+">3+</option>
             </select>
-            <label>
-              <input type="checkbox" name="accidents" checked={formData.accidents} onChange={handleChange} /> Has it been in an accident?
+            <label className="block mt-2">
+              <input type="checkbox" name="accidents" checked={formData.accidents} onChange={handleChange} />
+              <span className="ml-2">Has it been in an accident?</span>
             </label>
             {formData.accidents && (
               <select name="damage" value={formData.damage} onChange={handleChange} required>
@@ -273,9 +226,9 @@ const handleSubmit = async (e: React.FormEvent) => {
           </>
         );
       case 5:
-        return <input type="text" name="zip" placeholder="ZIP Code" value={formData.zip} onChange={handleChange} required />;
+        return renderInput('zip', 'ZIP Code');
       case 6:
-        return <input type="email" name="email" placeholder="Your Email" value={formData.email} onChange={handleChange} required />;
+        return renderInput('email', 'Your Email', 'email');
       default:
         return null;
     }
