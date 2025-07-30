@@ -296,9 +296,47 @@ const handleSubmit = async (e: React.FormEvent) => {
   Compare Cash Offers<br />
   <span>Instantly</span>
 </h2>
-  <p className="text-gray-700 text-base mb-4">
-    Carly Compare helps you get the best deal by pulling real-time offers from trusted platforms like Carvana, KBB, and CarMax.
-  </p>
+<p className="text-gray-700 text-base mb-2">
+  Carly Compare helps you get the best deal by pulling real-time offers from trusted platforms like Carvana, KBB, and CarMax.
+</p>
+
+<div className="flex items-center space-x-6 mb-6">
+  {/* Orange Clock */}
+  <div className="flex items-center space-x-2">
+    <svg
+      className="w-5 h-5 text-orange-500"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 6v6h4m5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    </svg>
+    <span className="text-sm text-gray-800">Save Time</span>
+  </div>
+
+  {/* Blue Scale */}
+  <div className="flex items-center space-x-2">
+    <svg
+      className="w-5 h-5 text-blue-500"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 3v18m0 0c-1.472 0-2.882.265-4.185.75M12 21c1.472 0 2.882.265 4.185.75M18.75 4.97C16.545 4.66 14.29 4.5 12 4.5c-2.291 0-4.546.16-6.75.47m13.5 0l2.62 10.725c.122.5-.106 1.028-.59 1.202-.634.229-1.318.354-2.03.354s-1.396-.125-2.03-.354c-.483-.174-.711-.702-.59-1.202L18.75 4.97zM5.25 4.97L7.87 15.695c.122.5-.106 1.028-.59 1.202-.634.229-1.318.354-2.03.354s-1.396-.125-2.03-.354c-.483-.174-.711-.702-.59-1.202L5.25 4.97z"
+      />
+    </svg>
+    <span className="text-sm text-gray-800">Get Fair Offers</span>
+  </div>
+</div>
 <div className="flex justify-center pt-4">
   <button
     className="inline-block bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-600 transition animate-bounce"
