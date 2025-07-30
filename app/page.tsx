@@ -299,15 +299,17 @@ const handleSubmit = async (e: React.FormEvent) => {
   <p className="text-gray-700 text-base mb-4">
     Carly Compare helps you get the best deal by pulling real-time offers from trusted platforms like Carvana, KBB, and CarMax.
   </p>
-<button
-  className="inline-block bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-600 transition animate-bounce"
-  onClick={() => {
-    const formEl = document.getElementById('quote-form');
-    formEl?.scrollIntoView({ behavior: 'smooth' });
-  }}
->
-  Get Your Offer
-</button>
+<div className="flex justify-center pt-4">
+  <button
+    className="inline-block bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-600 transition animate-bounce"
+    onClick={() => {
+      const formEl = document.getElementById('quote-form');
+      formEl?.scrollIntoView({ behavior: 'smooth' });
+    }}
+  >
+    Get Your Offer
+  </button>
+</div>
 </div>
 
     {/* Right Column: Image */}
