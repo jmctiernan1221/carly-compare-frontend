@@ -275,42 +275,51 @@ const handleSubmit = async (e: React.FormEvent) => {
       <GoogleAnalytics />
  
      <main className="min-h-screen flex flex-col items-center px-4 pb-24 pt-12 bg-[#F8E9CF]">
-  <div className="w-full max-w-md px-4 mt-8 self-start">
-    <Image
-      src="/carlylogotext.png"
-      alt="Carly Compare Logo"
-      width={260}
-      height={80}
-      priority
-      className="mb-8"
-    />
-  </div>
-<div className="w-full max-w-5xl px-4 mt-12 flex flex-col md:flex-row items-center justify-between gap-8">
-  {/* Text Column */}
-  <div className="md:w-1/2 space-y-4 text-center md:text-left">
-    <h2 className="text-3xl font-bold text-gray-900">
-      Compare Cash Offers Instantly
-    </h2>
-    <p className="text-gray-700 text-base">
-      Carly Compare helps you get the best deal by pulling real-time offers from trusted platforms like Carvana, KBB, and CarMax.
-    </p>
-    <button className="bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-600 transition">
-      Get Your Offer
-    </button>
+  {/* Logo + Headline Section */}
+  <div className="w-full max-w-5xl px-4 flex flex-col md:flex-row items-start justify-between gap-8">
+    {/* Left Side: Logo + Text */}
+    <div className="md:w-1/2">
+      <Image
+        src="/carlylogotext.png"
+        alt="Carly Compare Logo"
+        width={260}
+        height={80}
+        priority
+        className="mb-6"
+      />
+      <h2 className="text-3xl font-bold text-gray-900 mb-2">
+        Compare Cash Offers Instantly
+      </h2>
+      <p className="text-gray-700 text-base mb-4">
+        Carly Compare helps you get the best deal by pulling real-time offers from trusted platforms like Carvana, KBB, and CarMax.
+      </p>
+      <button
+        className="bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-600 transition"
+        onClick={() => {
+          const formEl = document.getElementById('quote-form');
+          formEl?.scrollIntoView({ behavior: 'smooth' });
+        }}
+      >
+        Get Your Offer
+      </button>
+    </div>
+
+    {/* Right Side: Image */}
+    <div className="md:w-1/2">
+      <Image
+        src="/hero-car.png" // Replace this with your actual image path
+        alt="Car Hero"
+        width={500}
+        height={350}
+        className="w-full h-auto object-contain"
+      />
+    </div>
   </div>
 
-  {/* Image Column */}
-  <div className="md:w-1/2">
-    <Image
-      src="/avatar-6-26.png" // <-- Replace with your image path
-      alt="Car Hero"
-      width={500}
-      height={350}
-      className="w-full h-auto object-contain"
-    />
-  </div>
-</div>
-  <div className="w-full max-w-md bg-white/90 p-6 rounded-lg shadow-lg text-center space-y-6">
+  {/* Form Card */}
+  <div
+    id="quote-form"
+    className="w-full max-w-md bg-white/90 p-6 rounded-lg shadow-lg text-center space-y-6 mt-16"
         
 
 {submitted && quote && (
