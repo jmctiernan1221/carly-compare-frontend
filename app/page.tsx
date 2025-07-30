@@ -292,9 +292,10 @@ const handleSubmit = async (e: React.FormEvent) => {
   {/* Two Column Layout */}
   <div className="flex flex-col md:flex-row items-center justify-between gap-8 min-h-[350px]">
   <div className="md:w-1/2 flex flex-col justify-center h-full">
-  <h2 className="text-3xl font-bold text-gray-900 mb-2">
-    Compare Cash Offers Instantly
-  </h2>
+<h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2 leading-tight">
+  Compare Cash Offers<br />
+  <span className="text-orange-600">Instantly</span>
+</h2>
   <p className="text-gray-700 text-base mb-4">
     Carly Compare helps you get the best deal by pulling real-time offers from trusted platforms like Carvana, KBB, and CarMax.
   </p>
