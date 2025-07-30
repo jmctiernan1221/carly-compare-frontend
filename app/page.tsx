@@ -296,7 +296,7 @@ const handleSubmit = async (e: React.FormEvent) => {
   Compare Cash Offers<br />
   <span>Instantly</span>
 </h2>
-<p className="text-gray-700 text-base mb-2">
+<p className="text-gray-700 text-base mb-4">
   Carly Compare helps you get the best deal by pulling real-time offers from trusted platforms like Carvana, KBB, and CarMax.
 </p>
 
