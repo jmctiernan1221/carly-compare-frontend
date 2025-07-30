@@ -274,19 +274,19 @@ const handleSubmit = async (e: React.FormEvent) => {
     <>
       <GoogleAnalytics />
  
-     <main className="min-h-screen flex flex-col items-center px-4 pb-24 pt-12 bg-[#F8E9CF]">
+  <div className="w-full flex justify-start px-4 pt-8">
+    <div className="max-w-5xl w-full">
+      <Image
+        src="/carlylogotext2.png"
+        alt="Carly Compare Logo"
+        width={260}
+        height={80}
+        priority
+      />
+    </div>
+  </div>
 
-
-{/* Logo aligned far left (no max width) */}
-<div className="w-full pl-4 pt-8 mb-6">
-  <Image
-    src="/carlylogotext2.png"
-    alt="Carly Compare Logo"
-    width={260}
-    height={80}
-    priority
-  />
-</div>
+  <main className="min-h-screen flex flex-col items-center px-4 pb-24 pt-12 bg-[#F8E9CF]"
 
 {/* Now begin the 2-column layout */}
 <div className="w-full max-w-5xl px-4">
