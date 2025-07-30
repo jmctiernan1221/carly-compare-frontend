@@ -320,7 +320,7 @@ const handleSubmit = async (e: React.FormEvent) => {
   <div
     id="quote-form"
     className="w-full max-w-md bg-white/90 p-6 rounded-lg shadow-lg text-center space-y-6 mt-16"
-        
+        >
 
 {submitted && quote && (
   <div className="bg-white p-4 rounded shadow text-sm text-left">
