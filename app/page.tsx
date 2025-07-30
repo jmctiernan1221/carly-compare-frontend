@@ -274,7 +274,14 @@ const handleSubmit = async (e: React.FormEvent) => {
     <>
       <GoogleAnalytics />
       <div className="absolute top-6 left-6 z-50">
-  <Image src="/carlylogotext.png" alt="Carly Compare Logo" width={200} height={60} priority />
+  <Image
+    src="/carlylogotext.png"
+    alt="Carly Compare Logo"
+    width={260}
+    height={80}
+    priority
+    className="mb-6"
+  />
 </div>
       <main className="min-h-screen flex flex-col items-center px-4 pb-24 pt-12 bg-[#F8E9CF]">
         <div className="w-full max-w-md bg-white/90 p-6 rounded-lg shadow-lg text-center space-y-6">
