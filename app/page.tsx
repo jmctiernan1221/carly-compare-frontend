@@ -362,7 +362,35 @@ const handleSubmit = async (e: React.FormEvent) => {
     </div>
   </div>
 </div>
-
+{/* Why Use CarlyCompare Section */}
+<div className="w-full max-w-3xl px-4 mt-20 text-center">
+  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+    Why Use CarlyCompare?
+  </h3>
+  <p className="text-gray-700 mb-6">
+    We make selling your car easy by comparing top offers from trusted buyers — all in one place.
+  </p>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+    <div className="bg-white/90 p-4 rounded shadow">
+      <h4 className="font-semibold text-lg mb-2">✅ Real-Time Offers</h4>
+      <p className="text-sm text-gray-700">
+        Instantly see what Carvana, KBB, CarMax, and more would pay for your car.
+      </p>
+    </div>
+    <div className="bg-white/90 p-4 rounded shadow">
+      <h4 className="font-semibold text-lg mb-2">🕒 No Time Wasted</h4>
+      <p className="text-sm text-gray-700">
+        Skip the hassle of visiting dealer sites — we bring the offers to you.
+      </p>
+    </div>
+    <div className="bg-white/90 p-4 rounded shadow">
+      <h4 className="font-semibold text-lg mb-2">⚖️ Transparent Comparison</h4>
+      <p className="text-sm text-gray-700">
+        Know who’s offering what — and why — so you can make the smartest choice.
+      </p>
+    </div>
+  </div>
+</div>
   {/* Form Card */}
   <div
     id="quote-form"
