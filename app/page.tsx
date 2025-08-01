@@ -11,6 +11,25 @@ export default function LandingPage() {
   const [makes, setMakes] = useState<string[]>([]);
   const [models, setModels] = useState<string[]>([]);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [updateEmail, setUpdateEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('https://carly-compare-backend.onrender.com/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: updateEmail }),
+      });
+
+      if (!response.ok) throw new Error('Failed to subscribe');
+      setSubscribed(true);
+      setUpdateEmail('');
+    } catch (error) {
+      console.error('Error subscribing:', error);
+    }
+  };
 
   const [formData, setFormData] = useState({
     vin: '',
@@ -469,9 +488,7 @@ const renderInput = (
 {/* Updates Subscription Section */}
 <section className="w-full max-w-2xl mx-auto mt-12 bg-white/90 rounded-lg shadow-lg p-4 md:p-6">
   <form
-    action="mailto:info@carlycompare.com"
-    method="POST"
-    encType="text/plain"
+    onSubmit={handleSubscribe}
     className="flex flex-col md:flex-row items-center gap-4"
   >
     <label className="text-lg md:text-xl font-semibold text-gray-900 whitespace-nowrap">
@@ -481,6 +498,8 @@ const renderInput = (
       type="email"
       name="email"
       placeholder="Enter your email"
+      value={updateEmail}
+      onChange={(e) => setUpdateEmail(e.target.value)}
       required
       className="flex-1 w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
     />
@@ -491,6 +510,11 @@ const renderInput = (
       Subscribe
     </button>
   </form>
+  {subscribed && (
+    <div className="text-green-700 text-sm mt-3 text-center md:text-left">
+      ✅ Thanks! You'll now receive updates.
+    </div>
+  )}
 </section>
       </main>
       <footer className="w-full text-center text-sm text-gray-600 py-6">
