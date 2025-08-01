@@ -466,6 +466,31 @@ const renderInput = (
             </form>
           )}
         </div>
+  {/* Updates Subscription Section */}
+<section className="w-full max-w-2xl mx-auto mt-12 bg-white/90 rounded-lg shadow-lg p-6 md:p-8 text-center">
+  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Receive Updates from Carly Compare</h2>
+  <p className="text-gray-700 mb-6">Be the first to know when we launch and get helpful car-selling tips.</p>
+  <form
+    action="mailto:info@carlycompare.com"
+    method="POST"
+    encType="text/plain"
+    className="space-y-4"
+  >
+    <input
+      type="email"
+      name="email"
+      placeholder="Enter your email"
+      required
+      className="w-full p-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+    <button
+      type="submit"
+      className="w-full p-3 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded transition"
+    >
+      Subscribe
+    </button>
+  </form>
+</section>
       </main>
       <footer className="w-full text-center text-sm text-gray-600 py-6">
   © 2025 CarlyCompare. All rights reserved.
