@@ -14,22 +14,23 @@ export default function LandingPage() {
   const [updateEmail, setUpdateEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      const response = await fetch('https://carly-compare-backend.onrender.com/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: updateEmail }),
-      });
+const handleSubscribe = async (e: React.FormEvent) => {
+  e.preventDefault();
+  console.log('📤 Submitting to backend:', updateEmail); // <--- add this line
+  try {
+    const response = await fetch('https://carly-compare-backend.onrender.com/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: updateEmail }),
+    });
 
-      if (!response.ok) throw new Error('Failed to subscribe');
-      setSubscribed(true);
-      setUpdateEmail('');
-    } catch (error) {
-      console.error('Error subscribing:', error);
-    }
-  };
+    if (!response.ok) throw new Error('Failed to subscribe');
+    setSubscribed(true);
+    setUpdateEmail('');
+  } catch (error) {
+    console.error('Error subscribing:', error);
+  }
+};
 
   const [formData, setFormData] = useState({
     vin: '',
