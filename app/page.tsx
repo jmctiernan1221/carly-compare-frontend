@@ -14,23 +14,23 @@ export default function LandingPage() {
   const [updateEmail, setUpdateEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
-const handleSubscribe = async (e: React.FormEvent) => {
-  e.preventDefault();
-  console.log('📤 Submitting to backend:', updateEmail); // <--- add this line
-  try {
-    const response = await fetch('https://carly-compare-backend.onrender.com/api/subscribe', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: updateEmail }),
-    });
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('📤 Submitting to backend:', updateEmail);
+    try {
+      const response = await fetch('https://carly-compare-backend.onrender.com/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: updateEmail }),
+      });
 
-    if (!response.ok) throw new Error('Failed to subscribe');
-    setSubscribed(true);
-    setUpdateEmail('');
-  } catch (error) {
-    console.error('Error subscribing:', error);
-  }
-};
+      if (!response.ok) throw new Error('Failed to subscribe');
+      setSubscribed(true);
+      setUpdateEmail('');
+    } catch (error) {
+      console.error('Error subscribing:', error);
+    }
+  };
 
   const [formData, setFormData] = useState({
     vin: '',
@@ -46,6 +46,7 @@ const handleSubscribe = async (e: React.FormEvent) => {
     damage: '',
     zip: '',
     email: '',
+    mode: 'cash',
   });
 
   useEffect(() => {
@@ -123,7 +124,7 @@ const handleSubscribe = async (e: React.FormEvent) => {
       const response = await fetch('https://carly-compare-backend.onrender.com/api/quote-ai', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, mode: 'cash' }),
       });
 
       if (!response.ok) throw new Error('Quote API failed');
@@ -157,28 +158,28 @@ const handleSubscribe = async (e: React.FormEvent) => {
 
   const formatCurrency = (amount: number) => `$${amount.toLocaleString()}`;
 
-const renderInput = (
-  name: keyof typeof formData,
-  placeholder: string,
-  type: string = 'text',
-  required: boolean = false
-) => {
-  const value = typeof formData[name] === 'boolean' ? '' : (formData[name] as string | number | undefined);
-  return (
-    <>
-      <input
-        type={type}
-        name={name}
-        placeholder={placeholder}
-        value={value}
-        onChange={handleChange}
-        required={required}
-        className="w-full p-3 border border-gray-300 rounded"
-      />
-      {errors[name] && <p className="text-red-500 text-sm mt-1">{errors[name]}</p>}
-    </>
-  );
-};
+  const renderInput = (
+    name: keyof typeof formData,
+    placeholder: string,
+    type: string = 'text',
+    required: boolean = false
+  ) => {
+    const value = typeof formData[name] === 'boolean' ? '' : (formData[name] as string | number | undefined);
+    return (
+      <>
+        <input
+          type={type}
+          name={name}
+          placeholder={placeholder}
+          value={value}
+          onChange={handleChange}
+          required={required}
+          className="w-full p-3 border border-gray-300 rounded"
+        />
+        {errors[name] && <p className="text-red-500 text-sm mt-1">{errors[name]}</p>}
+      </>
+    );
+  };
 
   const renderStep = () => {
     switch (step) {
