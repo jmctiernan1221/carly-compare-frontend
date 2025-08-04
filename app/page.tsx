@@ -484,6 +484,9 @@ export default function LandingPage() {
   </button>
 )}
               </div>
+              <p className="text-xs text-gray-600 mt-4 italic">
+  ⚠️ These are just estimations. Carly Compare does not guarantee that offers will remain the same.
+</p>
             </form>
           )}
         </div>
