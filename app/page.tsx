@@ -421,31 +421,31 @@ export default function LandingPage() {
   <div className="bg-white p-4 rounded shadow text-sm text-left">
     <h2 className="text-lg font-bold mb-2">💬 Your Estimated Offers</h2>
 
-    {quote.estimated_trade_in_values && (
-      <ul className="mb-4 space-y-1">
-  {Object.entries(quote.estimated_trade_in_values).map(([platform, range]) => {
-  if (
-    !range ||
-    typeof range !== 'object' ||
-    typeof (range as any).low !== 'number' ||
-    typeof (range as any).high !== 'number'
-  ) {
-    return (
-      <li key={platform}>
-        <strong>{platform}:</strong> {typeof range === 'string' ? range : 'Unavailable'}
-      </li>
-    );
-  }
+  {quote.estimated_cash_offers && (
+  <ul className="mb-4 space-y-1">
+    {Object.entries(quote.estimated_cash_offers).map(([platform, range]) => {
+      if (
+        !range ||
+        typeof range !== 'object' ||
+        typeof (range as any).low !== 'number' ||
+        typeof (range as any).high !== 'number'
+      ) {
+        return (
+          <li key={platform}>
+            <strong>{platform}:</strong> {typeof range === 'string' ? range : 'Unavailable'}
+          </li>
+        );
+      }
 
-  const { low, high } = range as { low: number; high: number };
-  return (
-    <li key={platform}>
-      <strong>{platform}:</strong> {formatCurrency(low)} – {formatCurrency(high)}
-    </li>
-  );
-})}
-      </ul>
-    )}
+      const { low, high } = range as { low: number; high: number };
+      return (
+        <li key={platform}>
+          <strong>{platform}:</strong> {formatCurrency(low)} – {formatCurrency(high)}
+        </li>
+      );
+    })}
+  </ul>
+)}
 
     {quote.best_season_to_sell && (
       <p><strong>📅 Best Time to Sell:</strong> {quote.best_season_to_sell}</p>
