@@ -120,7 +120,7 @@ const handleSubscribe = async (e: React.FormEvent) => {
     if (!validate()) return;
 
     try {
-      const response = await fetch('https://carly-compare-backend.onrender.com/api/quote-ai', {
+      const response = await fetch('https://carly-compare-backend.onrender.com/api/quote-full', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
