@@ -458,6 +458,9 @@ export default function LandingPage() {
     {quote.platform_recommendation?.explanation && (
       <p className="mt-2"><strong>💡 Why:</strong> {quote.platform_recommendation.explanation}</p>
     )}
+      <p className="text-xs text-gray-600 mt-4 italic">
+    ⚠️ These are just estimations. Carly Compare does not guarantee that offers will remain the same.
+  </p>
   </div>
 )}
           {!submitted && (
